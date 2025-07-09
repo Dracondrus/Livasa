@@ -78,8 +78,7 @@ export default function HousesTable() {
     {
       title: 'Фото',
       dataIndex: 'photos',
-      render: (photos: string[]) =>
-         '—',
+      
     },
     { title: 'Название', dataIndex: 'title' },
     { title: 'Описание', dataIndex: 'description' },
