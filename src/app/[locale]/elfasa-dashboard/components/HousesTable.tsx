@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import {
-  Table, Button, Modal, Form, Input, InputNumber, Switch, Upload, Space, Popconfirm, message,
+  Table, Button, Modal, Form, Input, InputNumber, Switch, Upload, Popconfirm, message,
 } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import { supabase } from '@/lib/supabase';
@@ -79,7 +79,7 @@ export default function HousesTable() {
       title: 'Фото',
       dataIndex: 'photos',
       render: (photos: string[]) =>
-        photos?.[0] ? <img src={photos[0]} width={60} height={40} style={{ objectFit: 'cover' }} /> : '—',
+         '—',
     },
     { title: 'Название', dataIndex: 'title' },
     { title: 'Описание', dataIndex: 'description' },
