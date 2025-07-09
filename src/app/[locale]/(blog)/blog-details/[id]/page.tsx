@@ -1,5 +1,5 @@
 import BlogDetailsArea from "@/components/Blog/Details/BlogDetailsArea";
-import BreadcrumbTwo from "../../../../components/Breadcrumb/BreadcrumbTwo";
+import BreadcrumbTwo from "../../../../../components/Breadcrumb/BreadcrumbTwo";
 import { propertyData } from "@/data/propertyData";
 import { PageParamsProps } from "@/types/custom-interface";
 
