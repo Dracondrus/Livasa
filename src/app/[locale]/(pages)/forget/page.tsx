@@ -1,5 +1,5 @@
 import ForgotForm from "@/components/Form/auth/ForgotForm";
-import signInThumb from "../../../../public/assets/img/others/sign-in-thumb.jpg";
+import signInThumb from "../../../../../public/assets/img/others/sign-in-thumb.jpg";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
