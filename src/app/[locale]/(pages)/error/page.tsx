@@ -1,5 +1,5 @@
 
-import errorThumb from "../../../../public/assets/img/others/error-thumb.png"
+import errorThumb from "../../../../../public/assets/img/others/error-thumb.png"
 import BreadcrumbTwo from "@/components/Breadcrumb/BreadcrumbTwo";
 import { Metadata } from "next";
 import Image from "next/image";

@@ -1,8 +1,8 @@
 import Image from "next/image";
-import image1 from "../../../../../../public/assets/img/listing/home-2/listing-2-1.jpg";
-import image2 from "../../../../../../public/assets/img/listing/home-2/listing-2-2.jpg";
-import image3 from "../../../../../../public/assets/img/listing/home-2/listing-2-3.jpg";
-import image4 from "../../../../../../public/assets/img/listing/home-2/listing-2-4.jpg";
+import image1 from "../../../../../../../public/assets/img/listing/home-2/listing-2-1.jpg";
+import image2 from "../../../../../../../public/assets/img/listing/home-2/listing-2-2.jpg";
+import image3 from "../../../../../../../public/assets/img/listing/home-2/listing-2-3.jpg";
+import image4 from "../../../../../../../public/assets/img/listing/home-2/listing-2-4.jpg";
 
 const uploadedImages = [image1, image2, image3, image4];
 

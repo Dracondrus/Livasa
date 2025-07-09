@@ -13,6 +13,7 @@ import NavMenus from "../subComponents/NavMenus";
 import UserSvg from "@/components/SVG/UserSvg";
 import useSticky from "@/hooks/useSticky";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function HeaderOne() {
   const [openCartMini, setOpenCartMini] = useState<boolean>(false);
@@ -22,6 +23,7 @@ export default function HeaderOne() {
   const { useCartProductQuantity, useWishlstQuantity } = useShoppingCartMetrics();
   const TotalCartQuantity = useCartProductQuantity();
   const TotalWishlistQuantity = useWishlstQuantity();
+  const t = useTranslations('Main');
 
   const renderHeaderContent = () => (
     <div className="container container-large">

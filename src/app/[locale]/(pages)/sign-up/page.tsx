@@ -1,10 +1,8 @@
-import signUpThumb from "../../../../public/assets/img/others/sign-in-thumb.jpg";
+'use client';
+import signUpThumb from "../../../../../public/assets/img/others/sign-in-thumb.jpg";
 import SignUpForm from "@/components/Form/auth/SignUpForm";
-import { Metadata } from "next";
 
-export const metadata: Metadata = {
-   title: "Sign Up - Bhumi Real Estate React NextJs Template",
- };
+
 
 export default function SignUp() {
    return (
@@ -20,6 +18,7 @@ export default function SignUp() {
                         </div>
                         <div className="tp-sign-in-input-form">
                           <SignUpForm/>
+                          <button onClick={() => localStorage.setItem("elfasa", "smth")}>click me to login</button>
                         </div>
                      </div>
                   </div>
