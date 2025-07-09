@@ -8,8 +8,6 @@ import { UploadOutlined } from '@ant-design/icons';
 import { supabase } from '@/lib/supabase';
 import { House } from '@/types/house';
 
-
-
 export default function HousesTable() {
   const [houses, setHouses] = useState<House[]>([]);
   const [loading, setLoading] = useState(false);
@@ -21,7 +19,7 @@ export default function HousesTable() {
     setLoading(true);
     const { data, error } = await supabase.from('houses').select('*');
     if (error) message.error('Ошибка загрузки данных');
-    else setHouses(data);
+    else setHouses(data || []);
     setLoading(false);
   };
 
@@ -60,8 +58,12 @@ export default function HousesTable() {
       setFileList([]);
       setModalVisible(false);
       fetchHouses();
-    } catch (error: any) {
-      message.error(error.message || 'Ошибка при добавлении');
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        message.error(error.message);
+      } else {
+        message.error('Ошибка при добавлении');
+      }
     }
   };
 
@@ -78,7 +80,7 @@ export default function HousesTable() {
     {
       title: 'Фото',
       dataIndex: 'photos',
-      
+      // Можно добавить рендер для фото, если нужно
     },
     { title: 'Название', dataIndex: 'title' },
     { title: 'Описание', dataIndex: 'description' },
@@ -102,7 +104,7 @@ export default function HousesTable() {
     { title: 'Поиск соседа', dataIndex: 'roommate_search', render: (val: boolean) => (val ? '✅' : '❌') },
     {
       title: 'Действия',
-      render: (_: any, record: House) => (
+      render: (_: unknown, record: House) => (
         <Popconfirm title="Удалить дом?" onConfirm={() => handleDelete(record.id)}>
           <Button type="link" danger>Удалить</Button>
         </Popconfirm>
