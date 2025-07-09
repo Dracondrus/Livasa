@@ -1,5 +1,5 @@
 
-import userImg from "../../../../../public/assets/img/shop/user-1.jpg";
+import userImg from "../../../../../../public/assets/img/shop/user-1.jpg";
 import UserProfileForm from "@/components/Form/UserProfileForm";
 import DashboardLayout from "@/layouts/DashboardLayout";
 import { Metadata } from "next";

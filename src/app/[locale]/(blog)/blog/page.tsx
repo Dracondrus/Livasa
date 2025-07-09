@@ -1,6 +1,6 @@
 
 import BlogMainArea from "@/components/Blog/BlogMainArea";
-import BreadcrumbTwo from "../../../components/Breadcrumb/BreadcrumbTwo";
+import BreadcrumbTwo from "../../../../components/Breadcrumb/BreadcrumbTwo";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

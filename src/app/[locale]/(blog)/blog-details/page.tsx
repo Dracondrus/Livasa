@@ -1,5 +1,5 @@
 import BlogDetailsArea from "@/components/Blog/Details/BlogDetailsArea";
-import BreadcrumbTwo from "../../../components/Breadcrumb/BreadcrumbTwo";
+import BreadcrumbTwo from "../../../../components/Breadcrumb/BreadcrumbTwo";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
