@@ -93,7 +93,7 @@ export default function HousesTable() {
       render: (val: number) => `${val.toLocaleString()} сум`,
     },
     { title: 'Комнат', dataIndex: 'rooms' },
-    { title: 'С/У', dataIndex: 'bathrooms' },
+    { title: 'Спалная', dataIndex: 'bathrooms' },
     { title: 'Туалетов', dataIndex: 'toilets' },
     { title: 'Кроватей', dataIndex: 'beds' },
     { title: 'Площадь', dataIndex: 'area' },
