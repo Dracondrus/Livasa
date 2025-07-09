@@ -16,6 +16,7 @@ const Home = () => {
         <HeaderOne />
         <main>
           <HomeOnePage />
+        
         </main>
         <BackToTop />
         <CommonFooter />

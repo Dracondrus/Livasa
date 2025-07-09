@@ -21,22 +21,22 @@ import React from 'react';
             <HeroBannerOne />
             {/* hero banner end */}
             {/*feature area*/}
-            <FeatureShowcaseCategory />
+            {/* <FeatureShowcaseCategory /> */}
             {/*feature area end*/}
             {/* about area  */}
-            <AboutHomeMain />
+            {/* <AboutHomeMain /> */}
             {/* about area end */}
             {/* apartment area type*/}
             <HomeApartmentTypes />
             {/*apartment area type end */}
             {/* newsletter area */}
-            <HomeNewsletter />
+            {/* <HomeNewsletter /> */}
             {/* newsletter area end */}
             {/* rent area */}
             <PropertyHome />
             {/* rent area end */}
             {/* apartment area*/}
-            <HomeApartmentArea />
+            {/* <HomeApartmentArea /> */}
             {/* apartment area end*/}
             {/* explore area */}
             <HomePropertiesByCity />
@@ -51,13 +51,13 @@ import React from 'react';
             <TextSlide />
             {/* text slide end*/}
             {/* team area */}
-            <TeamAgentsArea />
+            {/* <TeamAgentsArea /> */}
             {/* team area end*/}
             {/* barnd area */}
-            <BrandAreaOne />
+            {/* <BrandAreaOne /> */}
             {/* barnd area end */}
             {/* blog area */}
-            <HomeBlogArea />
+            {/* <HomeBlogArea /> */}
             {/* blog area end */}
 
         </>

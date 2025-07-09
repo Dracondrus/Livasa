@@ -34,6 +34,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "LIVASA ",
   description: "LIVASA",
+  icons: {
+icon: '/favicon.ico',    
+  }
 };
 
 export default async function RootLayout({

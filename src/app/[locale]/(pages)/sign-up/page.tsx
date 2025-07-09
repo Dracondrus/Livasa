@@ -5,6 +5,11 @@ import SignUpForm from "@/components/Form/auth/SignUpForm";
 
 
 export default function SignUp() {
+
+   const onLog = ( ) => {
+      localStorage.setItem("elfasa", "smth")
+      window.location.replace("/elfasa-dashboard")
+   } 
    return (
       <>
          {/* -- sign in area start -- */}
@@ -18,7 +23,7 @@ export default function SignUp() {
                         </div>
                         <div className="tp-sign-in-input-form">
                           <SignUpForm/>
-                          <button onClick={() => localStorage.setItem("elfasa", "smth")}>click me to login</button>
+                          <button onClick={onLog}>click me to login</button>
                         </div>
                      </div>
                   </div>

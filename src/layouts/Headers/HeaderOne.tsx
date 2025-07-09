@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import logoWhite from "../../../public/assets/img/logo/logo-white.png";
-import logoBlack from "../../../public/assets/img/logo/logo-black.png";
+import logoWhite from "../../../public/elfasa_tasa.png";
+import logoBlack from "../../../public/elfasa_tasa.png";
 import OffcanvasArea from "../../components/OffCanvas/OffcanvasArea";
 import CartOffcanvas from "@/components/OffCanvas/CartOffcanvas";
 import { CartIconSvg } from "@/components/SVG/CartIconSvg";
@@ -32,7 +32,9 @@ export default function HeaderOne() {
           <div className="tp-header-logo">
             <Link href="/">
               {
-                sticky ? <><Image src={logoBlack} alt="image" /></> : <><Image src={logoWhite} alt="image" /></>
+                sticky ? <>
+                
+                   </> : <></>
               }
             </Link>
           </div>
