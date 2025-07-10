@@ -48,7 +48,7 @@ import React from 'react';
             <HomeTestimonialArea />
             {/* testimonial area end */}
             {/* text slide */}
-            <TextSlide />
+            {/* <TextSlide /> */}
             {/* text slide end*/}
             {/* team area */}
             {/* <TeamAgentsArea /> */}
