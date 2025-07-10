@@ -1,5 +1,5 @@
 import React from "react";
-import { quickLinks, serviceLinks } from "@/data/footerLinks";
+
 import FooterContact from "./subComponents/FooterContact";
 
 import FooterCopyright from "./subComponents/FooterCopyright";

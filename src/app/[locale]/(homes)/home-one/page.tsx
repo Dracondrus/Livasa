@@ -11,7 +11,7 @@ import HomePropertiesByCity from '@/components/Neighborhood/HomePropertiesByCity
 import PropertyHome from '@/components/Property/PropertyHome';
 // import TeamAgentsArea from '@/components/Agent/TeamAgentsArea';
 import HomeTestimonialArea from '@/components/Testimonial/HomeTestimonialArea';
-import TextSlide from '@/components/Features/TextSlide';
+// import TextSlide from '@/components/Features/TextSlide';
 import React from 'react';
 
     export default function HomeOnePage() {
