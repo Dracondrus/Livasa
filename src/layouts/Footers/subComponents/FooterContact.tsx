@@ -1,6 +1,6 @@
 // Contact details component
 import { FooterSocialLinks } from "@/components/UI/SocialLinks";
-import LogoWhite from "../../../../public/assets/img/logo/logo-white.png";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,10 +8,9 @@ export default function FooterContact() {
     return (
         <div className="col-xl-3 col-lg-4 col-md-6 col-12">
             <div className="tp-footer-widget tp-footer-col-1 mb-50">
-                <div className="tp-footer-logo mb-35">
-                    <Link href="/">
-                        <Image src={LogoWhite} alt="logo" />
-                    </Link>
+                <div className="tp-footer-logo mb-10">
+                  <h2 style={{color:"#fff"}}>  Contacts</h2>
+                
                 </div>
                 <div className="tp-footer-widget-content">
                     <p>The home and elements needed to create beautiful products.</p>
@@ -23,6 +22,7 @@ export default function FooterContact() {
                                 </svg> +998 90 089 77 22
                             </span>
                         </Link>
+                     
                         <p>elfasatasa@gmail.com</p>
                     </div>
                 </div>

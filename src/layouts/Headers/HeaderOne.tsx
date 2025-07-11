@@ -12,6 +12,8 @@ import NavMenus from "../subComponents/NavMenus";
 import UserSvg from "@/components/SVG/UserSvg";
 import useSticky from "@/hooks/useSticky";
 import Link from "next/link";
+import ELFASA from "../../../public/elfasa.png"
+import Image from "next/image";
 
 
 export default function HeaderOne() {
@@ -30,9 +32,16 @@ export default function HeaderOne() {
           <div className="tp-header-logo">
             <Link href="/">
               {
-                sticky ? <>
-                
-                   </> : <></>
+                sticky ? <div className="flex items-center ">
+  <Image alt="ELFASA" src={ELFASA} loading="lazy" height={50} width={50} style={{marginRight:10}}/>
+  <span className="logo__title logo__title_black">LIVASA</span>
+</div>
+ : 
+                   <div className="flex items-center ">
+  <Image alt="ELFASA" src={ELFASA} loading="lazy" height={50} width={50} style={{marginRight:10}} />
+  <span className="logo__title">LIVASA</span>
+</div>
+
               }
             </Link>
           </div>

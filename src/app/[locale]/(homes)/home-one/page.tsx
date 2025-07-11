@@ -1,9 +1,9 @@
 // import AboutHomeMain from '@/components/About/AboutHomeMain';
 // import HomeApartmentArea from '@/components/Apartment/HomeApartment';
-import HomeApartmentTypes from '@/components/Apartment/HomeApartmentTypes';
+// import HomeApartmentTypes from '@/components/Apartment/HomeApartmentTypes';
 // import BrandAreaOne from '@/components/Barnd/BarndAreaOne';
 // import HomeBlogArea from '@/components/Blog/HomeBlogArea';
-import HomeApproachCounter from '@/components/Counter/HomeApproachCounter';
+// import HomeApproachCounter from '@/components/Counter/HomeApproachCounter';
 import HeroBannerOne from '@/components/HeroBanner/HeroBannerOne';
 import HomePropertiesByCity from '@/components/Neighborhood/HomePropertiesByCity';
 // import HomeNewsletter from '@/components/Newsletter/HomeNewsletter';
@@ -27,7 +27,7 @@ import React from 'react';
             {/* <AboutHomeMain /> */}
             {/* about area end */}
             {/* apartment area type*/}
-            <HomeApartmentTypes />
+            {/* <HomeApartmentTypes /> */}
             {/*apartment area type end */}
             {/* newsletter area */}
             {/* <HomeNewsletter /> */}
@@ -42,7 +42,7 @@ import React from 'react';
             <HomePropertiesByCity />
             {/* explore area end */}
             {/* counter area */}
-            <HomeApproachCounter />
+            {/* <HomeApproachCounter /> */}
             {/* counter area end */}
             {/* testimonial area */}
             <HomeTestimonialArea />

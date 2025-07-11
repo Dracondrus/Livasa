@@ -1,0 +1,22 @@
+
+.logo__title {
+   font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  color: #fff;
+  font-size: 26px;
+  font-style: normal;
+  margin-top: 10px;
+}
+.logo__title_black {
+    color: #000;
+}
+
+
+@media screen and (max-width: 768px) {
+  .logo__title {
+    font-size: 20px;
+  }
+
+    
+}

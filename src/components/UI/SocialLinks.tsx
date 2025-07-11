@@ -5,9 +5,9 @@ export function SocialLinks() {
     return (
         <div className="tp-hero-social">
             <Link href="https://www.instagram.com/" target="_blank"><span><i className="fa-brands fa-instagram"></i></span></Link>
-            <Link href="https://dribbble.com/" target="_blank"><span><i className="fa-brands fa-dribbble"></i></span></Link>
-            <Link href="https://www.whatsapp.com/" target="_blank"><span><i className="fa-brands fa-whatsapp"></i></span></Link>
-            <Link href="https://www.facebook.com/" target="_blank"><span><i className="fa-brands fa-facebook-f"></i></span></Link>
+            <Link href="https://dribbble.com/" target="_blank"><span><i className="fa-brands fa-telegram"></i></span></Link>
+            <Link href="https://www.whatsapp.com/" target="_blank"><span><i className="fa-brands fa-youtube"></i></span></Link>
+
         </div>
     )
 }
@@ -36,10 +36,9 @@ export function SocialLinksThree() {
 export function FooterSocialLinks() {
     return (
         <>
-            <Link href="https://www.facebook.com/" target="_blank"><i className="fab fa-facebook-f"></i></Link>{" "}
-            <Link href="https://www.instagram.com/" target="_blank"><i className="fa-brands fa-instagram"></i></Link>{" "}
-            <Link href="https://www.pinterest.com/" target="_blank"><i className="fa-brands fa-pinterest-p"></i></Link>{" "}
-            <Link href="https://x.com/" target="_blank"><i className="fab fa-twitter"></i></Link>
+               <Link href="https://www.instagram.com/" target="_blank"><span><i className="fa-brands fa-instagram"></i></span></Link>
+            <Link href="https://dribbble.com/" target="_blank"><span><i className="fa-brands fa-telegram"></i></span></Link>
+            <Link href="https://www.whatsapp.com/" target="_blank"><span><i className="fa-brands fa-youtube"></i></span></Link>
         </>
     )
 }
