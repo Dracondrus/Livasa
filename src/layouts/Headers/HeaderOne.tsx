@@ -1,46 +1,90 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import OffcanvasArea from "../../components/OffCanvas/OffcanvasArea";
 import CartOffcanvas from "@/components/OffCanvas/CartOffcanvas";
-import { CartIconSvg } from "@/components/SVG/CartIconSvg";
-import useShoppingCartMetrics from "@/hooks/useCart";
+import { useLocale } from 'next-intl';
+import { usePathname, useRouter } from 'next/navigation';
 import useGlobalContext from "@/hooks/useContext";
-import { WishlistIconSvg } from "@/components/SVG";
+
 import NavMenus from "../subComponents/NavMenus";
-import UserSvg from "@/components/SVG/UserSvg";
+
 import useSticky from "@/hooks/useSticky";
 import Link from "next/link";
 import ELFASA from "../../../public/elfasa.png"
 import Image from "next/image";
 
+import { Select } from "antd";
 
+const languageOptions = [
+  {
+    value: 'uz',
+    label: <span className="fi fi-uz" style={{ fontSize: '20px' }}></span>
+  },
+  {
+    value: 'ru',
+    label: <span className="fi fi-ru" style={{ fontSize: '20px' }}></span>
+  },
+  {
+    value: 'en',
+    label: <span className="fi fi-gb" style={{ fontSize: '20px' }}></span>
+  }
+];
 export default function HeaderOne() {
+  const locale = useLocale(); // текущая локаль ('ru', 'uz', 'en')
+  const router = useRouter();
+  const pathname = usePathname(); // например: /ru/main или /uz/about
+  const [currency, setCurrency] = useState<string>('USD');
+
+
+  useEffect(() => {
+
+    const stored = localStorage.getItem('user_selected_usd');
+    if (stored == 'false') {
+      setCurrency('UZS');
+    } else {
+      setCurrency('USD');
+    }
+  }, []);
+
+  const handleChange = (value: string) => {
+    window.location.reload();
+    setCurrency(value);
+    // Сохраняем в localStorage
+    localStorage.setItem('user_selected_usd', value === 'USD' ? 'true' : 'false');
+
+  };
+  const handleChangeLang = (newLocale: string) => {
+    const segments = pathname.split('/');
+    segments[1] = newLocale; // заменяем локаль в URL
+    const newPath = segments.join('/');
+    router.push(newPath);
+  };
+
+
   const [openCartMini, setOpenCartMini] = useState<boolean>(false);
   const { toggleOffcanvas } = useGlobalContext();
   const { sticky } = useSticky();
-  //cart quantity
-  const { useCartProductQuantity, useWishlstQuantity } = useShoppingCartMetrics();
-  const TotalCartQuantity = useCartProductQuantity();
-  const TotalWishlistQuantity = useWishlstQuantity();
-  
+
+
   const renderHeaderContent = () => (
     <div className="container container-large">
       <div className="row align-items-center">
         <div className="col-xl-2 col-lg-4 col-md-3 col-6">
           <div className="tp-header-logo">
+
             <Link href="/">
               {
                 sticky ? <div className="flex items-center ">
-  <Image alt="ELFASA" src={ELFASA} loading="lazy" height={50} width={50} style={{marginRight:10}}/>
-  <span className="logo__title logo__title_black">LIVASA</span>
-</div>
- : 
-                   <div className="flex items-center ">
-  <Image alt="ELFASA" src={ELFASA} loading="lazy" height={50} width={50} style={{marginRight:10}} />
-  <span className="logo__title">LIVASA</span>
-</div>
+                  <Image alt="ELFASA" src={ELFASA} loading="lazy" height={50} width={50} style={{ marginRight: 10 }} />
+                  <span className="logo__title logo__title_black">LIVASA</span>
+                </div>
+                  :
+                  <div className="flex items-center ">
+                    <Image alt="ELFASA" src={ELFASA} loading="lazy" height={50} width={50} style={{ marginRight: 10 }} />
+                    <span className="logo__title">LIVASA</span>
+                  </div>
 
               }
             </Link>
@@ -59,28 +103,42 @@ export default function HeaderOne() {
           <div className="tp-header-main-right d-flex align-items-center justify-content-end">
             <div className="tp-header-right-user d-none d-md-flex align-items-center">
 
-              <div className="tp-header-right-wishlist mr-30 d-none d-xxl-block">
-                <Link href="/wishlist"><span>
-                  <WishlistIconSvg color="currentColor" />
-                </span>
-                  <em>{TotalWishlistQuantity}</em>
-                </Link>
+              <div className="tp-header-right-wishlist mr-0 d-none d-xxl-block">
+                <Select
+                  value={locale}
+                  onChange={handleChangeLang}
+               
+                  style={{ width: 60 }}
+                  bordered={false}
+                  suffixIcon={null}
+                  options={languageOptions}
+                />
+
               </div>
 
-              <div className="tp-header-right-cart mr-30">
-                <button onClick={() => setOpenCartMini(true)} className="cartmini-open-btn">
-                  <span><CartIconSvg color="currentColor" /></span>
-                  <em>{TotalCartQuantity}</em>
-                </button>
+
+              <div className="tp-header-right-cart mr-100 pb-10"  >
+                <Select
+                  value={currency}
+                  onChange={handleChange}
+                  className="custom-currency-select"
+                  style={{ width: 60 }}
+                  bordered={false}
+                  suffixIcon={null}
+                >
+                  <Select.Option value="USD">USD</Select.Option>
+                  <Select.Option value="UZS">UZS</Select.Option>
+                </Select>
+
               </div>
               <div className="tp-header-right-user-icon">
-                <Link href="#" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                {/* <Link href="#" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
                   <span><UserSvg /></span>
-                </Link>
+                </Link> */}
               </div>
               <div className="tp-header-right-user-content">
-                <p>Hello, Sign In</p>
-                <span>Your Account</span>
+                {/* <p>Hello, Sign In</p>
+                <span>Your Account</span> */}
               </div>
             </div>
             <div className="tp-header-hamburger d-xl-none offcanvas-open-btn">

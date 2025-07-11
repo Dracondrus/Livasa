@@ -1,10 +1,26 @@
 
-export const propertyTypeOptions = [
-    { value: "", label: "Property Types" },
+export const propertyTypeOptionsOfCity = [
+    { value: "", label: "Select city" },
+    { value: "Navoiy", label: "Navoiy" },
+    { value: "Toshkent", label: "Toshkent" },
+    { value: "Samarqand", label: "Samarqand" },
+    { value: "Buxoro", label: "Buxoro" },
+
+];
+export const propertyTypeOptionsRegion = [
+    { value: "", label: "Select region" },
     { value: "Villa", label: "Villa" },
     { value: "Studio", label: "Studio" },
     { value: "Office", label: "Office" },
 ];
+export const propertyTypeOptionsOfSite = [
+    { value: "", label: "Select property type" },
+    { value: "Apartment", label: "Apartment" },
+    { value: "Hotel", label: "Hotel" },
+    { value: "Office", label: "Office" },
+];
+
+
 export const categoriesTypeOptions = [
     { value: "", label: "All categories" },
     { value: "Villa", label: "Villa" },

@@ -12,6 +12,31 @@
     color: #000;
 }
 
+.custom-currency-select {
+  color:rgb(255, 255, 255) !important; // Цвет выбранного текста
+  background-color: #5758d6 !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-weight: 700 !important;
+
+}
+
+.custom-currency-select .ant-select-selection-item {
+  color:rgb(255, 255, 255) !important; // Цвет выбранного значения
+  font-weight: 700 !important;
+}
+
+.custom-currency-select .ant-select-dropdown {
+  font-weight: 700 !important;
+  background-color:rgb(255, 255, 255);
+}
+
+.custom-currency-select .ant-select-item-option-selected {
+  font-weight: 700 !important;
+  background-color:rgb(255, 255, 255) !important; // Светло-голубой при выборе
+}
+
+
 
 @media screen and (max-width: 768px) {
   .logo__title {

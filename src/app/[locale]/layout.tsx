@@ -12,6 +12,7 @@ import {notFound} from 'next/navigation';
 import "swiper/css/bundle";
 import "./globals.scss";
 import "./main.scss";
+import 'flag-icons/css/flag-icons.min.css';
 
 // Load Plus Jakarta Sans from Google Fonts
 const plusJakartaSans = Plus_Jakarta_Sans({
