@@ -1,5 +1,5 @@
 
-export const propertyTypeOptionsy = [
+export const propertyTypeOptions = [
     { value: "", label: "Select city" },
     { value: "Navoiy", label: "Navoiy" },
     { value: "Toshkent", label: "Toshkent" },
