@@ -1,4 +1,13 @@
 
+export const propertyTypeOptionsy = [
+    { value: "", label: "Select city" },
+    { value: "Navoiy", label: "Navoiy" },
+    { value: "Toshkent", label: "Toshkent" },
+    { value: "Samarqand", label: "Samarqand" },
+    { value: "Buxoro", label: "Buxoro" },
+
+];
+
 export const propertyTypeOptionsOfCity = [
     { value: "", label: "Select city" },
     { value: "Navoiy", label: "Navoiy" },
