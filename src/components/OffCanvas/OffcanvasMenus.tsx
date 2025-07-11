@@ -24,36 +24,12 @@ const OffcanvasMenus = () => {
                         <div className="tp-mega-menu" style={{ display: navTitle === menu.label ? "block" : "none" }}>
                             <div className="tp-main-has-submenu">
                                 <div className="row gx-6 row-cols-1 row-cols-md-2 row-cols-lg-5">
-                                    {menu.submenu?.map((hm) => (
-                                        <div key={hm.id} className="col">
-                                            <span>
-                                                <div className="tp-home-thumb">
-                                                    <Link href={hm.url}>
-                                                        <Image style={{ width: "100%", height: "auto" }} src={hm.img!} alt={hm.label} />
-                                                    </Link>
-                                                </div>
-                                            </span>
-                                            <h3 className="tp-home-title">
-                                                <Link href={hm.url}>{hm.label}</Link>
-                                            </h3>
-                                        </div>
-                                    ))}
+                                  
                                 </div>
                             </div>
                         </div>
                     )}
-                    {!menu.home_menu && menu.submenu && <ul className="tp-submenu submenu" style={{ display: navTitle === menu.label ? "block" : "none" }}>
-                        {menu.submenu.map((sm) => (
-                            <li key={sm.id}>
-                                <Link href={sm.url}>{sm.label}</Link>
-                            </li>
-                        ))}
-                    </ul>}
-                    {(menu.submenu || menu.home_menu) && (
-                        <button onClick={() => openMobileMenu(menu.label)} className="tp-menu-close">
-                            <i className="far fa-chevron-right"></i>
-                        </button>
-                    )}
+                    
                 </li>
             ))}
         </ul>
