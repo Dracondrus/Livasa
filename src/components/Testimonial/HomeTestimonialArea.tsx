@@ -18,7 +18,7 @@ export default function HomeTestimonialArea() {
                     <div className="col-lg-12">
                         <div className="tp-testimonial-heading text-center">
                             <h3 className="tp-section-title">
-                                What people are saying about <br /> our real estate
+                              Places for relaxation and recreation
                             </h3>
                         </div>
                     </div>

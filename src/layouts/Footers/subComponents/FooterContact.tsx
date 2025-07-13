@@ -23,6 +23,8 @@ export default function FooterContact() {
                         </Link>
                      
                         <p>elfasatasa@gmail.com</p>
+                 <p> Do you want to place a link to your services or advertisement on the website? Write to telegram  @elfasa_tasa	</p>
+                                                        
                     </div>
                 </div>
                 <div className="tp-footer-widget-social">

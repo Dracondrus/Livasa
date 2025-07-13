@@ -1,4 +1,4 @@
-import logoWhite from '../../../public/assets/img/logo/logo-white.png';
+import ELFASA from "../../../public/elfasa.png";
 import useGlobalContext from '@/hooks/useContext';
 import OffcanvasMenus from './OffcanvasMenus';
 import Image from 'next/image';
@@ -24,9 +24,10 @@ export default function OffcanvasArea() {
                     <div className="offcanvas__content">
                         <div className="offcanvas__top mb-40">
                             <div className="offcanvas__logo">
-                                <Link href="/">
-                                    <Image src={logoWhite} alt="logo" />
-                                </Link>
+                               <div className="flex items-center ">
+                    <Image alt="ELFASA" src={ELFASA} loading="lazy" height={50} width={50} style={{ marginRight: 10 }} />
+                    <span className="logo__title">LIVASA</span>
+                  </div>
                             </div>
                         </div>
 
@@ -46,19 +47,15 @@ export default function OffcanvasArea() {
                         <div className="offcanvas-info mb-30">
                             <h4 className="offcanvas__title">Contacts</h4>
                             <div className="offcanvas__contact-content d-flex">
-                                <div className="offcanvas__contact-content-icon">
-                                    <i className="fa-sharp fa-solid fa-location-dot"></i>
-                                </div>
-                                <div className="offcanvas__contact-content-content">
-                                    <Link href="https://www.google.com/maps/search/86+Road+Broklyn+Street,+600+New+York,+USA/@40.6897806,-74.0278086,12z/data=!3m1!4b1">86 Road Broklyn Street, 600 </Link>
-                                </div>
+                            
+                          
                             </div>
                             <div className="offcanvas__contact-content d-flex">
                                 <div className="offcanvas__contact-content-icon">
                                     <i className="fa-solid fa-envelope"></i>
                                 </div>
                                 <div className="offcanvas__contact-content-content">
-                                    <Link href="mailto:needhelp@company.com"> Needhelp@company.com  </Link>
+                                    <Link href="mailto:needhelp@company.com"> elfasatasa@gmail.com  </Link>
                                 </div>
                             </div>
                             <div className="offcanvas__contact-content d-flex">
@@ -66,15 +63,18 @@ export default function OffcanvasArea() {
                                     <i className="fa-solid fa-phone"></i>
                                 </div>
                                 <div className="offcanvas__contact-content-content">
-                                    <Link href="tel:01310-069824"> +92 666 888 0000</Link>
+                                    <Link href="tel:01310-069824"> +998 90 089 77 22</Link>
                                 </div>
+                               
                             </div>
+                        
                         </div>
                         <div className="offcanvas__social">
-                            <Link className="icon facebook" href="#"><i className="fab fa-facebook-f"></i></Link>
-                            <Link className="icon twitter" href="#"><i className="fab fa-twitter"></i></Link>
+                          
+                            <Link className="icon twitter" href="#"><i className="fab fa-instagram"></i></Link>
+                               <Link className="icon linkedin" href="#"><i className="fab fa-telegram"></i></Link>
                             <Link className="icon youtube" href="#"><i className="fab fa-youtube"></i></Link>
-                            <Link className="icon linkedin" href="#"><i className="fab fa-linkedin"></i></Link>
+                         
                         </div>
                     </div>
                 </div>

@@ -10,8 +10,8 @@ export default function HomePropertiesByCity() {
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="tp-explore-heading mb-55">
-                            <span className="tp-section-title-pre">PROPERTIES BY CITY</span>
-                            <h3 className="tp-section-title">Explore the neighbourhoods</h3>
+                            <span className="tp-section-title-pre">PROPERTY SERVICES  BY CITY</span>
+                            <h3 className="tp-section-title">Premium Home Services</h3>
                         </div>
                     </div>
                 </div>
@@ -26,7 +26,14 @@ export default function HomePropertiesByCity() {
                                         <h4 className="tp-explore-title">
                                             <Link className="textline" href="/property-style-1">{property.name}</Link>
                                         </h4>
-                                        <span>{property.count} Property</span>
+                                       
+                                            <div className="text-center" style={{color: "#fff", fontSize: "14px" , fontWeight: "500"}}>
+  {property.count.map((item, index) => (
+    <div key={index}>{item}</div>
+  ))}
+</div>
+
+                                     
                                     </div>
                                     <div className="tp-explore-btn">
                                         <Link href="/property-style-1">

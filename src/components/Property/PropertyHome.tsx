@@ -15,7 +15,8 @@ export default function PropertyHome() {
           <div className="col-lg-12">
             <div className="tp-rent-heading text-center mb-50">
               <span className="tp-section-title-pre">Featured Listings</span>
-              <h3 className="tp-section-title">Property for relaxation and recreation</h3>
+              <h3 className="tp-section-title">What people are saying about
+<br /> our real estate</h3>
             </div>
           </div>
         </div>

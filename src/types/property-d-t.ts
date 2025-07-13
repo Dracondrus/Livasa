@@ -32,7 +32,7 @@ export interface INeighbourhoodProperty {
   id: number;
   name: string;
   image: StaticImageData;
-  count: number;
+  count: string[];
 }
 
 //define interface for property Props

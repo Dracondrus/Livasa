@@ -78,7 +78,7 @@ export default function HeaderOne() {
               {
                 sticky ? <div className="flex items-center ">
                   <Image alt="ELFASA" src={ELFASA} loading="lazy" height={50} width={50} style={{ marginRight: 10 }} />
-                  <span className="logo__title logo__title_black">LIVASA</span>
+                  <span className="logo__title logo__title_black" >LIVASA</span>
                 </div>
                   :
                   <div className="flex items-center ">

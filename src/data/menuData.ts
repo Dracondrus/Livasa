@@ -12,18 +12,18 @@ const menu_data_one = [
   {
     id: 2,
     label: "Look at properties",
-    url: "/property-style-1",
+    url: "/search",
 
   },
   {
     id: 3,
     label: "Places to Relax ",
-    url: "/property-style-1",
+    url: "/ptr",
 
   },
   {
     id: 4,
-    label: "Fix and Build",
+    label: "Сonstruction services",
     url: "/dashboard",
 
   },
