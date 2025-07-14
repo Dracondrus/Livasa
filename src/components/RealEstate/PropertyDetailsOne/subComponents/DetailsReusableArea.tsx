@@ -1,17 +1,17 @@
-import PropertyReviewForm from "@/components/Form/PropertyReviewForm";
-import UserContactCard from "@/components/Layout/subComponents/UserContactCard";
-import PropertyFilterWidget from "@/components/Layout/subComponents/PropertyFilterWidget";
-import SidebarPropertyItem from "@/components/Layout/subComponents/SidebarPropertyItem";
-import DiscountOfferCard from "@/components/Layout/subComponents/DiscountOfferCard";
+// import PropertyReviewForm from "@/components/Form/PropertyReviewForm";
+// import UserContactCard from "@/components/Layout/subComponents/UserContactCard";
+// import PropertyFilterWidget from "@/components/Layout/subComponents/PropertyFilterWidget";
+// import SidebarPropertyItem from "@/components/Layout/subComponents/SidebarPropertyItem";
+// import DiscountOfferCard from "@/components/Layout/subComponents/DiscountOfferCard";
 import PropertyDetailsVideo from "@/components/Video/VideoAreaThree";
-import RecentlyViewedProperties from "./RecentlyViewedItem";
-import PropertyAttachments from "./PropertyAttachments";
-import AmenitiesCategories from "./AmenitiesCategories";
-import LocationDetailsBox from "./LocationDetailsBox";
+// import RecentlyViewedProperties from "./RecentlyViewedItem";
+// import PropertyAttachments from "./PropertyAttachments";
+// import AmenitiesCategories from "./AmenitiesCategories";
+// import LocationDetailsBox from "./LocationDetailsBox";
 import PropertyDetailsBox from "./PropertyDetailsBox";
-import PropertyFloorPlans from "./PropertyFloorPlans";
-import CustomersReviews from "./CustomersReviews";
-import PropertyGallery from "./PropertyGallery";
+// import PropertyFloorPlans from "./PropertyFloorPlans";
+// import CustomersReviews from "./CustomersReviews";
+// import PropertyGallery from "./PropertyGallery";
 
 interface IProps{
     spacingClass?:string;
@@ -25,7 +25,7 @@ export default function DetailsReusableArea({spacingClass}:IProps) {
                         <div className="col-lg-8">
                             <div className="tp-property-details-left">
                                 <div className="tp-property-details-box box-1 mb-30">
-                                    <h3 className="tp-property-details-box-title">Bhumi description</h3>
+                                    <h3 className="tp-property-details-box-title">LIVASA description</h3>
                                     <div className="tp-property-details-box-desc">
                                         <p>Years seed fruit you. Divided morning sea day Set earth. Grass without  cattle. Spirit <br />
                                             heaven. Also i grass give fowl wherein cattle spirit  whales rule cattle. Earth fowl giv <br />
@@ -47,14 +47,14 @@ export default function DetailsReusableArea({spacingClass}:IProps) {
                                     <PropertyDetailsVideo />
                                 </div>
 
-                                <div className="tp-property-details-box box-4 mb-30">
+                                {/* <div className="tp-property-details-box box-4 mb-30">
                                     <h3 className="tp-property-details-box-title">Property attachments</h3>
                                     <PropertyAttachments />
                                     <h3 className="tp-property-details-box-title">Amenities</h3>
                                     <AmenitiesCategories />
-                                </div>
+                                </div> */}
 
-                                <div className="tp-property-details-box box-5 mb-30">
+                                {/* <div className="tp-property-details-box box-5 mb-30">
                                     <h3 className="tp-property-details-box-title">From our gallery</h3>
                                     <PropertyGallery />
                                 </div>
@@ -62,9 +62,9 @@ export default function DetailsReusableArea({spacingClass}:IProps) {
                                 <div className="tp-property-details-box box-6 mb-30">
                                     <h3 className="tp-property-details-box-title">Address</h3>
                                     <LocationDetailsBox />
-                                </div>
+                                </div> */}
 
-                                <div className="tp-property-details-box box-7 mb-30">
+                                {/* <div className="tp-property-details-box box-7 mb-30">
                                     <h3 className="tp-property-details-box-title">Floor plans</h3>
                                     <PropertyFloorPlans />
                                 </div>
@@ -72,22 +72,22 @@ export default function DetailsReusableArea({spacingClass}:IProps) {
                                 <div className="tp-property-details-box box-8 mb-30">
                                     <h3 className="tp-property-details-box-title">Customers reviews</h3>
                                     <CustomersReviews />
-                                </div>
+                                </div> */}
 
-                                <div className="tp-property-details-box box-9 mb-30">
+                                {/* <div className="tp-property-details-box box-9 mb-30">
                                     <h3 className="tp-property-details-box-title">Add your review</h3>
                                     <PropertyReviewForm />
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div className="col-lg-4">
-                            <div className="tp-property-details-right">
+                            {/* <div className="tp-property-details-right">
                                 <UserContactCard />
                                 <PropertyFilterWidget />
                                 <SidebarPropertyItem />
                                 <RecentlyViewedProperties />
                                 <DiscountOfferCard wrapperCls="tp-property-filter-wrap" />
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

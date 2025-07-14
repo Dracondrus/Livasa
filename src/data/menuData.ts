@@ -24,7 +24,7 @@ const menu_data_one = [
   {
     id: 4,
     label: "Сonstruction services",
-    url: "/dashboard",
+    url: "/services",
 
   },
 

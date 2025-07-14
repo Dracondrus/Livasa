@@ -1,6 +1,6 @@
 
 import SearchSvg from "@/components/SVG/BannerSvg/SearchSvg";
-import { propertyTypeOptionsOfCity,propertyTypeOptionsRegion,propertyTypeOptionsOfSite } from "@/data/dropdownData";
+import { propertyTypeOptionsOfCity,propertyTypeOptionsOfSite } from "@/data/dropdownData";
 import NiceSelect from "@/components/UI/NiceSelect";
 import { ITabContentProps } from "@/types/banner-d-t";
 
@@ -17,14 +17,14 @@ export default function HeroBannerTabContent({ id, isActive, onSortChange }: ITa
                         name="Sorting"
                     />
                 </div>
-                <div className="tp-hero-tab-select tp-select">
+                {/* <div className="tp-hero-tab-select tp-select">
                     <NiceSelect
                         options={propertyTypeOptionsRegion}
                         defaultCurrent={0}
                         onChange={onSortChange}
                         name="Sorting"
                     />
-                </div>
+                </div> */}
               <div className="tp-hero-tab-select tp-select">
                     <NiceSelect
                         options={propertyTypeOptionsOfSite  }

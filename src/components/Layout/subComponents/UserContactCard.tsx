@@ -1,14 +1,14 @@
-import userImg from "../../../../public/assets/img/team/team-details/user.png";
-import { SocialLinksThree } from "@/components/UI/SocialLinks";
-import LeaveMessageForm from "@/components/Form/LeaveMessageForm";
-import { CallThreeSvg, TeamEmailSvg } from "@/components/SVG";
-import Image from "next/image";
-import Link from "next/link";
+// import userImg from "../../../../public/assets/img/team/team-details/user.png";
+// import { SocialLinksThree } from "@/components/UI/SocialLinks";
+// import LeaveMessageForm from "@/components/Form/LeaveMessageForm";
+// import { CallThreeSvg, TeamEmailSvg } from "@/components/SVG";
+// import Image from "next/image";
+// import Link from "next/link";
 
 export default function UserContactCard () {
     return (
         <>
-        <div className="tp-team-details-widget mb-40">
+        {/* <div className="tp-team-details-widget mb-40">
                 <div className="tp-team-details-info-box">
                     <div className="tp-team-details-info-top">
                         <div className="tp-team-details-info-user d-flex align-items-center">
@@ -35,6 +35,6 @@ export default function UserContactCard () {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </>
     )}

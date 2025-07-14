@@ -24,7 +24,7 @@ export default function HomePropertiesByCity() {
                                     <Image src={property.image} alt={property.name} />
                                     <div className="tp-explore-content">
                                         <h4 className="tp-explore-title">
-                                            <Link className="textline" href="/property-style-1">{property.name}</Link>
+                                            <Link className="textline" href="/services">{property.name}</Link>
                                         </h4>
                                        
                                             <div className="text-center" style={{color: "#fff", fontSize: "14px" , fontWeight: "500"}}>
@@ -36,7 +36,7 @@ export default function HomePropertiesByCity() {
                                      
                                     </div>
                                     <div className="tp-explore-btn">
-                                        <Link href="/property-style-1">
+                                        <Link href="/services">
                                             <span>
                                                 <NavigateArrowSvg />
                                             </span>

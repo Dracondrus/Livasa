@@ -1,7 +1,7 @@
-import { quickLinks, serviceLinks } from "@/data/footerLinks";
-import FooterColumn from "./subComponents/FooterColumn";
+// import { quickLinks, serviceLinks } from "@/data/footerLinks";
+// import FooterColumn from "./subComponents/FooterColumn";
 import FooterContact from "./subComponents/FooterContact";
-import FooterNewsletter from "./subComponents/FooterNewsletter";
+// import FooterNewsletter from "./subComponents/FooterNewsletter";
 
 export default function FooterStyleTwo() {
     return (
@@ -10,9 +10,9 @@ export default function FooterStyleTwo() {
             <div className="container">
                     <div className="row">
                         <FooterContact />
-                        <FooterColumn title="Quick Link" links={quickLinks} />
-                        <FooterColumn footerCol={3} title="Services" links={serviceLinks} />
-                        <FooterNewsletter />
+                        {/* <FooterColumn title="Quick Link" links={quickLinks} /> */}
+                        {/* <FooterColumn footerCol={3} title="Services" links={serviceLinks} /> */}
+                        {/* <FooterNewsletter /> */}
                     </div>
             </div>
         </footer>

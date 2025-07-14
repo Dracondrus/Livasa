@@ -12,21 +12,20 @@ export const propertyTypeOptionsOfCity = [
     { value: "", label: "Select city" },
     { value: "Navoiy", label: "Navoiy" },
     { value: "Toshkent", label: "Toshkent" },
-    { value: "Samarqand", label: "Samarqand" },
-    { value: "Buxoro", label: "Buxoro" },
+
 
 ];
 export const propertyTypeOptionsRegion = [
     { value: "", label: "Select region" },
-    { value: "Villa", label: "Villa" },
-    { value: "Studio", label: "Studio" },
-    { value: "Office", label: "Office" },
+    { value: "kvartira", label: "kvartira" },
+    { value: "hotel", label: "hotel" },
+    { value: "chalet", label: "chalet" },
 ];
 export const propertyTypeOptionsOfSite = [
     { value: "", label: "Select property type" },
-    { value: "Apartment", label: "Apartment" },
-    { value: "Hotel", label: "Hotel" },
-    { value: "Office", label: "Office" },
+    { value: "apartment", label: "Apartment" },
+    { value: "hotel", label: "Hotel" },
+  { value: "chalet", label: "Chalet" },
 ];
 
 
