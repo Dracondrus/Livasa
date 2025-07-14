@@ -1,6 +1,5 @@
 'use client'
 import menu_data_one from "@/data/menuData";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -14,6 +13,7 @@ const OffcanvasMenus = () => {
             setNavTitle(menu);
         }
     };
+    console.log(openMobileMenu)
     return (
         <ul>
             {/* Mapping through header menu data to render offcanvas navigation items */}
