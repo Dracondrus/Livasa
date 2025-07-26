@@ -10,13 +10,9 @@ export default function FooterCopyright() {
                             className="mb-0 text-muted fw-semibold"
                             style={{ fontSize: "15px", lineHeight: "1.7", color: "#ffffffff" }}
                         >
-                            Сайт <strong>Livasa</strong> создан компанией <strong>&nbsp;ELFASA&nbsp;</strong> —<br />
-                            чтобы вы могли легко находить места отдыха без посредников, быстро и с комфортом.
-                            <br />
-                            <span className="text-gray fw-semibold">
-                                Всё ради вашего удобства и спокойствия. Мы ведь заботимся о наших клиентах.
-                            </span>
-                            <br />
+                            <strong>Livasa</strong> создан компанией <strong>&nbsp;ELFASA&nbsp;</strong> —
+                            чтобы вы могли легко находить места отдыха и аренда квартир     без посредников, быстро и с комфортом.
+                         <br />
                             <span
                                 style={{
                                     fontSize: "13px",
