@@ -2,8 +2,6 @@
 import {
   AddPropertySvg,
   MyPropertiesSvg,
-  MyFavouritesSvg,
-  ReviewsSvg,
   IdentityDockSvg,
   LogoutSvg,
  
@@ -78,7 +76,7 @@ const Sidebar = () => {
           <Link
             href={item.href}
             className={activePath === item.href ? "active" : ""}
-            onClick={(e) => {
+            onClick={() => {
               if (item.fn) {
                 item.fn();
               }
