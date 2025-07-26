@@ -1,5 +1,13 @@
 "use client"
-import { AddPropertySvg, MyPropertiesSvg, MyFavouritesSvg, ReviewsSvg, IdentityDockSvg, LogoutSvg, DashboardSvg } from "@/components/SVG";
+import {
+  AddPropertySvg,
+  MyPropertiesSvg,
+  MyFavouritesSvg,
+  ReviewsSvg,
+  IdentityDockSvg,
+  LogoutSvg,
+ 
+} from "@/components/SVG";
 import Link from "next/link";
 import { JSX, useState, useEffect } from "react";
 
@@ -8,6 +16,7 @@ interface SidebarItem {
   href: string;
   label: string;
   icon: JSX.Element;
+  fn?: () => void;
 }
 
 // SidebarSection interface
@@ -20,21 +29,11 @@ interface SidebarSection {
 const Sidebar = () => {
   const [activePath, setActivePath] = useState<string>("");
 
-  // Update activePath when the component mounts
   useEffect(() => {
     setActivePath(window.location.pathname);
   }, []);
 
-  const mainSection: SidebarSection = {
-    title: "Main",
-    items: [
-      {
-        href: "/dashboard",
-        label: "Dashboard",
-        icon: <DashboardSvg />,
-      },
-    ],
-  };
+ 
 
   const manageListingSection: SidebarSection = {
     title: "Manage listing",
@@ -48,17 +47,7 @@ const Sidebar = () => {
         href: "/dashboard/property",
         label: "My properties",
         icon: <MyPropertiesSvg />,
-      },
-      {
-        href: "/dashboard/favourite",
-        label: "My favourites",
-        icon: <MyFavouritesSvg />,
-      },
-      {
-        href: "/dashboard/review",
-        label: "Reviews",
-        icon: <ReviewsSvg />,
-      },
+      }
     ],
   };
 
@@ -71,23 +60,30 @@ const Sidebar = () => {
         icon: <IdentityDockSvg />,
       },
       {
-        href: "/sign-in",
+        href: "/sign-up",
         label: "Logout",
         icon: <LogoutSvg />,
+        fn: () => {
+          localStorage.clear();
+        },
       },
     ],
   };
 
-  // Sidebar render function with active class logic
   const renderSection = (section: SidebarSection) => (
-    <div className="tp-dashboard-sidebar-content pb-70">
+    <div className="tp-dashboard-sidebar-content pb-70" key={section.title}>
       <h4 className="tp-dashboard-sidebar-title">{section.title}</h4>
       {section.items.map((item, index) => (
         <div className="tp-dashboard-sidebar-item" key={index}>
           <Link
             href={item.href}
             className={activePath === item.href ? "active" : ""}
-            onClick={() => setActivePath(item.href)} 
+            onClick={(e) => {
+              if (item.fn) {
+                item.fn();
+              }
+              setActivePath(item.href);
+            }}
           >
             <span>{item.icon}</span> {item.label}
           </Link>
@@ -99,7 +95,7 @@ const Sidebar = () => {
   return (
     <div className="tp-dashboard-sidebar d-none d-xxl-block">
       <div className="tp-dashboard-sidebar-wrap">
-        {renderSection(mainSection)}
+       
         {renderSection(manageListingSection)}
         {renderSection(manageAccountSection)}
       </div>
@@ -108,4 +104,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-

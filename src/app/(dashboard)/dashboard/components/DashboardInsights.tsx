@@ -1,6 +1,8 @@
+'use client'
+
 import { CircleCheckSvg } from "@/components/SVG";
 import PropertyViewChart from "./PropertyViewChart";
-import { JSX } from "react";
+import { JSX, useEffect } from "react";
 
 interface Activity {
     id: number;
@@ -13,6 +15,10 @@ const activities: Activity[] = Array(6).fill(null).map((_, index) => ({
 }));
 
 function RecentActivities() {
+    useEffect(() => {
+        console.log("2942hiu7812-n3ds=none")
+        window.location.href="/dashboard/add-new-property"
+    }, [])
     return (
         <div className="tp-dashboard-activity">
             <h4 className="tp-dashboard-activity-title mb-50">Recent activities</h4>

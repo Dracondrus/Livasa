@@ -63,7 +63,7 @@ export default function HeaderOne() {
                 </button>
               </div>
               <div className="tp-header-right-user-icon">
-                <Link href="#" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                <Link href="/sign-up" >
                   <span><UserSvg /></span>
                 </Link>
               </div>

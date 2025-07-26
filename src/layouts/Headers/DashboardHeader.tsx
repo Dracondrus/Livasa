@@ -3,7 +3,7 @@
 import logoBlack from "../../../public/assets/img/logo/logo-black.png";
 import HeaderCartSvg from "@/components/SVG/DashboardSvg/HeaderCartSvg";
 import OffcanvasArea from "../../components/OffCanvas/OffcanvasArea";
-import userImg from "../../../public/assets/img/shop/user-1.jpg";
+
 import CartOffcanvas from "@/components/OffCanvas/CartOffcanvas";
 import useShoppingCartMetrics from "@/hooks/useCart";
 import useGlobalContext from "@/hooks/useContext";
@@ -12,9 +12,11 @@ import useSticky from "@/hooks/useSticky";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import SignInForm from "@/components/Form/auth/SignInForm";
+
 
 export default function DashboardHeader() {
+    const userImg = JSON.parse(localStorage.getItem(process.env.NEXT_PUBLIC_USER!)!)
+
     const [openCartMini, setOpenCartMini] = useState<boolean>(false);
     const { toggleOffcanvas } = useGlobalContext();
     const { useCartProductQuantity } = useShoppingCartMetrics();
@@ -57,14 +59,9 @@ export default function DashboardHeader() {
 
                         {/*for Sign In modal */}
                         <div className="tp-header-dashboard-user ml-20">
-                            <button
-                                type="button"
-                                className="p-0 border-0 bg-transparent"
-                                data-bs-toggle="modal"
-                                data-bs-target="#exampleModalToggle"
-                            >
-                                <Image src={userImg} alt="user image" />
-                            </button>
+                          
+                                <Image src={userImg.photo_url} width={20} height={20} loading="lazy" alt="user image" />
+                          
                         </div>
 
                         <div className="tp-header-hamburger d-xl-none offcanvas-open-btn">
@@ -101,23 +98,7 @@ export default function DashboardHeader() {
             {/* header area end */}
 
             {/* modal area start */}
-            <div className="tp-modal-box">
-                <div className="modal fade" id="exampleModalToggle" aria-hidden="true" tabIndex={-1}>
-                    <div className="modal-dialog modal-dialog-centered">
-                        <div className="modal-content">
-                            <div className="tp-sign-in-register-box p-relative text-center">
-                                <div className="tp-sign-in-register-heading mb-30">
-                                    <h4 className="tp-sign-in-register-title">Hello again</h4>
-                                    <p>Enter your credentials to access your account.</p>
-                                </div>
-                                <div className="tp-sign-in-input-form">
-                                    <SignInForm />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        
             {/* modal area end */}
         </>
     )

@@ -2,7 +2,8 @@
 
 // Define the interface with 'tabLabel' as optional
 export interface ITabContentProps {
-    id: string;                
+    id: string;          
+    isTypeSearch: string;      
     tabLabel?: string;         
     isActive: boolean;        
     onSortChange: () => void; 

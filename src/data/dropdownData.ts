@@ -5,6 +5,18 @@ export const propertyTypeOptions = [
     { value: "Studio", label: "Studio" },
     { value: "Office", label: "Office" },
 ];
+export const propertyTypeCity = [
+    { value: "", label: "Property Types" },
+    { value: "Villa", label: "Villa" },
+    { value: "Studio", label: "Studio" },
+    { value: "Office", label: "Office" },
+];
+export const propertyTypeRegion = [
+    { value: "", label: "Property Types" },
+    { value: "Villa", label: "Villa" },
+    { value: "Studio", label: "Studio" },
+    { value: "Office", label: "Office" },
+];
 export const categoriesTypeOptions = [
     { value: "", label: "All categories" },
     { value: "Villa", label: "Villa" },

@@ -1,17 +1,17 @@
-// import AboutHomeMain from '@/components/About/AboutHomeMain';
-// import HomeApartmentArea from '@/components/Apartment/HomeApartment';
-// import HomeApartmentTypes from '@/components/Apartment/HomeApartmentTypes';
-// import BrandAreaOne from '@/components/Barnd/BarndAreaOne';
-// import HomeBlogArea from '@/components/Blog/HomeBlogArea';
-// import HomeApproachCounter from '@/components/Counter/HomeApproachCounter';
+import AboutHomeMain from '@/components/About/AboutHomeMain';
+import HomeApartmentArea from '@/components/Apartment/HomeApartment';
+import HomeApartmentTypes from '@/components/Apartment/HomeApartmentTypes';
+import BrandAreaOne from '@/components/Barnd/BarndAreaOne';
+import HomeBlogArea from '@/components/Blog/HomeBlogArea';
+import HomeApproachCounter from '@/components/Counter/HomeApproachCounter';
 import HeroBannerOne from '@/components/HeroBanner/HeroBannerOne';
-// import HomePropertiesByCity from '@/components/Neighborhood/HomePropertiesByCity';
-// import HomeNewsletter from '@/components/Newsletter/HomeNewsletter';
-// import FeatureShowcaseCategory from '@/components/Property/FeatureShowcaseCategory';
+import HomePropertiesByCity from '@/components/Neighborhood/HomePropertiesByCity';
+import HomeNewsletter from '@/components/Newsletter/HomeNewsletter';
+import FeatureShowcaseCategory from '@/components/Property/FeatureShowcaseCategory';
 import PropertyHome from '@/components/Property/PropertyHome';
-// import TeamAgentsArea from '@/components/Agent/TeamAgentsArea';
+import TeamAgentsArea from '@/components/Agent/TeamAgentsArea';
 import HomeTestimonialArea from '@/components/Testimonial/HomeTestimonialArea';
-// import TextSlide from '@/components/Features/TextSlide';
+import TextSlide from '@/components/Features/TextSlide';
 import React from 'react';
 
     export default function HomeOnePage() {
@@ -21,46 +21,43 @@ import React from 'react';
             <HeroBannerOne />
             {/* hero banner end */}
             {/*feature area*/}
-                  <PropertyHome />
-            {/* <FeatureShowcaseCategory /> */}
+            <FeatureShowcaseCategory />
             {/*feature area end*/}
             {/* about area  */}
-            {/* <AboutHomeMain /> */}
+            <AboutHomeMain />
             {/* about area end */}
             {/* apartment area type*/}
-            {/* <HomeApartmentTypes /> */}
+            <HomeApartmentTypes />
             {/*apartment area type end */}
             {/* newsletter area */}
-            {/* <HomeNewsletter /> */}
+            <HomeNewsletter />
             {/* newsletter area end */}
             {/* rent area */}
-            {/* <PropertyHome /> */}
+            <PropertyHome />
             {/* rent area end */}
             {/* apartment area*/}
-            {/* <HomeApartmentArea /> */}
+            <HomeApartmentArea />
             {/* apartment area end*/}
             {/* explore area */}
-            {/* <HomePropertiesByCity /> */}
+            <HomePropertiesByCity />
             {/* explore area end */}
             {/* counter area */}
-            {/* <HomeApproachCounter /> */}
+            <HomeApproachCounter />
             {/* counter area end */}
             {/* testimonial area */}
-            
             <HomeTestimonialArea />
-         
             {/* testimonial area end */}
             {/* text slide */}
-            {/* <TextSlide /> */}
+            <TextSlide />
             {/* text slide end*/}
             {/* team area */}
-            {/* <TeamAgentsArea /> */}
+            <TeamAgentsArea />
             {/* team area end*/}
             {/* barnd area */}
-            {/* <BrandAreaOne /> */}
+            <BrandAreaOne />
             {/* barnd area end */}
             {/* blog area */}
-            {/* <HomeBlogArea /> */}
+            <HomeBlogArea />
             {/* blog area end */}
 
         </>

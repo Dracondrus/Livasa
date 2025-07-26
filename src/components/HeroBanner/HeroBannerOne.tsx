@@ -33,9 +33,9 @@ export default function HeroBannerOne() {
                                             </div>
                                         </nav>
                                         <div className="tab-content" id="nav-tabContent">
-                                            <HeroBannerTabContent id="nav-home" isActive={activeTab === "nav-home"} onSortChange={handleSorting} toggleFilter={toggleFilter} />
-                                            <HeroBannerTabContent id="nav-profile" isActive={activeTab === "nav-profile"} onSortChange={handleSorting} toggleFilter={toggleFilter} />
-                                            <HeroBannerTabContent id="nav-contact" isActive={activeTab === "nav-contact"} onSortChange={handleSorting} toggleFilter={toggleFilter} />
+                                            <HeroBannerTabContent id="nav-home" isActive={activeTab === "nav-home"} onSortChange={handleSorting} toggleFilter={toggleFilter} isTypeSearch="allStatus" />
+                                            <HeroBannerTabContent id="nav-profile" isActive={activeTab === "nav-profile"} onSortChange={handleSorting} toggleFilter={toggleFilter} isTypeSearch="forRent"/>
+                                            <HeroBannerTabContent id="nav-contact" isActive={activeTab === "nav-contact"} onSortChange={handleSorting} toggleFilter={toggleFilter} isTypeSearch="forSale" />
                                         </div>
                                     </div>
                                     {/* -- form area start -- */}

@@ -84,8 +84,7 @@ const menu_data_one = [
     submenu: [
       { id: 1, label: "Add new property", url: "/dashboard/add-new-property" },
       { id: 2, label: "My Property", url: "/dashboard/property" },
-      { id: 3, label: "Favourite", url: "/dashboard/favourite" },
-      { id: 4, label: "Review", url: "/dashboard/review" },
+
       { id: 5, label: "My Profile", url: "/dashboard/my-profile" },
     ],
   },

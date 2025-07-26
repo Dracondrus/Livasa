@@ -1,4 +1,4 @@
-import signUpThumb from "../../../../public/assets/img/others/sign-in-thumb.jpg";
+import signUpThumb from "../../../../public/assets/img/others/sign-in-thumb.png";
 import SignUpForm from "@/components/Form/auth/SignUpForm";
 import { Metadata } from "next";
 
@@ -16,7 +16,7 @@ export default function SignUp() {
                   <div className="col-lg-6">
                      <div className="tp-sign-in-register-box p-relative text-center">
                         <div className="tp-sign-in-register-heading mb-60">
-                           <h4 className="tp-sign-in-register-title">Register now!</h4>
+                           <h4 className="tp-sign-in-register-title">Welcome</h4>
                         </div>
                         <div className="tp-sign-in-input-form">
                           <SignUpForm/>
@@ -25,6 +25,14 @@ export default function SignUp() {
                   </div>
                </div>
             </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            
          </section>
          {/* sign in area end */}
       </>

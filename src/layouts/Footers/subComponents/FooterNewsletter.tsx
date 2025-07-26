@@ -9,7 +9,12 @@ export default function FooterNewsletter() {
                     <div className="tp-footer-widget-contact">
                         <h3 className="tp-footer-widget-title">News in Telegram group</h3>
                     </div>
-                    <p>Subscribe to our Telegram to get the latest news & updates. <b>    <Link href={""}>Click here</Link></b></p>
+                    <p>Subscribe to our Telegram to get the latest news. <b>  
+                        
+              <Link href="https://t.me/Livasa_by_ELFASA" target="_blank" rel="noopener noreferrer">Click here</Link>
+                    
+                    
+                    </b></p>
              
                       
                  

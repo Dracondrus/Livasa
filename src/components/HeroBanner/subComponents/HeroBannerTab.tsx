@@ -7,12 +7,12 @@ import NiceSelect from "@/components/UI/NiceSelect";
 import { ITabContentProps } from "@/types/banner-d-t";
 
 // TabContent Component
-export default function HeroBannerTabContent({ id, isActive, onSortChange, toggleFilter }: ITabContentProps) {
+export default function HeroBannerTabContent({ id, isActive, onSortChange, toggleFilter, isTypeSearch }: ITabContentProps) {
     return (
         <div className={`tab-pane fade ${isActive ? 'show active' : ''}`} id={id} role="tabpanel">
             <div className="tp-hero-tab-box d-flex align-items-center">
                 <div className="tp-hero-tab-input p-relative">
-                    <input type="text" placeholder="Enter Keywords" />
+                    <input type="text" placeholder="Enter City" />
                 </div>
                 <div className="tp-hero-tab-select tp-select">
                     <NiceSelect
@@ -22,17 +22,21 @@ export default function HeroBannerTabContent({ id, isActive, onSortChange, toggl
                         name="Sorting"
                     />
                 </div>
-                <div className="tp-hero-tab-input p-relative">
-                    <input type="text" placeholder="Neighbourhoods" />
-                    <span><LocationSvg /></span>
+                   <div className="tp-hero-tab-select tp-select">
+                    <NiceSelect
+                        options={propertyTypeOptions}
+                        defaultCurrent={0}
+                        onChange={onSortChange}
+                        name="Sorting"
+                    />
                 </div>
                 <div className="tp-hero-tab-filter">
-                    <button className="tp-hero-filter-btn filter-btn" onClick={toggleFilter}>
+                    {/* <button className="tp-hero-filter-btn filter-btn" onClick={toggleFilter}>
                         <span><FilterBtnSvg /></span>
-                    </button>
+                    </button> */}
                 </div>
                 <div className="tp-hero-tab-search">
-                    <button>
+                    <button onClick={() => console.log(isTypeSearch)}>
                         Search{" "}
                         <span>
                             <SearchSvg />

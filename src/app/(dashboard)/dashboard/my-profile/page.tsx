@@ -1,43 +1,52 @@
+'use client'
 
-import userImg from "../../../../../public/assets/img/shop/user-1.jpg";
-import UserProfileForm from "@/components/Form/UserProfileForm";
 import DashboardLayout from "@/layouts/DashboardLayout";
-import { Metadata } from "next";
-import Image from "next/image";
+import { IUser } from "@/types/user";
+
+
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "My Profile - Bhumi Real Estate React NextJs Template",
-};
+
 
 export default function MyProfile() {
+
+  const user : IUser = JSON.parse(localStorage.getItem(process.env.NEXT_PUBLIC_USER!)!)
+  
+
   return (
     <>
       <DashboardLayout>
         <div className="tp-dashboard-profile-wrapper">
           <h5 className="tp-dashboard-new-title">Account Settings</h5>
           <div className="tp-dashboard-profile-top pb-60">
+                <div className="tp-dashboard-profile-inner">
+                <h6> {user.first_name} </h6>
+             
+              </div>
             <div className="tp-dashboard-profile-left d-flex align-items-center">
-              <div className="tp-dashboard-profile-thumb">
-                <Image src={userImg} alt="user image" />
-                <div className="tp-dashboard-profile-thumb-edit">
-                  <input id="profile-thumb-input" className="profile-img-popup" type="file" />
-                  <label htmlFor="profile-thumb-input"><i className="fa-light fa-camera"></i></label>
-                </div>
-              </div>
+           
               <div className="tp-dashboard-profile-inner">
-                <h4>Welcome Mr. Admin!</h4>
-                <p>You have <span>08</span> notifications</p>
+                <h4> {user.id} </h4>
+             
               </div>
+              <br />
+          
             </div>
+                <div className="tp-dashboard-profile-inner">
+                <h6> {user.username} </h6>
+             
+              </div>
             <div className="tp-dashboard-profile-right">
               <div className="tp-dashboard-profile-btn">
-                <Link href="/sign-in">Logout</Link>
+                <Link href="/sign-uo" onClick={() => {
+                  localStorage.clear()
+                  window.location.reload()
+                }}>Logout</Link>
               </div>
             </div>
           </div>
           {/* Profile form information */}
-          <UserProfileForm />
+          {/* <UserProfileForm /> */}
           {/* Profile form information */}
         </div>
       </DashboardLayout>
