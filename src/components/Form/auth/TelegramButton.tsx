@@ -3,16 +3,18 @@
 import { LoginButton } from "@telegram-auth/react";
 
 export default function TelegramLoginButton() {
-  const handleAuth = async (data: any) => {
-    // 1. Отправляем данные на сервер для проверки
-    const params = new URLSearchParams(data).toString();
+  const handleAuth: NonNullable<
+    React.ComponentProps<typeof LoginButton>["onAuthCallback"]
+  > = async (data) => {
+    const params = new URLSearchParams(
+      Object.entries(data).map(([key, value]) => [key, String(value)])
+    ).toString();
+
     const res = await fetch(`/api/telegram-auth?${params}`);
     const result = await res.json();
 
-    // 2. Сохраняем данные в localStorage
     if (res.ok && result.user) {
       localStorage.setItem("telegramUser", JSON.stringify(result.user));
-
     } else {
       alert("Ошибка авторизации");
     }
@@ -21,7 +23,7 @@ export default function TelegramLoginButton() {
   return (
     <LoginButton
       botUsername={"Livasa_bot"}
-      authCallbackUrl="" // можно оставить пустым
+      authCallbackUrl=""
       buttonSize="large"
       cornerRadius={1}
       showAvatar={true}
