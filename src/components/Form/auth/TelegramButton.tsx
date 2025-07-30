@@ -22,8 +22,8 @@ export default function TelegramLoginButton() {
 
   return (
     <LoginButton
-      botUsername={"Livasa_bot"}
-      authCallbackUrl=""
+      botUsername="Livasa_bot"
+      authCallbackUrl="https://livasa.vercel.app/api/telegram-auth"
       buttonSize="large"
       cornerRadius={1}
       showAvatar={true}
