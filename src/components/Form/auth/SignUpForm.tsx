@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { toast } from "sonner";
 import Link from "next/link";
-import TelegramLoginButton from "./TelegramButton";
+
 
 export default function SignUpForm() {
     const [showPassword, setShowPassword] = useState(false);
@@ -174,7 +174,7 @@ export default function SignUpForm() {
                     <div className="tp-sign-in-from-register">
                         <p>Already have an account? <Link className="textline" href="/sign-in">Log in</Link></p>
                     </div>
-                    <TelegramLoginButton/>
+                    
                 </div>
             </div>
         </form>
