@@ -43,6 +43,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <Script src="https://telegram.org/js/telegram-web-app.js" strategy="beforeInteractive" />
+
       </head>
       <body suppressHydrationWarning className={`${plusJakartaSans.variable} ${geistSans.variable} ${geistMono.variable}`}>
         <ReduxProvider>
