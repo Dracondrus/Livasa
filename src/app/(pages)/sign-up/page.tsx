@@ -15,13 +15,25 @@ export default function SignUp() {
                <div className="row justify-content-center">
                   <div className="col-lg-6">
                      <div className="tp-sign-in-register-box p-relative text-center">
-                        <div className="tp-sign-in-register-heading mb-60">
-                           <h4 className="tp-sign-in-register-title">Register now!</h4>
+                        <div className="tp-sign-in-register-heading mb-30">
+                           <h6  className="tp-sign-in-register-title">It's time to get into business, isn't it?</h6>
                         </div>
                         <div className="tp-sign-in-input-form">
                           <SignUpForm/>
                         </div>
+                   
                      </div>
+                          <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                            <br />
+                        
                   </div>
                </div>
             </div>

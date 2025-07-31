@@ -12,9 +12,12 @@ import useSticky from "@/hooks/useSticky";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import SignInForm from "@/components/Form/auth/SignInForm";
+import { useSession } from "next-auth/react";
+
 
 export default function DashboardHeader() {
+    const { data: session } = useSession();
+  
     const [openCartMini, setOpenCartMini] = useState<boolean>(false);
     const { toggleOffcanvas } = useGlobalContext();
     const { useCartProductQuantity } = useShoppingCartMetrics();
@@ -57,14 +60,9 @@ export default function DashboardHeader() {
 
                         {/*for Sign In modal */}
                         <div className="tp-header-dashboard-user ml-20">
-                            <button
-                                type="button"
-                                className="p-0 border-0 bg-transparent"
-                                data-bs-toggle="modal"
-                                data-bs-target="#exampleModalToggle"
-                            >
-                                <Image src={userImg} alt="user image" />
-                            </button>
+                          
+                                {session? <Image src={session.user.image!} height={40} width={40} alt="user image" /> : <Image src={userImg} alt="user image" />}
+                          
                         </div>
 
                         <div className="tp-header-hamburger d-xl-none offcanvas-open-btn">
@@ -110,9 +108,7 @@ export default function DashboardHeader() {
                                     <h4 className="tp-sign-in-register-title">Hello again</h4>
                                     <p>Enter your credentials to access your account.</p>
                                 </div>
-                                <div className="tp-sign-in-input-form">
-                                    <SignInForm />
-                                </div>
+                               
                             </div>
                         </div>
                     </div>

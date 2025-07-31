@@ -22,13 +22,9 @@ export default function AddPropertyMain() {
       <PriceDetails handleSorting={handleSorting} />
       <AdditionalInfoArea handleSorting={handleSorting} />
       <AmenitiesArea />
-      <VirtualTourArea />
-      <AgentInfomation />
+    
 
-      <div className="tp-dashboard-new-btn">
-        <button type="submit" className="add">Add Property</button>
-        <button type="button" className="save">Save & Preview</button>
-      </div>
+    
     </form>
   );
 }

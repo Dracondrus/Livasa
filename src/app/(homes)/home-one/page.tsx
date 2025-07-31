@@ -13,6 +13,7 @@ import TeamAgentsArea from '@/components/Agent/TeamAgentsArea';
 import HomeTestimonialArea from '@/components/Testimonial/HomeTestimonialArea';
 import TextSlide from '@/components/Features/TextSlide';
 import React from 'react';
+import UsersPage from '@/components/Users/Users';
 
 
     export default function HomeOnePage() {
@@ -20,6 +21,7 @@ import React from 'react';
         <>
             {/* hero banner  */}
             <HeroBannerOne />
+            <UsersPage/>
           
             {/* hero banner end */}
             {/*feature area*/}
