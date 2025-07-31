@@ -1,6 +1,13 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
+interface GoogleProfile {
+  sub: string;
+  name?: string;
+  email?: string;
+  picture?: string;
+}
+
 const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
@@ -15,19 +22,20 @@ const authOptions: NextAuthOptions = {
   callbacks: {
     async jwt({ token, account, profile }) {
       if (account && profile) {
-        token.id = (profile as any).sub ?? "";
-        token.name = (profile as any).name ?? "";
-        token.email = (profile as any).email ?? "";
-        token.picture = (profile as any).picture ?? "";
+        const googleProfile = profile as GoogleProfile;
+        token.id = googleProfile.sub ?? "";
+        token.name = googleProfile.name ?? "";
+        token.email = googleProfile.email ?? "";
+        token.picture = googleProfile.picture ?? "";
       }
       return token;
     },
     async session({ session, token }) {
       if (session.user) {
-        session.user.id = token.id as string;
-        session.user.name = token.name as string;
-        session.user.email = token.email as string;
-        session.user.image = token.picture as string;
+        session.user.id = token.id;
+        session.user.name = token.name;
+        session.user.email = token.email;
+        session.user.image = token.picture;
       }
       return session;
     },
