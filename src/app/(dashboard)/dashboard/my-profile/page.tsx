@@ -23,7 +23,7 @@ export default function MyProfile() {
 ) : (
   <div className="tp-dashboard-profile-thumb-placeholder">No Image</div>
 )}
-
+  
               </div>
               <div className="tp-dashboard-profile-inner">
                 <h6>{session?.user.name}</h6>

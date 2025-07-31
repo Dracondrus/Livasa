@@ -2,11 +2,17 @@
 
 import { useState } from 'react';
 
+interface IUser {
+  id: number;
+  name: string;
+  email: string;
+}
+
 export default function UsersPage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [users, setUsers] = useState<any[]>([]);
+  const [users, setUsers] = useState<IUser[]>([]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
