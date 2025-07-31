@@ -9,7 +9,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import Link from "next/link";
 
-import { signIn, signOut, useSession } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react'
 export default function SignUpForm() {
      const { data: session } = useSession()
      console.log(session)
