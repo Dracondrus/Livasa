@@ -6,7 +6,7 @@ import CommonFooter from "@/layouts/Footers/CommonFooter";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Home - Bhumi Real Estate React NextJs Template",
+  title: "Livasa",
 };
 
 const Home = () => {

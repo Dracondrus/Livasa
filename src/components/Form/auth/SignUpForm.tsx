@@ -9,8 +9,10 @@ import { useState } from "react";
 import { toast } from "sonner";
 import Link from "next/link";
 
-
+import { signIn, signOut, useSession } from 'next-auth/react'
 export default function SignUpForm() {
+     const { data: session } = useSession()
+     console.log(session)
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -156,10 +158,15 @@ export default function SignUpForm() {
                         <h5 className="tp-sign-in-from-subtitle">Or Sign In with</h5>
                     </div>
                     <div className="tp-sign-in-from-btn mb-30">
-                        <Link href="https://google.com" target="_blank">
+
+                        
                             <span><AuthGoogleSvg /></span>{" "}
-                            Google
-                        </Link>{" "}
+                             <button onClick={() => signIn("google")}>
+      Войти с Google
+    </button>
+    <br />
+    {session?.user.email}
+                        {" "}
                         <Link href="https://facebook.com" target="_blank">
                             <span><AuthFacebookSvg /></span>{" "}
                             Facebook

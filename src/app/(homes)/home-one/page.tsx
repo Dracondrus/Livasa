@@ -13,14 +13,14 @@ import TeamAgentsArea from '@/components/Agent/TeamAgentsArea';
 import HomeTestimonialArea from '@/components/Testimonial/HomeTestimonialArea';
 import TextSlide from '@/components/Features/TextSlide';
 import React from 'react';
-import Telegram from '@/components/Telegram/Telegram';
+
 
     export default function HomeOnePage() {
     return (
         <>
             {/* hero banner  */}
             <HeroBannerOne />
-            <Telegram/>
+          
             {/* hero banner end */}
             {/*feature area*/}
             <FeatureShowcaseCategory />

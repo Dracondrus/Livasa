@@ -8,7 +8,8 @@ import type { Metadata } from "next";
 import { Toaster } from "sonner";
 import "swiper/css/bundle";
 import "./globals.scss";
-import Script from "next/script";
+import AuthProvider from "@/provider/AuthProvider";
+
 
 
 // Load Plus Jakarta Sans from Google Fonts
@@ -41,12 +42,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <Script src="https://telegram.org/js/telegram-web-app.js" strategy="beforeInteractive" />
 
-      </head>
       <body suppressHydrationWarning className={`${plusJakartaSans.variable} ${geistSans.variable} ${geistMono.variable}`}>
-        <ReduxProvider>
+        <AuthProvider>
+              <ReduxProvider>
           <VideoProvider>
             <AppProvider>
               {children}
@@ -55,6 +54,8 @@ export default function RootLayout({
             <GlobalVideoModal />
           </VideoProvider>
         </ReduxProvider>
+        </AuthProvider>
+    
       </body>
     </html>
   );

@@ -40,7 +40,7 @@ const Sidebar = () => {
     title: "Manage listing",
     items: [
       {
-        href: "/dashboard/add-new-property",
+        href: "/add-new-property",
         label: "Add new property",
         icon: <AddPropertySvg />,
       },
