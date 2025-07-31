@@ -12,7 +12,7 @@ export async function POST(req: Request) {
       VALUES (${name}, ${email})
     `;
     return NextResponse.json({ success: true });
-  } catch (e) {
-    return NextResponse.json({ success: false, error: (e as Error).message });
+  } catch  {
+    return NextResponse.json({ success: false});
   }
 }

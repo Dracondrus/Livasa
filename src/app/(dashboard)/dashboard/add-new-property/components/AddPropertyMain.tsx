@@ -4,8 +4,6 @@ import UploadMedia from "./UploadMedia";
 import PriceDetails from "./PriceDetails";
 import AdditionalInfoArea from "./AdditionalInfoArea";
 import AmenitiesArea from "./AmenitiesArea";
-import VirtualTourArea from "./VirtualTourArea";
-import AgentInfomation from "./AgentInfomation";
 
 export default function AddPropertyMain() {
 

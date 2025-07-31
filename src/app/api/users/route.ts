@@ -11,8 +11,8 @@ export async function POST(req: Request) {
       VALUES (${name}, ${email});
     `;
     return Response.json({ message: 'User created' });
-  } catch (err) {
-    return Response.json({ error: 'User already exists or error' }, { status: 400 });
+  } catch  {
+    return Response.json( { status: 400 });
   }
 }
 

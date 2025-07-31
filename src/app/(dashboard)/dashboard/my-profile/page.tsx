@@ -18,7 +18,12 @@ export default function MyProfile() {
           <div className="tp-dashboard-profile-top pb-60">
             <div className="tp-dashboard-profile-left d-flex align-items-center">
               <div className="tp-dashboard-profile-thumb">
-                <Image src={session?.user.image!} alt="user image" height={30} width={30}/>
+             {session?.user.image ? (
+  <Image src={session.user.image} alt="user image" height={30} width={30} />
+) : (
+  <div className="tp-dashboard-profile-thumb-placeholder">No Image</div>
+)}
+
               </div>
               <div className="tp-dashboard-profile-inner">
                 <h6>{session?.user.name}</h6>

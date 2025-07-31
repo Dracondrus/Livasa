@@ -16,7 +16,8 @@ export default function SignUp() {
                   <div className="col-lg-6">
                      <div className="tp-sign-in-register-box p-relative text-center">
                         <div className="tp-sign-in-register-heading mb-30">
-                           <h6  className="tp-sign-in-register-title">It's time to get into business, isn't it?</h6>
+                      <h6 className="tp-sign-in-register-title">It&apos;s time to get into business, isn&apos;t it?</h6>
+
                         </div>
                         <div className="tp-sign-in-input-form">
                           <SignUpForm/>
