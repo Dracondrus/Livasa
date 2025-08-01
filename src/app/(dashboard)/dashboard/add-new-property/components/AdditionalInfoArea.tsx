@@ -1,5 +1,5 @@
 import NiceSelect from "@/components/UI/NiceSelect";
-import { PropertyTypeOptions } from "@/data/dropdownData";
+// import { PropertyTypeOptions } from "@/data/dropdownData";
 import { ISortingHandlerProps } from "@/types/custom-interface";
 
 export default function AdditionalInfoArea({ handleSorting }:ISortingHandlerProps) {

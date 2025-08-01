@@ -1,5 +1,5 @@
 "use client"
-import { AddPropertySvg, MyPropertiesSvg, MyFavouritesSvg, ReviewsSvg, IdentityDockSvg, LogoutSvg, DashboardSvg } from "@/components/SVG";
+import { AddPropertySvg, MyPropertiesSvg, MyFavouritesSvg, ReviewsSvg, IdentityDockSvg, DashboardSvg } from "@/components/SVG";
 import Link from "next/link";
 import { JSX, useState, useEffect } from "react";
 

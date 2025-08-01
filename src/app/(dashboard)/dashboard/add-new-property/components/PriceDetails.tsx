@@ -1,4 +1,4 @@
-import NiceSelect from "@/components/UI/NiceSelect";
+// import NiceSelect from "@/components/UI/NiceSelect";
 import { ISortingHandlerProps } from "@/types/custom-interface";
 
 export default function PriceDetails({ handleSorting }: ISortingHandlerProps) {
