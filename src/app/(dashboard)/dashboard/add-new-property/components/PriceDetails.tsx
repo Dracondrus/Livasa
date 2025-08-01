@@ -2,6 +2,7 @@
 import { ISortingHandlerProps } from "@/types/custom-interface";
 
 export default function PriceDetails({ handleSorting }: ISortingHandlerProps) {
+    console.log(handleSorting)
     return (
         <div className="tp-dashboard-new-property mb-50">
             <h5 className="tp-dashboard-new-title">Вescription</h5>
