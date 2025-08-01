@@ -4,10 +4,9 @@ import DashboardPropertyItem from "./components/DashboardPropertyItem";
 import DashboardLayout from "@/layouts/DashboardLayout";
 import { propertyData } from "@/data/propertyData";
 import { Metadata } from "next";
-import FilterByProperty from "./components/FilterByProperty";
 
 export const metadata: Metadata = {
-  title: "My Properties - Bhumi Real Estate React NextJs Template",
+  title: "My Properties",
 };
 
 export default function DashboardProperty() {
@@ -15,9 +14,7 @@ export default function DashboardProperty() {
     <>
       <DashboardLayout>
         {/* Filter by property */}
-        <div className="tp-dashboard-property-wrap">
-          <FilterByProperty />
-        </div>
+      
         {/* My Property */}
         <div className="tp-dashboard-property-wrapper">
           <div className="row">

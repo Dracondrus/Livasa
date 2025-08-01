@@ -49,15 +49,7 @@ export default function DashboardHeader() {
                                 <em>{TotalCartQuantity}</em>
                             </button>
                         </div>
-                        <div className="tp-header-dashboard-btn d-none d-md-block">
-                            <Link className="tp-btn" href="/property-style-1">
-                                <span className="btn-wrap">
-                                    <b className="text-1">Add Listing</b>
-                                    <b className="text-2">Add Listing</b>
-                                </span>
-                            </Link>
-                        </div>
-
+                  
                         {/*for Sign In modal */}
                         <div className="tp-header-dashboard-user ml-20">
                           

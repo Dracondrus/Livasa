@@ -70,11 +70,7 @@ const Sidebar = () => {
         label: "My profile",
         icon: <IdentityDockSvg />,
       },
-      {
-        href: "/sign-in",
-        label: "Logout",
-        icon: <LogoutSvg />,
-      },
+   
     ],
   };
 

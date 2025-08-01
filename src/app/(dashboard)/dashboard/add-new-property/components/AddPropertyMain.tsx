@@ -16,10 +16,13 @@ export default function AddPropertyMain() {
   return (
     <form onSubmit={handleSubmit}>
       <PropertyInformation handleSorting={handleSorting} />
+         <AdditionalInfoArea handleSorting={handleSorting} />
+         <PriceDetails handleSorting={handleSorting}/>
+            <AmenitiesArea />
       <UploadMedia />
-      <PriceDetails handleSorting={handleSorting} />
-      <AdditionalInfoArea handleSorting={handleSorting} />
-      <AmenitiesArea />
+    
+    
+     
     
 
     

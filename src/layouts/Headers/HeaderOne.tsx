@@ -13,8 +13,10 @@ import NavMenus from "../subComponents/NavMenus";
 import UserSvg from "@/components/SVG/UserSvg";
 import useSticky from "@/hooks/useSticky";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 export default function HeaderOne() {
+  const {data:session} = useSession()
   const [openCartMini, setOpenCartMini] = useState<boolean>(false);
   const { toggleOffcanvas } = useGlobalContext();
   const { sticky } = useSticky();
@@ -62,15 +64,32 @@ export default function HeaderOne() {
                   <em>{TotalCartQuantity}</em>
                 </button>
               </div>
-              <div className="tp-header-right-user-icon">
-                <Link href="#" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+              {session ? 
+           <div className="tp-header-right-user-icon">
+  <Link href="/dashboard/my-profile">
+    {session?.user?.image ? (
+      <Image
+        src={session.user.image}
+        alt="User Image"
+        width={40}
+        height={40}
+        className="rounded-full"
+      />
+    ) : (
+      <span><UserSvg /></span>
+    )}
+  </Link>
+</div>
+
+              
+              
+              :  <div className="tp-header-right-user-icon">
+                <Link href="/sign-up" >
                   <span><UserSvg /></span>
                 </Link>
-              </div>
-              <div className="tp-header-right-user-content">
-                <p>Hello, Sign In</p>
-                <span>Your Account</span>
-              </div>
+              </div>}
+             
+           
             </div>
             <div className="tp-header-hamburger d-xl-none offcanvas-open-btn">
               <button onClick={toggleOffcanvas} className="hamburger-btn">

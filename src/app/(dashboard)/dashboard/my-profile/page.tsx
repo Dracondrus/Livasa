@@ -1,15 +1,18 @@
 'use client'
 
 import UserProfileForm from "@/components/Form/UserProfileForm";
+import { LogoutSvg } from "@/components/SVG";
 import DashboardLayout from "@/layouts/DashboardLayout";
 
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
+
 
 
 
 export default function MyProfile() {
   const {data:session} = useSession()
+ 
   return (
     <>
       <DashboardLayout>
@@ -26,12 +29,15 @@ export default function MyProfile() {
   
               </div>
               <div className="tp-dashboard-profile-inner">
-                <h6>{session?.user.name}</h6>
-                
+                <h5>{session?.user.name}</h5>
+                 <h6>{session?.user.email}</h6>
               </div>
             </div>
-            <div className="tp-dashboard-profile-right">
-           
+            <div className="tp-dashboard-profile-right" onClick={() => signOut({callbackUrl: "/sign-up"})}>
+              
+              
+              
+           <LogoutSvg  height={20} width={20}/>
             </div>
           </div>
           {/* Profile form information */}
