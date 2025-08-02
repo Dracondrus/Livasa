@@ -8,6 +8,7 @@ import { ITabContentProps } from "@/types/banner-d-t";
 
 // TabContent Component
 export default function HeroBannerTabContent({ id, isActive, onSortChange, toggleFilter }: ITabContentProps) {
+    console.log(toggleFilter)
     return (
         <div className={`tab-pane fade ${isActive ? 'show active' : ''}`} id={id} role="tabpanel">
             <div className="tp-hero-tab-box d-flex align-items-center">
@@ -26,10 +27,10 @@ export default function HeroBannerTabContent({ id, isActive, onSortChange, toggl
                     <input type="text" placeholder="Neighbourhoods" />
                     <span><LocationSvg /></span>
                 </div>
-                <div className="tp-hero-tab-filter">
-                    <button className="tp-hero-filter-btn filter-btn" onClick={toggleFilter}>
+                <div className="tp-hero-tab-filter" style={{opacity: 0}}>
+                    <div className="tp-hero-filter-btn filter-btn"  >
                         <span><FilterBtnSvg /></span>
-                    </button>
+                    </div>
                 </div>
                 <div className="tp-hero-tab-search">
                     <button>

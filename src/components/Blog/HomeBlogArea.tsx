@@ -8,7 +8,8 @@ export default function HomeBlogArea({wrapClass}:{wrapClass?:string}) {
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="tp-blog-heading text-center mb-50">
-                            <h3 className="tp-section-title">Our latest article and news</h3>
+                            <span className="tp-section-title-pre">Top Quality Services at Great Prices</span>
+                            <h3 className="tp-section-title">Our latest projects and new services</h3>
                         </div>
                     </div>
                     {blogData.slice(0,3).map((blog) => (

@@ -1,5 +1,5 @@
 "use client"
-import heroBg from "../../../public/assets/img/hero/hero-bg-1.jpg";
+import heroBg from "../../../public/assets/img/hero/hero-bg-1.png";
 import HeroBannerTabContent from './subComponents/HeroBannerTab';
 import BannerFromFilter from '../Form/BannerFromFilter';
 import { SocialLinks } from '../UI/SocialLinks';
