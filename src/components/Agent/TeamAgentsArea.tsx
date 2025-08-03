@@ -19,10 +19,7 @@ export default function TeamAgentsArea() {
                     </div>
                     <div className="col-lg-6">
                         <div className="tp-team-btn-box text-start text-lg-end">
-                            <Link className="textline" href="/agent">
-                                Join With Team {" "}
-                                <span><TeamArrowSvg /></span>
-                            </Link>
+                         
                         </div>
                     </div>
                 </div>

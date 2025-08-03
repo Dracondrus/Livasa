@@ -1,6 +1,6 @@
 'use client'
 import menu_data_one from "@/data/menuData";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -23,22 +23,7 @@ const OffcanvasMenus = () => {
                     {menu.home_menu && (
                         <div className="tp-mega-menu" style={{ display: navTitle === menu.label ? "block" : "none" }}>
                             <div className="tp-main-has-submenu">
-                                <div className="row gx-6 row-cols-1 row-cols-md-2 row-cols-lg-5">
-                                    {menu.submenu?.map((hm) => (
-                                        <div key={hm.id} className="col">
-                                            <span>
-                                                <div className="tp-home-thumb">
-                                                    <Link href={hm.url}>
-                                                        <Image style={{ width: "100%", height: "auto" }} src={hm.img!} alt={hm.label} />
-                                                    </Link>
-                                                </div>
-                                            </span>
-                                            <h3 className="tp-home-title">
-                                                <Link href={hm.url}>{hm.label}</Link>
-                                            </h3>
-                                        </div>
-                                    ))}
-                                </div>
+                           
                             </div>
                         </div>
                     )}

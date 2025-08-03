@@ -6,16 +6,29 @@ import { signIn, useSession } from 'next-auth/react';
 import { AuthGoogleSvg } from '@/components/SVG';
 
 export default function SignUpForm() {
-  const { status } = useSession();
-
+  const { status, data: session } = useSession();
   const router = useRouter();
 
   useEffect(() => {
-    if (status === 'authenticated') {
-      router.push('/');
-    }
-  }, [status, router]);
+    if (status === "authenticated" && session?.user) {
+      const userToSend = {
+        ...session.user,
+        firstName: "",
+        secondName: "",
+        phoneNumber: "",
+      };
 
+      fetch("/api/users/check", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userToSend),
+      })
+        .then((res) => {
+          if (res.ok) router.push("/");
+        })
+        .catch(console.error);
+    }
+  }, [status, session, router]);
   return (
     <div
       style={{

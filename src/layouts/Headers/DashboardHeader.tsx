@@ -53,7 +53,7 @@ export default function DashboardHeader() {
                         {/*for Sign In modal */}
                         <div className="tp-header-dashboard-user ml-20">
                           
-                                {session? <Image src={session.user.image!} height={40} width={40} alt="user image" /> : <Image src={userImg} alt="user image" />}
+                                {session? <Image src={session.user.image!} height={20} width={20} alt="user image" /> : <Image src={userImg} alt="user image" />}
                           
                         </div>
 

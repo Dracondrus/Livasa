@@ -22,7 +22,7 @@ export default function MyProfile() {
             <div className="tp-dashboard-profile-left d-flex align-items-center">
               <div className="tp-dashboard-profile-thumb">
              {session?.user.image ? (
-  <Image src={session.user.image} alt="user image" height={30} width={30} />
+  <Image src={session.user.image} alt="user image" height={20} width={20} />
 ) : (
   <div className="tp-dashboard-profile-thumb-placeholder">No Image</div>
 )}

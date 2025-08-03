@@ -71,8 +71,8 @@ export default function HeaderOne() {
       <Image
         src={session.user.image}
         alt="User Image"
-        width={40}
-        height={40}
+        width={20}
+        height={20}
         className="rounded-full"
       />
     ) : (
