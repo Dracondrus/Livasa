@@ -1,10 +1,10 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import TeamAgentItem from "./Single/TeamAgentItem";
-import TeamArrowSvg from "../SVG/TeamArrowSvg";
+// import TeamArrowSvg from "../SVG/TeamArrowSvg";
 import { Pagination } from "swiper/modules";
 import teamAgentData from "@/data/teamData";
-import Link from "next/link";
+// import Link from "next/link";
 
 export default function TeamAgentsArea() {
     return (

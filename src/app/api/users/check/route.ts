@@ -30,8 +30,8 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json({ message: "User checked/added" });
-  } catch (error: any) {
-    console.error("Error in /api/users/check:", error.message ?? error);
-    return NextResponse.json({ error: "Internal Server Error", detail: error.message ?? error }, { status: 500 });
+  } catch  {
+    console.error("Error in /api/users/check:");
+    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }

@@ -17,8 +17,8 @@ export async function GET() {
     `;
 
     return NextResponse.json({ message: "Users table created or already exists" });
-  } catch (error) {
-    console.error("Error creating users table:", error);
+  } catch  {
+    console.error("Error creating users table:");
     return NextResponse.json({ error: "Failed to create table" }, { status: 500 });
   }
 }
