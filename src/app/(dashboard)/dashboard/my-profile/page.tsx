@@ -33,11 +33,11 @@ export default function MyProfile() {
                  <h6>{session?.user.email}</h6>
               </div>
             </div>
-            <div className="tp-dashboard-profile-right" onClick={() => signOut({callbackUrl: "/sign-up"})}>
+            <div style={{cursor: "pointer"}} className="tp-dashboard-profile-right" onClick={() => signOut({callbackUrl: "/sign-up"})}>
               
               
-              
-           <LogoutSvg  height={20} width={20}/>
+
+           <LogoutSvg  height={24} width={24}/>
             </div>
           </div>
           {/* Profile form information */}
