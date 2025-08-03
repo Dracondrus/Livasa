@@ -22,8 +22,8 @@ export async function POST(request: NextRequest) {
     `;
 
     return NextResponse.json({ message: "User info updated successfully" });
-  } catch (err:any) {
-    console.error("Error in /api/users/add-info:" ,err);
+  } catch  {
+    console.error("Error in /api/users/add-info:" );
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }
