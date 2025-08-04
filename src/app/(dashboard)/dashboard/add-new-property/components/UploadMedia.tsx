@@ -15,7 +15,6 @@ type UploadedImage = {
 export default function UploadMedia({ images, onChange }: Props) {
   const [uploadedImages, setUploadedImages] = useState<UploadedImage[]>([]);
 
-  // Обновляем preview src при изменении внешнего `images`
   useEffect(() => {
     const newUploadedImages = images.map((file) => ({
       src: URL.createObjectURL(file),
@@ -61,65 +60,113 @@ export default function UploadMedia({ images, onChange }: Props) {
   );
 
   return (
-    <div className="tp-dashboard-new-property mb-50">
-      <h5 className="tp-dashboard-new-title">Upload Media</h5>
+    <div style={{ marginBottom: "50px" }}>
+      <h5 style={{ fontSize: 18, marginBottom: 12 }}>Upload Media</h5>
 
-      <div className="tp-dashboard-new-um">
-        <div className="tp-dashboard-new-um-content">
-          <span className="upload-btn">
-            <input
-              id="tp-dashboard-new-um-file-input"
-              type="file"
-              accept="image/png, image/jpeg"
-              multiple
-              onChange={handleImageUpload}
-            />
-            <label htmlFor="tp-dashboard-new-um-file-input">Select Image</label>
-          </span>
-          <p>
-            or drag photos here <br /> (Up to 10 photos)
-          </p>
-        </div>
+      <div
+        style={{
+          border: "2px dashed #ccc",
+          padding: 20,
+          borderRadius: 8,
+          textAlign: "center",
+        }}
+      >
+        <span style={{ display: "inline-block", marginBottom: 8 }}>
+          <input
+            id="upload-file-input"
+            type="file"
+            accept="image/png, image/jpeg"
+            multiple
+            onChange={handleImageUpload}
+            style={{ display: "none" }}
+          />
+          <label
+            htmlFor="upload-file-input"
+            style={{
+              padding: "8px 16px",
+              backgroundColor: "#262B35",
+              color: "#fff",
+              cursor: "pointer",
+              borderRadius: 6,
+            }}
+          >
+            Select Images
+          </label>
+        </span>
+        <p style={{ fontSize: 14, color: "#666" }}>
+          or drag photos here <br /> (Up to 10 photos)
+        </p>
 
         {uploadedImages.length > 0 && (
-          <>
-    
-            <div className="tp-dashboard-new-um-img-box d-flex d-flex-direction-wrap flex-wrap   " style={{ justifyContent:"center"}} >
-              {uploadedImages.map((img, index) => (
-                <div key={index} className="tp-dashboard-new-um-img">
-                  <Image
-                    src={img.src}
-                    alt={`uploaded-image-${index + 1}`}
-                    width={90}
-                    height={90}
-                  />
-                  {index === 0 && (
-                    <div
-                      style={{
-                        fontWeight: 700,
-                        position: "absolute",
-                        top: 4,
-                        left: 4,
-                        backgroundColor: "#222",
-                        color: "#fff",
-                        fontSize: 12,
-                        padding: "2px 8px",
-                        borderRadius: 10,
-                      }}
-                    >
-                      Preview
-                    </div>
-                  )}
-                  <button
-                    type="button"
-                    onClick={() => handleRemoveImage(index)}
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              gap: 12,
+              marginTop: 20,
+            }}
+          >
+            {uploadedImages.map((img, index) => (
+              <div
+                key={index}
+                style={{
+                  position: "relative",
+                  width: 200,
+                  height: 100,
+                  borderRadius: 8,
+                  overflow: "hidden",
+                }}
+              >
+                <Image
+                  src={img.src}
+                  alt={`uploaded-image-${index + 1}`}
+                  width={200}
+                  height={100}
+                  style={{ objectFit: "cover", borderRadius: 8 }}
+                />
+                {index === 0 && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 4,
+                      left: 4,
+                      backgroundColor: "#222",
+                      color: "#fff",
+                      fontSize: 12,
+                      padding: "2px 6px",
+                      borderRadius: 6,
+                      fontWeight: "bold",
+                    }}
                   >
-                    <i className="fal fa-trash-alt"></i>
-                  </button>
-                </div>
-              ))}
-            </div>
-          </>
+                    Preview
+                  </div>
+                )}
+                <button
+                  type="button"
+                  onClick={() => handleRemoveImage(index)}
+                  style={{
+                    position: "absolute",
+                    top: 4,
+                    right: 4,
+                    background: "rgba(0,0,0,0.5)",
+                    border: "none",
+                    borderRadius: "50%",
+                    color: "#fff",
+                    width: 20,
+                    height: 20,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    cursor: "pointer",
+                    fontSize: 12,
+                  }}
+                >
+                  ✕
+                </button>
+              </div>
+            ))}
+          </div>
         )}
       </div>
     </div>

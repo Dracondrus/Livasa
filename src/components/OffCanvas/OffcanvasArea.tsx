@@ -45,14 +45,7 @@ export default function OffcanvasArea() {
                         </div>
                         <div className="offcanvas-info mb-30">
                             <h4 className="offcanvas__title">Contacts</h4>
-                            <div className="offcanvas__contact-content d-flex">
-                                <div className="offcanvas__contact-content-icon">
-                                    <i className="fa-sharp fa-solid fa-location-dot"></i>
-                                </div>
-                                <div className="offcanvas__contact-content-content">
-                                    <Link href="https://www.google.com/maps/search/86+Road+Broklyn+Street,+600+New+York,+USA/@40.6897806,-74.0278086,12z/data=!3m1!4b1">86 Road Broklyn Street, 600 </Link>
-                                </div>
-                            </div>
+                       
                             <div className="offcanvas__contact-content d-flex">
                                 <div className="offcanvas__contact-content-icon">
                                     <i className="fa-solid fa-envelope"></i>
@@ -72,7 +65,7 @@ export default function OffcanvasArea() {
                         </div>
                         <div className="offcanvas__social">
                             <Link className="icon instagram" href="#"><i className="fa-brands fa-instagram"></i></Link>
-                            <Link className="icon telegram" href="#"><i className="fa-brands fa-telegram"></i></Link>
+                            <Link className="icon youtube" href="#"><i className="fa-brands fa-youtube"></i></Link>
               
                             <Link className="icon telegram" href="https://t.me/livasa_uz"><i className="fab fa-telegram"></i></Link>
                 

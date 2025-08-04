@@ -48,17 +48,17 @@ const menu_data_one = [
       { id: 5, label: "My Profile", url: "/dashboard/my-profile" },
     ],
   },
-  {
-    id: 5,
-    label: "Shop",
-    url: "#",
-    submenu: [
-      { id: 1, label: "Cart", url: "/cart" },
-      { id: 2, label: "Checkout", url: "/checkout" },
-      { id: 3, label: "Wishlist", url: "/wishlist" },
-      { id: 5, label: "Compare", url: "/compare" },
-    ],
-  },
+  // {
+  //   id: 5,
+  //   label: "Shop",
+  //   url: "#",
+  //   submenu: [
+  //     { id: 1, label: "Cart", url: "/cart" },
+  //     { id: 2, label: "Checkout", url: "/checkout" },
+  //     { id: 3, label: "Wishlist", url: "/wishlist" },
+  //     { id: 5, label: "Compare", url: "/compare" },
+  //   ],
+  // },
 ];
 
 export default menu_data_one;

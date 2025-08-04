@@ -5,10 +5,10 @@ import logoWhite from "../../../public/assets/img/logo/logo-white.png";
 import logoBlack from "../../../public/assets/img/logo/logo-black.png";
 import OffcanvasArea from "../../components/OffCanvas/OffcanvasArea";
 import CartOffcanvas from "@/components/OffCanvas/CartOffcanvas";
-import { CartIconSvg } from "@/components/SVG/CartIconSvg";
-import useShoppingCartMetrics from "@/hooks/useCart";
+// import { CartIconSvg } from "@/components/SVG/CartIconSvg";
+// import useShoppingCartMetrics from "@/hooks/useCart";
 import useGlobalContext from "@/hooks/useContext";
-import { WishlistIconSvg } from "@/components/SVG";
+// import { WishlistIconSvg } from "@/components/SVG";
 import NavMenus from "../subComponents/NavMenus";
 import UserSvg from "@/components/SVG/UserSvg";
 import useSticky from "@/hooks/useSticky";
@@ -20,10 +20,7 @@ export default function HeaderOne() {
   const [openCartMini, setOpenCartMini] = useState<boolean>(false);
   const { toggleOffcanvas } = useGlobalContext();
   const { sticky } = useSticky();
-  //cart quantity
-  const { useCartProductQuantity, useWishlstQuantity } = useShoppingCartMetrics();
-  const TotalCartQuantity = useCartProductQuantity();
-  const TotalWishlistQuantity = useWishlstQuantity();
+
 
   const renderHeaderContent = () => (
     <div className="container container-large">
@@ -50,20 +47,12 @@ export default function HeaderOne() {
           <div className="tp-header-main-right d-flex align-items-center justify-content-end">
             <div className="tp-header-right-user d-none d-md-flex align-items-center">
 
-              <div className="tp-header-right-wishlist mr-30 d-none d-xxl-block">
-                <Link href="/wishlist"><span>
-                  <WishlistIconSvg color="currentColor" />
-                </span>
-                  <em>{TotalWishlistQuantity}</em>
-                </Link>
-              </div>
+             
 
-              <div className="tp-header-right-cart mr-30">
-                <button onClick={() => setOpenCartMini(true)} className="cartmini-open-btn">
-                  <span><CartIconSvg color="currentColor" /></span>
-                  <em>{TotalCartQuantity}</em>
-                </button>
+              <div className="tp-header-right-wishlist mr-30 d-none d-xxl-block">
+           Lang
               </div>
+             
               {session ? 
            <div className="tp-header-right-user-icon">
   <Link href="/dashboard/my-profile">
@@ -71,8 +60,8 @@ export default function HeaderOne() {
       <Image
         src={session.user.image}
         alt="User Image"
-        width={20}
-        height={20}
+        width={35}
+        height={35}
         className="rounded-full"
       />
     ) : (

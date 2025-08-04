@@ -43,12 +43,7 @@ export default function DashboardHeader() {
                 </div>
                 <div className="col-xl-3 col-lg-4 col-md-9 col-6">
                     <div className="tp-header-dashboard-main-right d-flex align-items-center justify-content-end">
-                        <div className="tp-header-right-cart mr-30">
-                            <button onClick={() => setOpenCartMini(true)} className="cartmini-open-btn">
-                                <span><HeaderCartSvg /></span>
-                                <em>{TotalCartQuantity}</em>
-                            </button>
-                        </div>
+                     
                   
                         {/*for Sign In modal */}
                         <div className="tp-header-dashboard-user ml-20">
