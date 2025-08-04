@@ -50,8 +50,8 @@ export async function POST(req: Request) {
     `;
 
     return NextResponse.json({ message: "Property added successfully" });
-  } catch (error) {
-    console.error("Error creating property:", error);
-    return NextResponse.json({ error: "Failed to add property" }, { status: 500 });
+  } catch  {
+    console.error("Error creating property:");
+    return NextResponse.json( { status: 500 });
   }
 }

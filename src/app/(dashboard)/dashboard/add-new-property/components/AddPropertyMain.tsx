@@ -127,7 +127,7 @@ const handleSubmit = async () => {
     } else {
       alert("Failed to save property");
     }
-  } catch (error) {
+  } catch {
     alert("Error during submission");
   } finally {
     setIsLoading(false);
