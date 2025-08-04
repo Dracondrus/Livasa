@@ -20,13 +20,7 @@ const OffcanvasMenus = () => {
             {menu_data_one.map((menu) => (
                 <li key={menu.id} className={menu.home_menu ? 'p-static' : navTitle === menu.label ? 'active' : ''}>
                     <Link href={menu.url}>{menu.label}</Link>
-                    {menu.home_menu && (
-                        <div className="tp-mega-menu" style={{ display: navTitle === menu.label ? "block" : "none" }}>
-                            <div className="tp-main-has-submenu">
-                           
-                            </div>
-                        </div>
-                    )}
+                  
                     {!menu.home_menu && menu.submenu && <ul className="tp-submenu submenu" style={{ display: navTitle === menu.label ? "block" : "none" }}>
                         {menu.submenu.map((sm) => (
                             <li key={sm.id}>

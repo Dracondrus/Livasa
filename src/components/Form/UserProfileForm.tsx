@@ -99,7 +99,7 @@ export default function UserProfileForm() {
       setCanSave(false);
       setIsModalOpen(false);
     } else {
-      alert("Ошибка: " + result.error);
+      alert( result.error);
     }
   };
 
@@ -134,11 +134,11 @@ export default function UserProfileForm() {
       </div>
 
       <Modal
-        title="Редактировать профиль"
+        title="Edit profile"
         open={isModalOpen}
         onCancel={() => setIsModalOpen(false)}
         onOk={handleSave}
-        okText={canSave ? "Сохранить" : `Ожидайте: ${timeLeft}`}
+        okText={canSave ? "Save" : `Wait: ${timeLeft}`}
         okButtonProps={{ disabled: !canSave, loading }}
       >
         <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>

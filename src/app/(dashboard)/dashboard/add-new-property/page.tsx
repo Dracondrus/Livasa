@@ -3,7 +3,7 @@ import AddPropertyMain from "./components/AddPropertyMain"
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Add New Property - Bhumi Real Estate React NextJs Template",
+  title: "Add New Property ",
 };
 
 export default function AddProperty() {

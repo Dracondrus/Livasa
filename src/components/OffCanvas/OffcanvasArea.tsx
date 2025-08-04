@@ -58,7 +58,7 @@ export default function OffcanvasArea() {
                                     <i className="fa-solid fa-envelope"></i>
                                 </div>
                                 <div className="offcanvas__contact-content-content">
-                                    <Link href="mailto:needhelp@company.com"> Needhelp@company.com  </Link>
+                                    <Link href="mailto:needhelp@company.com"> elfasatasa@gmail.com </Link>
                                 </div>
                             </div>
                             <div className="offcanvas__contact-content d-flex">
@@ -66,15 +66,17 @@ export default function OffcanvasArea() {
                                     <i className="fa-solid fa-phone"></i>
                                 </div>
                                 <div className="offcanvas__contact-content-content">
-                                    <Link href="tel:01310-069824"> +92 666 888 0000</Link>
+                                    <Link href="tel:01310-069824"> +998 90 089 77 22</Link>
                                 </div>
                             </div>
                         </div>
                         <div className="offcanvas__social">
-                            <Link className="icon facebook" href="#"><i className="fab fa-facebook-f"></i></Link>
-                            <Link className="icon twitter" href="#"><i className="fab fa-twitter"></i></Link>
-                            <Link className="icon youtube" href="#"><i className="fab fa-youtube"></i></Link>
-                            <Link className="icon linkedin" href="#"><i className="fab fa-linkedin"></i></Link>
+                            <Link className="icon instagram" href="#"><i className="fa-brands fa-instagram"></i></Link>
+                            <Link className="icon telegram" href="#"><i className="fa-brands fa-telegram"></i></Link>
+              
+                            <Link className="icon telegram" href="https://t.me/livasa_uz"><i className="fab fa-telegram"></i></Link>
+                
+        
                         </div>
                     </div>
                 </div>

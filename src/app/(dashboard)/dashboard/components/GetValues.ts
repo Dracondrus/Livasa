@@ -4,7 +4,8 @@ export interface IGetAllValue {
   iAInformation: IAInformation;
   iDescription: IDescription;
   amenities: string[];
-  images: File[]; // ← добавлено
+  images: string[]; // ← добавлено
+  permission: boolean
 }
 
 export interface IUser {

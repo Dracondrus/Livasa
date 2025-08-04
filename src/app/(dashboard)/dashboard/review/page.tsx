@@ -4,7 +4,7 @@ import ReviewItem from "./components/ReviewSingleItem";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Review - Bhumi Real Estate React NextJs Template",
+  title: "Review ",
 };
 
 export default function DashboardReview() {

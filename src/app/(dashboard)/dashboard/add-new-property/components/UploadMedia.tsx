@@ -96,14 +96,15 @@ export default function UploadMedia({ images, onChange }: Props) {
                   {index === 0 && (
                     <div
                       style={{
+                        fontWeight: 700,
                         position: "absolute",
                         top: 4,
                         left: 4,
                         backgroundColor: "#222",
                         color: "#fff",
-                        fontSize: 10,
-                        padding: "2px 6px",
-                        borderRadius: 4,
+                        fontSize: 12,
+                        padding: "2px 8px",
+                        borderRadius: 10,
                       }}
                     >
                       Preview

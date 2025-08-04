@@ -1,5 +1,13 @@
-"use client"
-import { AddPropertySvg, MyPropertiesSvg, MyFavouritesSvg, ReviewsSvg, IdentityDockSvg, DashboardSvg } from "@/components/SVG";
+"use client";
+import {
+  AddPropertySvg,
+  MyPropertiesSvg,
+  MyFavouritesSvg,
+  ReviewsSvg,
+  IdentityDockSvg,
+  DashboardSvg,
+} from "@/components/SVG";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { JSX, useState, useEffect } from "react";
 
@@ -7,7 +15,7 @@ import { JSX, useState, useEffect } from "react";
 interface SidebarItem {
   href: string;
   label: string;
-  icon: JSX.Element;
+  icon?: JSX.Element;
 }
 
 // SidebarSection interface
@@ -18,6 +26,8 @@ interface SidebarSection {
 
 // Sidebar component
 const Sidebar = () => {
+  const { data: session } = useSession();
+  const userEmail = session?.user?.email;
   const [activePath, setActivePath] = useState<string>("");
 
   // Update activePath when the component mounts
@@ -39,6 +49,15 @@ const Sidebar = () => {
   const manageListingSection: SidebarSection = {
     title: "Manage listing",
     items: [
+      // Добавляем пункт Create только если email совпадает
+      ...(userEmail === process.env.NEXT_PUBLIC_ACCESS!
+        ? [
+            {
+              href: "/dashboard/manage",
+              label: "Manage",
+            },
+          ]
+        : []),
       {
         href: "/dashboard/add-new-property",
         label: "Add new property",
@@ -70,20 +89,19 @@ const Sidebar = () => {
         label: "My profile",
         icon: <IdentityDockSvg />,
       },
-   
     ],
   };
 
   // Sidebar render function with active class logic
   const renderSection = (section: SidebarSection) => (
-    <div className="tp-dashboard-sidebar-content pb-70">
+    <div className="tp-dashboard-sidebar-content pb-70" key={section.title}>
       <h4 className="tp-dashboard-sidebar-title">{section.title}</h4>
       {section.items.map((item, index) => (
         <div className="tp-dashboard-sidebar-item" key={index}>
           <Link
             href={item.href}
             className={activePath === item.href ? "active" : ""}
-            onClick={() => setActivePath(item.href)} 
+            onClick={() => setActivePath(item.href)}
           >
             <span>{item.icon}</span> {item.label}
           </Link>
@@ -104,4 +122,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-

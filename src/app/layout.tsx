@@ -31,8 +31,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bhumi - Real Estate React NextJs Template",
-  description: "Bhumi is a modern, highly customizable Next.js theme designed for real estate businesses, agencies, and property listings, offering a seamless and user-friendly experience.",
+  title: "Livasa ",
+  description: "Livasa care about clients",
 };
 
 export default function RootLayout({
