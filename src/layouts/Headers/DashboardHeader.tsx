@@ -1,11 +1,11 @@
 "use client"
 
 import logoBlack from "../../../public/assets/img/logo/logo-black.png";
-import HeaderCartSvg from "@/components/SVG/DashboardSvg/HeaderCartSvg";
+// import HeaderCartSvg from "@/components/SVG/DashboardSvg/HeaderCartSvg";
 import OffcanvasArea from "../../components/OffCanvas/OffcanvasArea";
 import userImg from "../../../public/assets/img/shop/user-1.jpg";
 import CartOffcanvas from "@/components/OffCanvas/CartOffcanvas";
-import useShoppingCartMetrics from "@/hooks/useCart";
+// import useShoppingCartMetrics from "@/hooks/useCart";
 import useGlobalContext from "@/hooks/useContext";
 import NavMenus from "../subComponents/NavMenus";
 import useSticky from "@/hooks/useSticky";
@@ -20,8 +20,8 @@ export default function DashboardHeader() {
   
     const [openCartMini, setOpenCartMini] = useState<boolean>(false);
     const { toggleOffcanvas } = useGlobalContext();
-    const { useCartProductQuantity } = useShoppingCartMetrics();
-    const TotalCartQuantity = useCartProductQuantity();
+    // const { useCartProductQuantity } = useShoppingCartMetrics();
+    // const TotalCartQuantity = useCartProductQuantity();
     const { sticky } = useSticky();
 
     const renderHeaderContent = () => (
