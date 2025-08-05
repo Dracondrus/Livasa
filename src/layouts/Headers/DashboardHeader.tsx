@@ -3,7 +3,7 @@
 import logoBlack from "../../../public/assets/img/logo/logo-black.png";
 // import HeaderCartSvg from "@/components/SVG/DashboardSvg/HeaderCartSvg";
 import OffcanvasArea from "../../components/OffCanvas/OffcanvasArea";
-import userImg from "../../../public/assets/img/shop/user-1.jpg";
+// import userImg from "../../../public/assets/img/shop/user-1.jpg";
 import CartOffcanvas from "@/components/OffCanvas/CartOffcanvas";
 // import useShoppingCartMetrics from "@/hooks/useCart";
 import useGlobalContext from "@/hooks/useContext";
