@@ -1,9 +1,10 @@
 import PricingCard from "./subComponents/PricingCard";
 
 const pricingPlans = [
-    { name: "Basic", price: "$45", delay: ".3s" },
-    { name: "Standard", price: "$55", delay: ".5s", active: true },
-    { name: "Premium", price: "$65", delay: ".7s" }
+        { name: "Basic", price: "$3", delay: ".2s",active: true  },
+    { name: "Standard", price: "$8", delay: ".4" ,active: true },
+    { name: "Premium", price: "$14", delay: ".6", active: true },
+    { name: "Business", price: "$22", delay: ".7", active: true }
 ];
 
 

@@ -5,21 +5,21 @@ import AnimatedCounter from "./AnimatedCounter";
 export const CounterData: ICounterDT[] = [
     {
         title: "Total area sq",
-        count: 20,
-        unit: "M",
-        description: <><p>Real estate users already have <br /> used our bhumi</p></>
+        count: 2.2,
+        unit: "K",
+        description: <><p>Real estate users already have <br /> used our Livasa</p></>
     },
     {
         title: "We are already sold apartments",
-        count: 95,
+        count: 94,
         unit: "%",
         description: <><p>Clients supports and their <br /> satisfactions</p></>
     },
     {
         title: "Customers have all over world",
-        count: 5,
-        unit: "k+",
-        description: <><p>Monthly campaign <br /> with orders</p></>
+        count: 0.5,
+        unit: "k",
+        description: <><p>Monthly add <br /> property</p></>
 
     }
 ];
@@ -31,7 +31,7 @@ export default function CounterHomeFour() {
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="tp-counter-4-heading text-center mb-50">
-                            <span className="tp-section-title-pre">WHY CHOOSE BHUMI</span>
+                            <span className="tp-section-title-pre">WHY CHOOSE Livasa</span>
                             <h4 className="tp-section-title">Trusted real estate company <br />
                                 by the happy users</h4>
                             <p>Online property marketplace to buy, sell, and rent residential and  comme rcial properties. Used by <br />

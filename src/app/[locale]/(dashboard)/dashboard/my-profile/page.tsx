@@ -1,5 +1,6 @@
 'use client'
 
+import ChangeLang from "@/components/ChangeLang/Changelang";
 import UserProfileForm from "@/components/Form/UserProfileForm";
 import { LogoutSvg } from "@/components/SVG";
 import DashboardLayout from "@/layouts/DashboardLayout";
@@ -17,7 +18,10 @@ export default function MyProfile() {
     <>
       <DashboardLayout>
         <div className="tp-dashboard-profile-wrapper">
-          <h5 className="tp-dashboard-new-title">Account Settings</h5>
+        <div style={{display:"flex", alignItems: 'center', justifyContent: "space-between"}}>
+            <h5 className="tp-dashboard-new-title">Profile</h5>
+         <div style={{marginBottom:20}}>   <ChangeLang/></div>
+        </div>
           <div className="tp-dashboard-profile-top pb-60">
             <div className="tp-dashboard-profile-left d-flex align-items-center">
               <div className="tp-dashboard-profile-thumb">

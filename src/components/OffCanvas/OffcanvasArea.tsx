@@ -24,9 +24,9 @@ export default function OffcanvasArea() {
                     <div className="offcanvas__content">
                         <div className="offcanvas__top mb-40">
                             <div className="offcanvas__logo">
-                                <Link href="/">
+                                
                                     <Image src={logoWhite} alt="logo" />
-                                </Link>
+                              
                             </div>
                         </div>
 

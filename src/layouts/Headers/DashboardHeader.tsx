@@ -45,12 +45,7 @@ export default function DashboardHeader() {
                     <div className="tp-header-dashboard-main-right d-flex align-items-center justify-content-end">
                      
                   
-                        {/*for Sign In modal */}
-                        <div className="tp-header-dashboard-user ml-20">
-                          
-                                {session? <Image src={session.user.image!} height={20} width={20} alt="user image" /> : <Image src={userImg} alt="user image" />}
-                          
-                        </div>
+                   
 
                         <div className="tp-header-hamburger d-xl-none offcanvas-open-btn">
                             <button onClick={toggleOffcanvas} className="hamburger-btn">

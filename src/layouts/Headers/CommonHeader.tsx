@@ -3,9 +3,9 @@
 import logoBlack from "../../../public/assets/img/logo/logo-black.png";
 import OffcanvasArea from "../../components/OffCanvas/OffcanvasArea";
 import CartOffcanvas from "@/components/OffCanvas/CartOffcanvas";
-import WishlistIconSvg from "@/components/SVG/WishlistIconSvg";
-import { CartIconSvg } from "@/components/SVG/CartIconSvg";
-import useShoppingCartMetrics from "@/hooks/useCart";
+// import WishlistIconSvg from "@/components/SVG/WishlistIconSvg";
+// import { CartIconSvg } from "@/components/SVG/CartIconSvg";
+// import useShoppingCartMetrics from "@/hooks/useCart";
 import useGlobalContext from "@/hooks/useContext";
 import NavMenus from "../subComponents/NavMenus";
 import useSticky from "@/hooks/useSticky";
@@ -15,12 +15,12 @@ import Link from "next/link";
 
 export default function CommonHeader({ wrapClass = "" }) {
     const [openCartMini, setOpenCartMini] = useState<boolean>(false);
-    const { useCartProductQuantity, useWishlstQuantity } = useShoppingCartMetrics();
+    // const { useCartProductQuantity, useWishlstQuantity } = useShoppingCartMetrics();
     const { toggleOffcanvas } = useGlobalContext();
     const { sticky } = useSticky();
     //cart quantity
-    const TotalCartQuantity = useCartProductQuantity();
-    const TotalWishlistQuantity = useWishlstQuantity();
+    // const TotalCartQuantity = useCartProductQuantity();
+    // const TotalWishlistQuantity = useWishlstQuantity();
 
     // Header Content Component
     const renderHeaderContent = ({ toggleOffcanvas }: { toggleOffcanvas: () => void }) => (
@@ -45,7 +45,7 @@ export default function CommonHeader({ wrapClass = "" }) {
                 <div className="col-xl-4 col-lg-4 col-md-9 col-6">
                     <div className="tp-header-5-main-right d-flex align-items-center justify-content-end">
 
-                        <div className="tp-header-right-wishlist color-black mr-30 d-none d-xxl-block">
+                        {/* <div className="tp-header-right-wishlist color-black mr-30 d-none d-xxl-block">
                             <Link href="/wishlist"><span>
                                 <WishlistIconSvg color="#000" />
                             </span>
@@ -58,16 +58,16 @@ export default function CommonHeader({ wrapClass = "" }) {
                                 <span><CartIconSvg color="#000" /></span>
                                 <em>{TotalCartQuantity}</em>
                             </button>
-                        </div>
+                        </div> */}
 
-                        <div className="tp-header-5-btn d-none d-md-block">
+                        {/* <div className="tp-header-5-btn d-none d-md-block">
                             <Link className="tp-btn" href="/property-style-1">
                                 <span className="btn-wrap">
                                     <b className="text-1">Find Property</b>
                                     <b className="text-2">Find Property</b>
                                 </span>
                             </Link>
-                        </div>
+                        </div> */}
                         <div className="tp-header-hamburger d-xl-none offcanvas-open-btn">
                             <button onClick={toggleOffcanvas} className="hamburger-btn">
                                 <span></span>

@@ -3,9 +3,9 @@ import {
   AddPropertySvg,
   MyPropertiesSvg,
   MyFavouritesSvg,
-  ReviewsSvg,
+  // ReviewsSvg,
   IdentityDockSvg,
-  DashboardSvg,
+  // DashboardSvg,
 } from "@/components/SVG";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
@@ -35,16 +35,7 @@ const Sidebar = () => {
     setActivePath(window.location.pathname);
   }, []);
 
-  const mainSection: SidebarSection = {
-    title: "Main",
-    items: [
-      {
-        href: "/dashboard",
-        label: "Dashboard",
-        icon: <DashboardSvg />,
-      },
-    ],
-  };
+
 
   const manageListingSection: SidebarSection = {
     title: "Manage listing",
@@ -73,11 +64,11 @@ const Sidebar = () => {
         label: "My favourites",
         icon: <MyFavouritesSvg />,
       },
-      {
-        href: "/dashboard/review",
-        label: "Reviews",
-        icon: <ReviewsSvg />,
-      },
+      // {
+      //   href: "/dashboard/review",
+      //   label: "Reviews",
+      //   icon: <ReviewsSvg />,
+      // },
     ],
   };
 
@@ -113,7 +104,7 @@ const Sidebar = () => {
   return (
     <div className="tp-dashboard-sidebar d-none d-xxl-block">
       <div className="tp-dashboard-sidebar-wrap">
-        {renderSection(mainSection)}
+        {/* {renderSection(mainSection)} */}
         {renderSection(manageListingSection)}
         {renderSection(manageAccountSection)}
       </div>

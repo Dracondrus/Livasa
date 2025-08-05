@@ -25,11 +25,11 @@ export default function Pricing() {
             {/* pricing area end */}
 
             {/* progress area */}
-            <ProgressArea paddingTopCls="pt-130" paddingBottomCls="" />
+            {/* <ProgressArea paddingTopCls="pt-130" paddingBottomCls="" /> */}
             {/* progress area end */}
 
             {/* get in touch area */}
-            <ContactHomeFour />
+            {/* <ContactHomeFour /> */}
             {/* get in touch area end */}
         </>
     )

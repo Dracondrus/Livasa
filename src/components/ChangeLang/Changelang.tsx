@@ -5,9 +5,9 @@ import { Link, usePathname } from '@/i18n/navigation';
 // import Flag from 'react-world-flags';
 
 const locales = [
-  { code: 'English', label: 'EN', country: 'US' },
-  { code: 'Руссикй', label: 'RU', country: 'RU' },
-  { code: "O'zbek", label: 'UZ', country: 'UZ' }
+  { code: 'en', label: 'English', country: 'US' },
+  { code: 'ru', label: 'Руссикй', country: 'RU' },
+  { code: "uz", label: "O'zbek", country: 'UZ' }
 ];
 
 export default function ChangeLang() {
@@ -37,7 +37,7 @@ export default function ChangeLang() {
         }}
       >
 <div>
-  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="12" cy="12" r="10" />
     <line x1="2" y1="12" x2="22" y2="12" />
     <path d="M12 2a15.3 15.3 0 0 1 0 20" />
@@ -67,7 +67,7 @@ export default function ChangeLang() {
             animation: 'fadeIn 0.2s ease-in-out'
           }}
         >
-          {locales.map(({ code }) => {
+          {locales.map(({ code,label }) => {
     
             return (
               <Link
@@ -91,7 +91,7 @@ export default function ChangeLang() {
            
               >
        
-                  {code}
+                  {label}
               </Link>
             );
           })}

@@ -3,14 +3,20 @@ import DashboardLayout from "@/layouts/DashboardLayout";
 import { useSession } from "next-auth/react";
 import { notFound } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Tabs, Spin } from "antd";
+import Users from "./components/Users";
+import Properties from "./components/Properties";
+import Ads from "./components/Ads";
+
+const { TabPane } = Tabs;
 
 export default function DashboardReview() {
   const { data: session, status } = useSession();
   const [isAllowed, setIsAllowed] = useState<boolean | null>(null);
+  const [selectedTab, setSelectedTab] = useState("Users");
 
   useEffect(() => {
-    if (status === "loading") return; // ждём загрузки сессии
-
+    if (status === "loading") return;
     if (session?.user.email === process.env.NEXT_PUBLIC_ACCESS) {
       setIsAllowed(true);
     } else {
@@ -19,18 +25,48 @@ export default function DashboardReview() {
   }, [session, status]);
 
   if (isAllowed === false) {
-    notFound(); // вызываем 404
+    notFound();
   }
 
   if (isAllowed === null) {
-    return <p></p>; // или можно скелетон, спиннер
+    return (
+      <div style={{ textAlign: "center", paddingTop: 50 }}>
+        <Spin size="large" />
+      </div>
+    );
   }
+
+  const renderComponent = () => {
+    switch (selectedTab) {
+      case "Users":
+        return <Users/>
+      case "Properties":
+        return <Properties />
+      case "Ads":
+        return <Ads/>
+      default:
+        return null;
+    }
+  };
 
   return (
     <DashboardLayout>
       <div className="tp-dashboard-new-property">
-        <p>users places ads</p>
-        <h1>Manage</h1>
+        <h1 style={{ fontSize: "24px", marginBottom: "24px" }}>Manage</h1>
+
+        <Tabs
+          defaultActiveKey="Users"
+          onChange={(key) => setSelectedTab(key)}
+          
+          tabBarGutter={30}
+          type="line"
+        >
+          <TabPane tab="Users" key="Users" />
+          <TabPane tab="Properties" key="Properties" />
+          <TabPane tab="Ads" key="Ads" />
+        </Tabs>
+
+        <div style={{ marginTop: "20px" }}>{renderComponent()}</div>
       </div>
     </DashboardLayout>
   );
