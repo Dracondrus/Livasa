@@ -67,7 +67,7 @@ export default function ChangeLang() {
             animation: 'fadeIn 0.2s ease-in-out'
           }}
         >
-          {locales.map(({ code, country }) => {
+          {locales.map(({ code }) => {
     
             return (
               <Link
