@@ -12,11 +12,11 @@ import useSticky from "@/hooks/useSticky";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+// import { useSession } from "next-auth/react";
 
 
 export default function DashboardHeader() {
-    const { data: session } = useSession();
+    // const { data: session } = useSession();
   
     const [openCartMini, setOpenCartMini] = useState<boolean>(false);
     const { toggleOffcanvas } = useGlobalContext();
