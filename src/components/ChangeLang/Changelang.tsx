@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Link, usePathname } from '@/i18n/navigation';
-import Flag from 'react-world-flags';
+// import Flag from 'react-world-flags';
 
 const locales = [
   { code: 'English', label: 'EN', country: 'US' },
