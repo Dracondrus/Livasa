@@ -1,9 +1,9 @@
-import signUpThumb from "../../../../public/assets/img/others/sign-in-thumb.jpg";
+import signUpThumb from "../../../../../public/assets/img/others/sign-in-thumb.jpg";
 import SignUpForm from "@/components/Form/auth/SignUpForm";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-   title: "Sign Up - Bhumi Real Estate React NextJs Template",
+   title: "Sign Up",
  };
 
 export default function SignUp() {

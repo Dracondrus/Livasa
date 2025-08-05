@@ -4,8 +4,10 @@ import HeroBannerTabContent from './subComponents/HeroBannerTab';
 import BannerFromFilter from '../Form/BannerFromFilter';
 import { SocialLinks } from '../UI/SocialLinks';
 import React, { useState } from 'react';
+import { useTranslations } from "next-intl";
 
 export default function HeroBannerOne() {
+      const t = useTranslations('Home');
     const [isFilterVisible, setIsFilterVisible] = useState(false);
     const [activeTab,] = useState("nav-profile");
     const toggleFilter = () => setIsFilterVisible((prev) => !prev);
@@ -20,8 +22,8 @@ export default function HeroBannerOne() {
                         <div className="col-lg-12">
                             <div className="tp-hero-content">
                                 <div className="tp-hero-heading text-center">
-                                    <h3 className="tp-hero-heading-title wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">Discover Your Place</h3>
-                                    <p className="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Get Started in Few Clicks</p>
+                                    <h3 className="tp-hero-heading-title wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">{t("Discover_Your_Place")}</h3>
+                                    <p className="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">{t("Get_Started_in_Few_Clicks")}</p>
                                 </div>
                                 <div className="tp-hero-tab p-relative wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s">
                                     <div className="row">

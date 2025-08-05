@@ -1,16 +1,19 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
 
+// Твоя конфигурация Next.js
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**", // Разрешить все хосты — осторожно с этим!
+        hostname: "**", // Осторожно: разрешает все внешние картинки
       },
     ],
-    // или можно указать конкретные надёжные хосты, чтобы избежать рисков
-    // domains: ['lh3.googleusercontent.com', 'res.cloudinary.com'],
   },
 };
 
-export default nextConfig;
+// Оборачиваем конфиг плагином next-intl
+const withNextIntl = createNextIntlPlugin();
+
+export default withNextIntl(nextConfig);

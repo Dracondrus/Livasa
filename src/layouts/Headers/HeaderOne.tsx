@@ -14,8 +14,11 @@ import UserSvg from "@/components/SVG/UserSvg";
 import useSticky from "@/hooks/useSticky";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
+import ChangeLang from "@/components/ChangeLang/Changelang";
+
 
 export default function HeaderOne() {
+    
   const {data:session} = useSession()
   const [openCartMini, setOpenCartMini] = useState<boolean>(false);
   const { toggleOffcanvas } = useGlobalContext();
@@ -50,7 +53,7 @@ export default function HeaderOne() {
              
 
               <div className="tp-header-right-wishlist mr-30 d-none d-xxl-block">
-           Lang
+              <ChangeLang/>
               </div>
              
               {session ? 
@@ -63,6 +66,7 @@ export default function HeaderOne() {
         width={35}
         height={35}
         className="rounded-full"
+        
       />
     ) : (
       <span><UserSvg /></span>

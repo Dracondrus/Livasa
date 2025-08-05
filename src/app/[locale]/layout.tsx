@@ -9,7 +9,9 @@ import { Toaster } from "sonner";
 import "swiper/css/bundle";
 import "./globals.scss";
 import AuthProvider from "@/provider/AuthProvider";
-
+import {NextIntlClientProvider, hasLocale} from 'next-intl';
+import {notFound} from 'next/navigation';
+import {routing} from '@/i18n/routing';
 
 
 // Load Plus Jakarta Sans from Google Fonts
@@ -35,16 +37,24 @@ export const metadata: Metadata = {
   description: "Livasa care about clients",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params
 }: Readonly<{
   children: React.ReactNode;
+    params: Promise<{locale: string}>;
 }>) {
+  const {locale} = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
   return (
-    <html lang="en">
+    <html lang={locale}>
 
       <body suppressHydrationWarning className={`${plusJakartaSans.variable} ${geistSans.variable} ${geistMono.variable}`}>
-        <AuthProvider>
+            <NextIntlClientProvider>
+                     <AuthProvider>
               <ReduxProvider>
           <VideoProvider>
             <AppProvider>
@@ -55,6 +65,8 @@ export default function RootLayout({
           </VideoProvider>
         </ReduxProvider>
         </AuthProvider>
+            </NextIntlClientProvider>
+ 
     
       </body>
     </html>
