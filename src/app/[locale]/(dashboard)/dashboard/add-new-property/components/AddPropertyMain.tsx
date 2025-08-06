@@ -27,7 +27,7 @@ export default function AddPropertyMain() {
   const [quantityLeft, setQuantityLeft] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [errorText, setErrorText] = useState("");
-
+  
   const [formData, setFormData] = useState<IGetAllValueProperty>({
     expirationDate: new Date().toISOString(),
     id: uuidv4(),
@@ -64,6 +64,7 @@ export default function AddPropertyMain() {
         if (!res.ok) throw new Error("Failed to fetch limit");
         const data = await res.json();
         setQuantityLeft(data.quantity);
+ 
         setUser(session.user as IUser);
       } catch (err) {
         console.error("Ошибка при получении лимита:", err);

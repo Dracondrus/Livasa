@@ -3,14 +3,14 @@ import { NextRequest } from "next/server";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
   try {
-    // Await the params object before accessing its properties
-    const { id: userId } = await Promise.resolve(params);
+    // 👇 await для получения `params`
+    const { id } = await Promise.resolve(context.params);
 
     const result = await sql`
-      SELECT quantitysetuppropert FROM users WHERE id = ${userId}
+      SELECT quantitysetuppropert FROM users WHERE id = ${id}
     `;
 
     if (!result.length) {
