@@ -23,8 +23,8 @@ export async function GET() {
     }
 
     return NextResponse.json(result[0]);
-  } catch (err) {
-    console.error("Ошибка при получении пользователя:", err);
+  } catch {
+    console.error("Ошибка при получении пользователя:");
     return new Response("Ошибка сервера", { status: 500 });
   }
 }
