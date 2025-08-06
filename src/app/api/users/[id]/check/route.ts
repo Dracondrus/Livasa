@@ -3,11 +3,12 @@ import { NextRequest } from "next/server";
 
 export async function GET(
   req: NextRequest,
-  context: { params: { id: string } }
+ { params }: { params: { id: string } } // Correctly type params here
 ) {
+    console.log(req)
   try {
     // 👇 await для получения `params`
-    const { id } = await Promise.resolve(context.params);
+    const { id } = await Promise.resolve(params);
 
     const result = await sql`
       SELECT quantitysetuppropert FROM users WHERE id = ${id}

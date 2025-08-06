@@ -59,17 +59,19 @@ export default function AddPropertyMain() {
     if (!session?.user?.id) return;
 
     const fetchUserLimit = async () => {
-      try {
-        const res = await fetch(`/api/users/${session.user.id}/check-limit`);
-        if (!res.ok) throw new Error("Failed to fetch limit");
-        const data = await res.json();
-        setQuantityLeft(data.quantity);
- 
-        setUser(session.user as IUser);
-      } catch (err) {
-        console.error("Ошибка при получении лимита:", err);
-        setErrorText("Не удалось получить данные пользователя");
-      }
+    try {
+  const res = await fetch(`/api/users/get`);
+  if (!res.ok) throw new Error("Failed to fetch limit");
+
+  const data = await res.json();
+  setQuantityLeft(data.quantitysetuppropert);
+  setUser(data); // <-- можно сразу сохранить как IUser
+
+} catch (err) {
+  console.error("Ошибка при получении лимита:", err);
+  setErrorText("Не удалось получить данные пользователя");
+}
+
     };
 
     fetchUserLimit();
