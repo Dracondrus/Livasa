@@ -5,6 +5,7 @@ import {
   MyFavouritesSvg,
   // ReviewsSvg,
   IdentityDockSvg,
+  ReviewsSvg,
   // DashboardSvg,
 } from "@/components/SVG";
 import { useSession } from "next-auth/react";
@@ -64,11 +65,11 @@ const Sidebar = () => {
         label: "My favourites",
         icon: <MyFavouritesSvg />,
       },
-      // {
-      //   href: "/dashboard/review",
-      //   label: "Reviews",
-      //   icon: <ReviewsSvg />,
-      // },
+      {
+        href: "/dashboard/review",
+        label: "Reviews",
+        icon: <ReviewsSvg />,
+      },
     ],
   };
 

@@ -24,6 +24,7 @@
     "clean": "^4.0.2",
     "cloudinary": "^2.7.0",
     "dayjs": "^1.11.13",
+    "formidable": "^3.5.4",
     "next": "15.2.0",
     "next-auth": "^4.24.11",
     "next-intl": "^4.3.4",

@@ -6,29 +6,54 @@ import { signIn, useSession } from 'next-auth/react';
 import { AuthGoogleSvg } from '@/components/SVG';
 
 export default function SignUpForm() {
-  const { status, data: session } = useSession();
+  const { data: session, status } = useSession();
   const router = useRouter();
 
   useEffect(() => {
-    if (status === "authenticated" && session?.user) {
-      const userToSend = {
-        ...session.user,
-        firstName: "",
-        secondName: "",
-        phoneNumber: "",
+    if (status === 'authenticated' && session?.user) {
+      const checkAndAddUser = async () => {
+        try {
+          const res = await fetch(`/api/users/${session.user.id}`);
+
+          if (res.status === 200) {
+            // ✅ Пользователь уже существует — просто перенаправляем
+            router.push('/');
+          } else if (res.status === 404) {
+            // ❌ Пользователь не найден — добавляем
+            const addRes = await fetch('/api/users/add', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                id: session.user.id,
+                email: session.user.email,
+                image: session.user.image,
+                name: session.user.name,
+                firstName: '',
+                secondName: '',
+                phoneNumber: '',
+                about: '',
+                properties: [],
+                quantitySetupPropert: 6,
+              }),
+            });
+
+            if (addRes.ok) {
+              router.push('/');
+            } else {
+              console.error('❌ Failed to add user');
+            }
+          } else {
+            console.error('❌ Unexpected error while checking user');
+          }
+        } catch (err) {
+          console.error('❌ Error:', err);
+        }
       };
 
-      fetch("/api/users/check", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(userToSend),
-      })
-        .then((res) => {
-          if (res.ok) router.push("/");
-        })
-        .catch(console.error);
+      checkAndAddUser();
     }
-  }, [status, session, router]);
+  }, [session, status, router]);
+
   return (
     <div
       style={{

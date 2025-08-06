@@ -1,18 +1,34 @@
-export interface IGetAllValue {
-   expirationDate:string,
+export interface IUser {
+    // google info
+    id:string,
+    email: string,
+    image: string,
+    name: string,
+
+    // Livasa info
+    firstName: string,
+    secondName: string,
+    phoneNumber: string,
+    about:string,
+    properties: IGetAllValueProperty[],
+    quantitySetupPropert: number,
+}
+
+export interface IGetAllValueProperty {  
+  id: string,
+  expirationDate:string,
   information: IInformation;
   iAInformation: IAInformation;
   iDescription: IDescription;
   amenities: string[];
-  images: string[]; // ← добавлено
+  images: ICloudinaryImage[]; // ← изменено
   permission: boolean
 }
 
-export interface IUser {
-    id:number,
-    userGmail: string,
-    allValue: IGetAllValue,
-    quantitySetupPropert: number,
+
+export interface ICloudinaryImage {
+  url: string;
+  public_id: string;
 }
 
 

@@ -112,18 +112,21 @@ export default function UploadMedia({ images, onChange }: Props) {
                 key={index}
                 style={{
                   position: "relative",
-                  width: 200,
-                  height: 100,
+                  width: "100%",
+                  maxWidth: 200,
+                  aspectRatio: "2/1",
                   borderRadius: 8,
                   overflow: "hidden",
+                  minWidth: 120,
+                  flex: "1 1 120px",
                 }}
               >
                 <Image
                   src={img.src}
                   alt={`uploaded-image-${index + 1}`}
-                  width={200}
-                  height={100}
+                  fill
                   style={{ objectFit: "cover", borderRadius: 8 }}
+                  sizes="(max-width: 600px) 100vw, 200px"
                 />
                 {index === 0 && (
                   <div

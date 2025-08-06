@@ -80,6 +80,7 @@ export default function PropertyInformation({ information, onChange }: Props) {
               <div className="tp-property-tabs-select tp-select">
                 <NiceSelect
                   options={[
+                     { value: "", label: "" },
                     { value: "Office", label: "Office" },
                     { value: "Apartment", label: "Apartment" },
                     { value: "PrivateHouse", label: "Private House" },
