@@ -2,16 +2,18 @@ import { IGetAllValueProperty, IUser } from "@/app/[locale]/(dashboard)/dashboar
 import { sql } from "@/lib/db";
 import { NextRequest } from "next/server";
 
-export async function PATCH(
-  req: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function PATCH(req: NextRequest) {
   try {
-    const userId = params.id;
+    const pathname = req.nextUrl.pathname; // /api/users/123
+    const userId = pathname.split('/').pop(); // 123
+
+    if (!userId) {
+      return new Response("User ID is required", { status: 400 });
+    }
+
     const body = await req.json();
     const { property }: { property: IGetAllValueProperty } = body;
 
-    // Получаем текущего пользователя
     const result = await sql`SELECT * FROM users WHERE id = ${userId}`;
     const users = result as IUser[];
 

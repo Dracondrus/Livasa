@@ -1,12 +1,14 @@
 import { sql } from '@/lib/db';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 // GET /api/users/:id
-export async function GET(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
-  const { id } = params;
+export async function GET(req: NextRequest) {
+  const pathname = req.nextUrl.pathname; // /api/users/123
+  const id = pathname.split('/').pop(); // 123
+
+  if (!id) {
+    return new NextResponse('User ID is required', { status: 400 });
+  }
 
   try {
     const result = await sql`SELECT * FROM users WHERE id = ${id} LIMIT 1;`;
@@ -16,7 +18,7 @@ export async function GET(
     }
 
     return NextResponse.json(result[0]);
-  } catch {
+  } catch  {
     console.error('Error fetching user:');
     return new NextResponse('Internal Server Error', { status: 500 });
   }
