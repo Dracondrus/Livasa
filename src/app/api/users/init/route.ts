@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { sql } from '@/lib/db'; // neon client
 
 export async function GET(req: NextRequest) {
+  console.log(req)
   try {
     await sql`
       CREATE TABLE IF NOT EXISTS users (
