@@ -1,11 +1,11 @@
 import { IGetAllValueProperty, IUser } from "@/app/[locale]/(dashboard)/dashboard/components/GetValues";
 import { sql } from "@/lib/db";
-import { NextRequest } from "next/server";
 
-export async function PATCH(req: NextRequest) {
+
+export async function PATCH(req: Request, props: { params: Promise<{ id: string }> }) {
   try {
-    const pathname = req.nextUrl.pathname; // /api/users/123
-    const userId = pathname.split('/').pop(); // 123
+    const params = await props.params;
+    const userId = params.id;
 
     if (!userId) {
       return new Response("User ID is required", { status: 400 });

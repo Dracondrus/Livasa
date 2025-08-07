@@ -60,11 +60,12 @@ export default function AddPropertyMain() {
 
     const fetchUserLimit = async () => {
     try {
-  const res = await fetch(`/api/users/get`);
+  const res = await fetch(`/api/users/${session.user.id}/check`);
   if (!res.ok) throw new Error("Failed to fetch limit");
 
   const data = await res.json();
   setQuantityLeft(data.quantitysetuppropert);
+  console.log(data)
   setUser(data); // <-- можно сразу сохранить как IUser
 
 } catch (err) {
@@ -136,8 +137,8 @@ export default function AddPropertyMain() {
         id: uuidv4(),
         images: uploadedImages,
       };
-
-      const res = await fetch(`/api/users/${user?.id}/update`, {
+    if (!session?.user?.id) return;
+      const res = await fetch(`/api/users/${session.user.id}/update`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
