@@ -10,7 +10,6 @@ import {
   IDescription,
   IGetAllValueProperty,
   IInformation,
-
   ICloudinaryImage,
 } from "../../components/GetValues";
 import { useEffect, useState } from "react";
@@ -18,16 +17,24 @@ import { useSession } from "next-auth/react";
 import { v4 as uuidv4 } from "uuid";
 import { Alert } from "antd";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function AddPropertyMain() {
-  const { data: session } = useSession();
-
-  const [localFiles, setLocalFiles] = useState<File[]>([]);
   
+  const { data: session } = useSession();
+  const router = useRouter();
+      useEffect(() => {
+      if (!session) {
+        router.push("/sign-up");
+      }
+    }, []);
+      
+  const [localFiles, setLocalFiles] = useState<File[]>([]);
   const [quantityLeft, setQuantityLeft] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [errorText, setErrorText] = useState("");
-  
+  const [successText, setSuccessText] = useState("");
+
   const [formData, setFormData] = useState<IGetAllValueProperty>({
     expirationDate: new Date().toISOString(),
     id: uuidv4(),
@@ -51,7 +58,8 @@ export default function AddPropertyMain() {
     },
     amenities: [],
     images: [],
-    permission: false,
+    permission: "No permission",
+    review : "none"
   });
 
   // Загружаем данные пользователя и лимит
@@ -59,19 +67,16 @@ export default function AddPropertyMain() {
     if (!session?.user?.id) return;
 
     const fetchUserLimit = async () => {
-    try {
-  const res = await fetch(`/api/users/${session.user.id}/check`);
-  if (!res.ok) throw new Error("Failed to fetch limit");
+      try {
+        const res = await fetch(`/api/users/${session.user.id}/check`);
+        if (!res.ok) throw new Error("Failed to fetch limit");
 
-  const data = await res.json();
-  setQuantityLeft(data.quantitysetuppropert);
-
-
-} catch (err) {
-  console.error("Ошибка при получении лимита:", err);
-  setErrorText("Не удалось получить данные пользователя");
-}
-
+        const data = await res.json();
+        setQuantityLeft(data.quantitysetuppropert);
+      } catch (err) {
+        console.error("Ошибка при получении лимита:", err);
+        setErrorText("Не удалось получить данные пользователя");
+      }
     };
 
     fetchUserLimit();
@@ -112,6 +117,7 @@ export default function AddPropertyMain() {
 
     setIsLoading(true);
     setErrorText("");
+    setSuccessText("");
 
     try {
       const uploadedImages: ICloudinaryImage[] = [];
@@ -136,7 +142,8 @@ export default function AddPropertyMain() {
         id: uuidv4(),
         images: uploadedImages,
       };
-    if (!session?.user?.id) return;
+      if (!session?.user?.id) return;
+
       const res = await fetch(`/api/users/${session.user.id}/update`, {
         method: "PATCH",
         headers: {
@@ -152,6 +159,14 @@ export default function AddPropertyMain() {
       }
 
       console.log("Успешно добавлено:", result);
+
+      setSuccessText("Успешно добавлено! ...");
+
+setTimeout(() => {
+
+ router.push("/dashboard/property") // перенаправление на страницу свойств;
+
+} , 2000)
     } catch (err) {
       console.error("Ошибка:", err);
       if (err instanceof Error && err.message.includes("Лимит")) {
@@ -163,7 +178,6 @@ export default function AddPropertyMain() {
       }
     } finally {
       setIsLoading(false);
-      window.location.reload();
     }
   };
 
@@ -195,6 +209,12 @@ export default function AddPropertyMain() {
         </div>
       )}
 
+      {successText && (
+        <div style={{ marginTop: 16 }}>
+          <Alert message={successText} type="success" showIcon />
+        </div>
+      )}
+
       <div
         style={{
           display: "flex",
@@ -217,7 +237,6 @@ export default function AddPropertyMain() {
         ) : (
           <Link
             href="/pricing"
-          
             rel="noopener noreferrer"
             style={{
               padding: "14px 36px",

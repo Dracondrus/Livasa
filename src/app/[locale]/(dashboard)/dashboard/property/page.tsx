@@ -1,35 +1,69 @@
+'use client';
 
-import PropertyPagination from "@/components/Common/pagination/PropertyPagination";
+
 import DashboardPropertyItem from "./components/DashboardPropertyItem";
 import DashboardLayout from "@/layouts/DashboardLayout";
-import { propertyData } from "@/data/propertyData";
-import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "My Properties",
-};
+import { useEffect, useState } from "react";
+import { IUser } from "../components/GetValues";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function DashboardProperty() {
+  const router = useRouter();
+  const { data: session, status } = useSession(); // добавим статус
+
+  const [user, setUser] = useState<IUser | null>(null);
+console.log(user)
+  useEffect(() => {
+    if (status === "loading") return; // ждём, пока session загрузится
+
+    if (!session) {
+      router.push("/sign-up");
+    } else {
+      // получаем данные пользователя только один раз
+      fetch(`/api/users/${session.user.id}`)
+        .then(async (res) => {
+          if (!res.ok) {
+            const text = await res.text();
+            throw new Error(`Ошибка ${res.status}: ${text}`);
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setUser(data);
+        })
+        .catch((err) => {
+          console.error('Ошибка при получении пользователя:', err);
+        });
+    }
+  }, [session, status, router]);
+
   return (
-    <>
-      <DashboardLayout>
-        {/* Filter by property */}
-      
-        {/* My Property */}
-        <div className="tp-dashboard-property-wrapper">
-          <div className="row">
-            {
-              propertyData.slice(55, 59).map((property) => (
-                <DashboardPropertyItem property={property} key={property.id} />
-              ))
-            }
-            {/* pagination area */}
-            <div className="col-lg-12">
-              <PropertyPagination />
-            </div>
-          </div>
-        </div>
-      </DashboardLayout>
-    </>
-  )
+    <DashboardLayout>
+      {/* Отображение user properties */}
+
+      {/* Пример списка через propertyData */}
+    <div className="">
+  <div    style={{
+    display: "flex",
+    gap: "20px",
+    flexWrap: "wrap",
+ 
+  }}>
+    {user?.properties && user.properties.length > 0 ? (
+      user.properties.map(property => (
+        <DashboardPropertyItem property={property} key={property.id} />
+      ))
+    ) : (
+      <div className="text-center w-100 py-5">
+        <p style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
+          Maybe it’s time to make some money 😉
+        </p>
+      </div>
+    )}
+  </div>
+</div>
+    </DashboardLayout>
+  );
 }

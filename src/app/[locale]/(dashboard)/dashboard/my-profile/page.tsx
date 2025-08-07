@@ -7,12 +7,21 @@ import DashboardLayout from "@/layouts/DashboardLayout";
 
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 
 
 
 export default function MyProfile() {
+    const router = useRouter();
   const {data:session} = useSession()
+      useEffect(() => {
+      if (!session) {
+        router.push("/sign-up");
+      }
+    }, [session, router]);
+      
  
   return (
     <>

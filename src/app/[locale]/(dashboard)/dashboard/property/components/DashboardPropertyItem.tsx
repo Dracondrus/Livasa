@@ -1,111 +1,268 @@
-"use client"
-import { BathroomsSvg, BedroomsSvg, CartSvg, CompireSvg, DeleteIconSvg, 
-    DuplicateIconSvg, LivingSvg, MenuDotsSvg, MoveToDraftSvg, PropertyEditSvg, WishListSvg } from "@/components/SVG";
-import { IFeaturedPropertyDT } from "@/types/property-d-t";
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+import { IGetAllValueProperty } from "../../components/GetValues";
 
 interface IProps {
-    property: IFeaturedPropertyDT
+  property: IGetAllValueProperty;
 }
 
 export default function DashboardPropertyItem({ property }: IProps) {
-    const [activePropertyId, setActivePropertyId] = useState<number | null>(null);
+  const images =
+    property.images?.length > 0
+      ? property.images
+      : [{ url: "/no-image.jpg", public_id: "none" }];
 
-    const handleActionToggle = (id: number) => {
-        setActivePropertyId(prev => (prev === id ? null : id));
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [showModal, setShowModal] = useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  const formatPrice = (price: number) =>
+    new Intl.NumberFormat("ru-RU").format(price);
+
+  // Автослайдер
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  // Закрытие модалки по клику вне
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+        setShowModal(false);
+      }
     };
+    if (showModal) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [showModal]);
 
-    return (
-        <div className="col-xxl-3 col-xl-4 col-md-6" key={property.id}>
-            <div className="tp-rent-item p-relative mb-30">
-                <div className="tp-rent-thumb p-relative">
-                    <Link href="#"><Image src={property?.image} style={{width:"100%", height:"auto"}} alt="propery image" /></Link>
-                    <div className="tp-rent-user-wrap d-flex align-items-center justify-content-between">
-                        <div className="tp-rent-user d-flex align-items-center">
-                            <div className="tp-rent-user-thumb">
-                                {property.userImage && <Image src={property?.userImage} alt="user image" />}
-                            </div>
-                            <div className="tp-rent-user-content">
-                                <h5 className="tp-rent-user-content-title">{property.userName}</h5>
-                                <span>{property.userRole}</span>
-                            </div>
-                        </div>
-                        <div className="tp-rent-option d-flex">
-                            <button>
-                                <span><CompireSvg /></span>
-                            </button>
-                            <button>
-                                <span><WishListSvg /></span>
-                            </button>
-                            <button>
-                                <span><CartSvg /></span>
-                            </button>
-                        </div>
-                    </div>
-                    {property.showTags && (
-                        <div className="tp-rent-tags">
-                            {property.isForRent === true ? <Link href="#">FOR RENT</Link> : ""} {" "}
-                            {property.isFeatured === true ? <Link className="two" href="#">FEATURED</Link> : ""}
-                        </div>
-                    )}
-                </div>
-                <div className="tp-rent-content">
-                    <h4 className="tp-rent-title"><Link className="textline" href="#">{property.title}</Link></h4>
-                    <p>{property?.address}</p>
-                    <div className="tp-rent-meta-list d-flex justify-content-between align-items-center">
-                        <div className="tp-rent-meta-item">
-                            <div className="tp-rent-meta-content d-flex">
-                                <span><BedroomsSvg /></span>
-                                <p>{property.bedrooms}</p>
-                            </div>
-                            <p>Bedrooms</p>
-                        </div>
-                        <div className="tp-rent-meta-item">
-                            <div className="tp-rent-meta-content d-flex">
-                                <span><BathroomsSvg /></span>
-                                <p>{property.bathrooms}</p>
-                            </div>
-                            <p>Bedrooms</p>
-                        </div>
-                        <div className="tp-rent-meta-item">
-                            <div className="tp-rent-meta-content d-flex">
-                                <span><LivingSvg /></span>
-                                <p>{property.livingArea}</p>
-                            </div>
-                            <p>Living Area</p>
-                        </div>
-                    </div>
-                    <div className="tp-rent-btn-box d-flex justify-content-between align-items-center">
-                        <div className="tp-rent-price">
-                            <span>{`$${property.price}.000`}</span>
-                        </div>
-                        <div className="tp-rent-action-btn d-flex">
-                            <div className="tp-action-btn">
-                                <Link href="#"><PropertyEditSvg /></Link>
-                            </div>
-                            <div className={`tp-action-btn ${activePropertyId === property.id ? "active" : ""}`}>
-                                <button className="click" onClick={() => handleActionToggle(property.id)}><MenuDotsSvg /></button>
-                                <div className="tp-action-click-tooltip">
-                                    <button>
-                                        <span><DuplicateIconSvg /></span>
-                                        Duplicate
-                                    </button>
-                                    <button>
-                                        <span><MoveToDraftSvg /></span>
-                                        Move to Draft
-                                    </button>
-                                    <button>
-                                        <span><DeleteIconSvg /></span>
-                                        Delete
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  // Выбор стиля бейджа по статусу
+  const getBadgeStyle = () => {
+    switch (property.permission) {
+      case "No permission":
+        return { ...styles.badge, ...styles.badgeYellow };
+      case "Reject":
+        return { ...styles.badge, ...styles.badgeRed };
+      default:
+        return { ...styles.badge, ...styles.badgeGreen };
+    }
+  };
+
+  return (
+    <>
+      <div style={styles.cardContainer}>
+        {/* Бейдж с permission */}
+        <span style={getBadgeStyle()}>{property.permission}</span>
+
+        <div style={styles.carousel}>
+          <div style={styles.imageWrapper}>
+            <Image
+              src={images[currentSlide].url}
+              alt={`Slide ${currentSlide + 1}`}
+              fill
+              sizes="100%"
+              style={{ objectFit: "cover" }}
+              priority={currentSlide === 0}
+            />
+          </div>
+          {images.length > 1 && (
+            <>
+              <button
+                onClick={() =>
+                  setCurrentSlide((prev) => (prev - 1 + images.length) % images.length)
+                }
+                style={{ ...styles.arrow, left: 10 }}
+              >
+                ‹
+              </button>
+              <button
+                onClick={() =>
+                  setCurrentSlide((prev) => (prev + 1) % images.length)
+                }
+                style={{ ...styles.arrow, right: 10 }}
+              >
+                ›
+              </button>
+            </>
+          )}
         </div>
-    )
+        <div style={styles.cardContent}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <h3 style={styles.title}>
+              {property.information.country}, {property.information.neighborhood}
+            </h3>
+            <div style={styles.price}>
+              {formatPrice(property.iAInformation.price)} UZS
+            </div>
+          </div>
+          <div style={styles.address}>{property.information.typeProperty}</div>
+          <div style={styles.secondary}>{property.information.address}</div>
+
+          <button style={styles.viewBtn} onClick={() => setShowModal(true)}>
+            Details
+          </button>
+        </div>
+      </div>
+
+      {showModal && (
+        <div style={styles.modalOverlay}>
+          <div style={styles.modal} ref={modalRef}>
+            <h2 style={{ marginBottom: 12 }}>{property.information.typeProperty}</h2>
+            <p><b>Address:</b> {property.information.address}</p>
+            <p><b>Country:</b> {property.information.country}</p>
+            <p><b>Neighborhood:</b> {property.information.neighborhood}</p>
+            <p><b>Price:</b> {formatPrice(property.iAInformation.price)} UZS</p>
+            <p><b>Size:</b> {property.iAInformation.size} m²</p>
+            <p><b>Rooms:</b> {property.iAInformation.rooms}</p>
+            <p><b>Bathrooms:</b> {property.iAInformation.bathrooms}</p>
+            <p><b>Year Built:</b> {property.iAInformation.yearBuilt}</p>
+            <p><b>Description:</b> {property.iDescription.description}</p>
+            <button style={styles.closeBtn} onClick={() => setShowModal(false)}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+    </>
+  );
 }
+
+const styles: { [key: string]: React.CSSProperties } = {
+  cardContainer: {
+    width: "300px",
+    maxWidth: 400,
+    position: "relative",
+    borderRadius: 16,
+    overflow: "hidden",
+    boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
+    backgroundColor: "#fff",
+    display: "flex",
+    flexDirection: "column",
+    marginBottom: 20,
+  },
+  carousel: {
+    position: "relative",
+    width: "100%",
+    height: 220,
+    overflow: "hidden",
+  },
+  imageWrapper: {
+    position: "relative",
+    width: "100%",
+    height: "100%",
+  },
+  arrow: {
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    fontWeight: 800,
+    color: "#a1a1a1ff",
+    border: "none",
+    borderRadius: "50%",
+    width: 40,
+    height: 40,
+    cursor: "pointer",
+    fontSize: 27,
+    zIndex: 2,
+  },
+  cardContent: {
+    padding: 16,
+    display: "flex",
+    flexDirection: "column",
+    gap: 6,
+  },
+  title: {
+    fontSize: "1.1rem",
+    fontWeight: 600,
+    margin: 0,
+  },
+  address: {
+    fontSize: "1rem",
+    fontWeight: 500,
+    marginTop: 4,
+  },
+  secondary: {
+    color: "#666",
+    fontSize: "0.9rem",
+    marginBottom: 10,
+  },
+  viewBtn: {
+    backgroundColor: "#000",
+    color: "#fff",
+    border: "none",
+    borderRadius: 6,
+    padding: "8px 14px",
+    cursor: "pointer",
+    alignSelf: "flex-start",
+    marginTop: 10,
+    fontWeight: 600,
+  },
+  price: {
+    fontWeight: 700,
+    fontSize: "1rem",
+    color: "#333",
+  },
+  modalOverlay: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100vw",
+    height: "100vh",
+    background: "rgba(0,0,0,0.4)",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 999,
+    padding: 16,
+  },
+  modal: {
+    background: "#fff",
+    padding: 24,
+    borderRadius: 12,
+    boxShadow: "0 10px 40px rgba(0,0,0,0.2)",
+    maxWidth: 500,
+    width: "100%",
+    textAlign: "left",
+  },
+  closeBtn: {
+    marginTop: 20,
+    backgroundColor: "#555",
+    border: "none",
+    padding: "10px 16px",
+    borderRadius: 8,
+    cursor: "pointer",
+    fontWeight: 600,
+    color: "#fff",
+  },
+
+  // Новый блок: бейджи
+  badge: {
+    position: "absolute",
+    top: 10,
+    right: 10,
+    padding: "4px 10px",
+    borderRadius: 8,
+    fontSize: 12,
+    fontWeight: 600,
+    color: "#fff",
+    textTransform: "capitalize",
+    zIndex: 10,
+  },
+  badgeYellow: {
+    backgroundColor: "#facc15", // Жёлтый
+    color: "#000",
+  },
+  badgeRed: {
+    backgroundColor: "#ef4444", // Красный
+  },
+  badgeGreen: {
+    backgroundColor: "#22c55e", // Зелёный
+  },
+};

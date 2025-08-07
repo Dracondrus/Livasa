@@ -60,11 +60,7 @@ const Sidebar = () => {
         label: "My properties",
         icon: <MyPropertiesSvg />,
       },
-      {
-        href: "/dashboard/favourite",
-        label: "My favourites",
-        icon: <MyFavouritesSvg />,
-      },
+  
       {
         href: "/dashboard/review",
         label: "Reviews",

@@ -17,7 +17,8 @@ type RegionType = {
 
 export default function PropertyInformation({ information, onChange }: Props) {
   const defaultCity = information.country || "Navoi";
-
+  const [addressQuestion, setAddressQuestion] = useState<boolean>(false)
+  const [locationQuestion, setLocationQuestion] = useState<boolean>(false)
   const [selectCity, setSelectCity] = useState(defaultCity);
   const [selectedRegions, setSelectedRegions] = useState<RegionType[]>([]);
 
@@ -98,7 +99,8 @@ export default function PropertyInformation({ information, onChange }: Props) {
           {/* Address */}
           <div className="col-lg-6">
             <div className="tp-dashboard-new-input">
-              <label>Address</label>
+              <label>Address <span  style={{fontWeight:800, background: "#5a5a5aff",padding: "3px 7px",borderRadius:30, color:"#fff",fontSize: 13, cursor:"pointer"}} onClick={() => setAddressQuestion(!addressQuestion)}>?</span> </label>
+              <p> { addressQuestion && <>Example : street New place, 000 local area</>}</p>
               <input
                 type="text"
                 placeholder="Enter property full address"
@@ -111,7 +113,8 @@ export default function PropertyInformation({ information, onChange }: Props) {
           {/* Location */}
           <div className="col-lg-6">
             <div className="tp-dashboard-new-input">
-              <label>Location</label>
+              <label>Location <span  style={{fontWeight:800, background: "#5a5a5aff",padding: "3px 7px",borderRadius:30, color:"#fff",fontSize: 13, cursor:"pointer"}} onClick={() => setLocationQuestion(!locationQuestion)}>?</span> </label>
+              <p> { locationQuestion && <>Example : https://yandex.ru/maps?whatshere%5Bpoint%5D=65.434366%2C40.058142....</>}</p>
               <input
                 type="text"
                 placeholder="Enter location"

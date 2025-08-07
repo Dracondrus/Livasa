@@ -22,7 +22,8 @@ export interface IGetAllValueProperty {
   iDescription: IDescription;
   amenities: string[];
   images: ICloudinaryImage[]; // ← изменено
-  permission: boolean
+  permission: string,
+  review: string
 }
 
 
