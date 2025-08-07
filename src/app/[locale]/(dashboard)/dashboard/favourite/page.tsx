@@ -1,3 +1,5 @@
+
+'use client';
 import PropertyPagination from "@/components/Common/pagination/PropertyPagination";
 import DashboardLayout from "@/layouts/DashboardLayout";
 // import DashboardPropertyItem from "../property/components/DashboardPropertyItem";
@@ -7,9 +9,7 @@ import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Favourite ",
-};
+
 
 export default function DashboardFavourite() {
   const router = useRouter();
