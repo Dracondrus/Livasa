@@ -2,7 +2,7 @@
 import {
   AddPropertySvg,
   MyPropertiesSvg,
-  MyFavouritesSvg,
+  // MyFavouritesSvg,
   // ReviewsSvg,
   IdentityDockSvg,
   ReviewsSvg,

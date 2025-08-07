@@ -4,7 +4,7 @@ import PropertyPagination from "@/components/Common/pagination/PropertyPaginatio
 import DashboardLayout from "@/layouts/DashboardLayout";
 // import DashboardPropertyItem from "../property/components/DashboardPropertyItem";
 // import { propertyData } from "@/data/propertyData";
-import { Metadata } from "next";
+// import { Metadata } from "next";
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
