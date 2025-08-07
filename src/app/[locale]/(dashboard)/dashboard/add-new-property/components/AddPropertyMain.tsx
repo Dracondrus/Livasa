@@ -10,7 +10,7 @@ import {
   IDescription,
   IGetAllValueProperty,
   IInformation,
-  IUser,
+
   ICloudinaryImage,
 } from "../../components/GetValues";
 import { useEffect, useState } from "react";
@@ -23,7 +23,7 @@ export default function AddPropertyMain() {
   const { data: session } = useSession();
 
   const [localFiles, setLocalFiles] = useState<File[]>([]);
-  const [user, setUser] = useState<IUser | null>(null);
+  
   const [quantityLeft, setQuantityLeft] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [errorText, setErrorText] = useState("");
@@ -65,8 +65,7 @@ export default function AddPropertyMain() {
 
   const data = await res.json();
   setQuantityLeft(data.quantitysetuppropert);
-  console.log(data)
-  setUser(data); // <-- можно сразу сохранить как IUser
+
 
 } catch (err) {
   console.error("Ошибка при получении лимита:", err);
