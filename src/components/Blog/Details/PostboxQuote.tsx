@@ -8,13 +8,15 @@ export default function PostboxQuote() {
                     <span><BlogQuoteSvg /></span>
                 </div>
                 <div className="tp-postbox-quote-content">
-                    <h3 className="tp-postbox-quote-title">“The team at @softecagency is incredibly dedicated,
-                        knowledgeable, and helpful.</h3>
+                    <h3 className="tp-postbox-quote-title">
+                        “Quality is never an accident; it is always the result of hard work,
+                        careful planning, and true dedication.”
+                    </h3>
                     <div className="tp-postbox-quote-sub">
-                        <span>Socrates</span>
+                        <span>Our Company Philosophy</span>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }

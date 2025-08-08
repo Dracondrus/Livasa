@@ -1,7 +1,7 @@
 import { IBlogDT } from "@/types/blog-d-t";
-import blogThumb1 from "../../public/assets/img/blog/blog-thumb-1.jpg";
-import blogThumb2 from "../../public/assets/img/blog/blog-thumb-2.jpg";
-import blogThumb3 from "../../public/assets/img/blog/blog-thumb-3.jpg";
+import blogThumb1 from "../../public/assets/img/blog/blog-thumb-1.png";
+import blogThumb2 from "../../public/assets/img/blog/blog-thumb-2.png";
+import blogThumb3 from "../../public/assets/img/blog/blog-thumb-3.png";
 //blog user img
 import blogUser1 from "../../public/assets/img/blog/blog-user-1.jpg";
 import blogUser2 from "../../public/assets/img/blog/blog-user-2.jpg";
@@ -27,33 +27,51 @@ export const blogData:IBlogDT[] = [
     image: blogThumb1,
     category: "Property",
     readTime: "8 min read",
-    title: "The art of negotiation in real estate deals",
+    title: "Home Renovation",
     authorImage: blogUser1,
-    authorName: "Hilary Ouse",
+    authorName: "Full and partial home repairs and upgrades.",
     authorRole: "Founder & CEO Dulalix",
     delay: ".3s",
+    subcategories: [
+      "Wall and ceiling repairs",
+      "Floor replacement",
+      "Facade restoration",
+      "Insulation and soundproofing"
+    ],
   },
   {
     id: 2,
     image: blogThumb2,
     category: "Property",
     readTime: "8 min read",
-    title: "Thinking about investing in off plan? Here’s our expert",
+    title: "Interior Design",
     authorImage: blogUser2,
-    authorName: "Hilary Ouse",
+    authorName: "Creative interior design and furnishing.",
     authorRole: "Founder & CEO Dulalix",
     delay: ".5s",
+        subcategories: [
+      "Space planning",
+      "Furniture and decor selection",
+      "Lighting and color solutions",
+      "3D interior visualization"
+    ],
   },
   {
     id: 3,
     image: blogThumb3,
     category: "Property",
     readTime: "8 min read",
-    title: "RTA announce massive new 1200 meter bridge linking road",
+    title: "Construction Works",
     authorImage: blogUser3,
-    authorName: "Hilary Ouse",
+    authorName: "From the ground up construction & site works.",
     authorRole: "Founder & CEO Dulalix",
     delay: ".7s",
+        subcategories: [
+      "Foundation works",
+      "Wall and partition construction",
+      "Roofing works",
+      "Landscaping and site improvement"
+    ],
   },
    //blog post data end
    //home three blog data start

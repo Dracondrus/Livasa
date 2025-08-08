@@ -12,7 +12,8 @@ export interface IBlogDT {
   delay: string;
   date?: string,
   month?: string;
-  description?: string
+  description?: string,
+  subcategories?: string[]
 }
 
 //define interface for Comment item 

@@ -3,7 +3,7 @@ import BreadcrumbTwo from "../../../../components/Breadcrumb/BreadcrumbTwo";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Blog Details - Bhumi Real Estate React NextJs Template",
+    title: "Services",
   };
 
 export default async function BlogDeails() {
@@ -12,11 +12,11 @@ export default async function BlogDeails() {
         <main>
             <>
                 {/* breadcrumb area start */}
-                <BreadcrumbTwo title="Blog Details" subTitle="Blog Details" />
+                <BreadcrumbTwo title="Services" subTitle="" />
                 {/* breadcrumb area end */}
 
                 {/* blog details area start */}
-                <BlogDetailsArea id={1} />
+                <BlogDetailsArea  />
                 {/* blog details area end */}
             </>
         </main>

@@ -1,5 +1,5 @@
 import breadcrumbBg from "../../../public/assets/img/others/breadcrumb.jpg";
-import Link from "next/link";
+// import Link from "next/link";
 
 export default function BreadcrumbArea({ title }: { title: string }) {
     return (
@@ -14,7 +14,7 @@ export default function BreadcrumbArea({ title }: { title: string }) {
                         <div className="tp-breadcrumb__content">
                             <h3 className="tp-breadcrumb__title">{title}</h3>
                             <div className="tp-breadcrumb__list">
-                                <span><Link href="/">Home</Link></span>{" "}
+                                <span>wqeqweqe</span>
                                 <span className="dvdr"></span>{" "}
                                 <span>{title}</span>
                             </div>

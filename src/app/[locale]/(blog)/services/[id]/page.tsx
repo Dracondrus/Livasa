@@ -20,11 +20,11 @@ export default async function BlogDeails(props: PageParamsProps) {
         <main>
             <>
                 {/* breadcrumb area start */}
-                <BreadcrumbTwo title="Blog Details" subTitle="Blog Details" />
+                <BreadcrumbTwo title="Services" subTitle="" />
                 {/* breadcrumb area end */}
 
                 {/* blog details area start */}
-                <BlogDetailsArea id={id} />
+                <BlogDetailsArea />
                 {/* blog details area end */}
             </>
         </main>

@@ -15,6 +15,12 @@ const menu_data_one = [
     url: "/property-style-1",
  
   },
+     {
+    id: 5,
+    label: "Services",
+    url: "/services",
+ 
+  },
 
    {
     id: 3,
