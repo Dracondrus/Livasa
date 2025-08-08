@@ -3,13 +3,6 @@ import { CheckThreeSvg } from "@/components/SVG";
 import { IPricingProps } from "@/types/custom-interface";
 import Link from "next/link";
 
-const features = [
-    "Complete 24/7 security",
-    "Beautiful scene around",
-    "Elegant design",
-    "Free / Pro Ads",
-    "Apps Integrated"
-];
 
 export default function PricingCard({ name, price, delay, active = false, features }: IPricingProps) {
   return (
