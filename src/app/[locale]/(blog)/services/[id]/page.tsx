@@ -1,20 +1,9 @@
 import BlogDetailsArea from "@/components/Blog/Details/BlogDetailsArea";
 import BreadcrumbTwo from "../../../../../components/Breadcrumb/BreadcrumbTwo";
-import { propertyData } from "@/data/propertyData";
-import { PageParamsProps } from "@/types/custom-interface";
 
-export async function generateMetadata(props: PageParamsProps) {
-    const resolvedParams = await props.params;
-    const { id } = resolvedParams;
-    const property = propertyData.find((item) => item.id == Number(id));
-    return {
-        title: property?.title ? property.title : "Blog Details",
-    };
-}
 
-export default async function BlogDeails(props: PageParamsProps) {
-    const resolvedParams = await props.params;
-    const { id } = resolvedParams;
+export default async function BlogDeails() {
+
 
     return (
         <main>
