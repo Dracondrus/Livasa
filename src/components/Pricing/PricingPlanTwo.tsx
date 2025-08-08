@@ -1,11 +1,39 @@
 import PricingCard from "./subComponents/PricingCard";
 
 const pricingPlans = [
-        { name: "Basic", price: "$3", delay: ".2s",active: true  },
-    { name: "Standard", price: "$8", delay: ".4" ,active: true },
-    { name: "Premium", price: "$14", delay: ".6", active: true },
-    { name: "Business", price: "$22", delay: ".7", active: true }
+  { 
+    name: "Basic", 
+    price: "$4", 
+    delay: ".2s",
+    features: [
+      "Add 3 properties",
+      "Add 1 ad",
+      "Queue status: Basic level."
+    ]
+  },
+  { 
+    name: "Standard", 
+    price: "$9", 
+    delay: ".3s",
+    active: true,
+    features: [
+      "Add 7 properties",
+      "Add 3 ads",
+      "Queue status: Standard level."
+    ]
+  },
+  { 
+    name: "Premium", 
+    price: "$15", 
+    delay: ".4s",
+    features: [
+      "Add 12 properties",
+      "Add 5 ads",
+      "Queue status: Premium level."
+    ]
+  }
 ];
+
 
 
 export default function PricingPlanTwo() {

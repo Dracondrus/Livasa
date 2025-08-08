@@ -5,19 +5,19 @@ interface IFooterLinkDT{
 }
 
 export const quickLinks:IFooterLinkDT[] = [
-    { label: "About", href: "/about" },
-    { label: "Blog", href: "/blog"},
+    { label: "Home", href: "/" },
+    { label: "About us", href: "/about"},
     { label: "Agency", href: "/agency" },
-    { label: "Agency Details", href: "/agency-details" },
+
     { label: "Pricing", href: "/pricing" },
     { label: "Our FAQ", href: "/faq" },
+ 
 ];
 
 export const serviceLinks:IFooterLinkDT[] = [
-    { label: "Wish List", href: "/wishlist" },
-    { label: "Cart", href: "/cart" },
-    { label: "Checkout", href: "/checkout" },
-    { label: "Compare", href: "/compare" },
-    { label: "Terms & Conditions", href: "#" },
+    { label: "Property", href: "/property" },
+    { label: "Dashboard", href: "/dashboard/profile" },
+    { label: "Review", href: "/review" },
     { label: "Contact", href: "/contact" },
+       { label: "Sign Up", href: "/signup" },
 ];

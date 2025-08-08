@@ -18,7 +18,7 @@ export default function BreadcrumbTwo({ title, subTitle }: IbreadcrumbProps) {
                         <div className="tp-breadcrumb__content">
                             <h3 className="tp-breadcrumb__title">{title}</h3>
                             <div className="tp-breadcrumb__list">
-                                 <span>We care about our clients — delivering quality, reliability, and fair prices you can trust.</span>
+                                 <span style={{ color:"#ffffffff", fontWeight:700,background:"#000"}}>We care about our clients — delivering quality, reliability, and fair prices you can trust.</span>
                               
                                 <span>{subTitle}</span>
                             </div>

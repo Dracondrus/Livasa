@@ -13,7 +13,7 @@ export default function Pricing() {
     return (
         <>
             {/* breadcrumb area */}
-            <BreadcrumbArea title="Pricing table" />
+            <BreadcrumbArea title="Pricing" />
             {/* breadcrumb area end */}
 
             {/* counter area start */}

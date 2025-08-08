@@ -163,7 +163,8 @@ export interface IPricingProps {
   name: string;
   price: string;
   delay: string;
-  active?: boolean | undefined
+  active?: boolean | undefined,
+  features? : string[]
 }
 //define interface for Pricing Item Props 
 export interface PricingItemProps {

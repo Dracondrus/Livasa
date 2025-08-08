@@ -1,4 +1,4 @@
-import breadcrumbBg from "../../../public/assets/img/others/breadcrumb.jpg";
+import breadcrumbBg from "../../../public/assets/img/others/breadcrumb2.png";
 // import Link from "next/link";
 
 export default function BreadcrumbArea({ title }: { title: string }) {
@@ -6,7 +6,7 @@ export default function BreadcrumbArea({ title }: { title: string }) {
         <section className="tp-breadcrumb__ptb p-relative z-index-1 fix">
             <div className="tp-breadcrumb__bg" style={{ backgroundImage: `url(${breadcrumbBg.src})` }}></div>
             <div className="tp-breadcrumb__text">
-                <h3 className="tp-breadcrumb__text-title">bhumi</h3>
+                <h3 className="tp-breadcrumb__text-title">Livasa</h3>
             </div>
             <div className="container">
                 <div className="row align-items-center">
@@ -14,9 +14,10 @@ export default function BreadcrumbArea({ title }: { title: string }) {
                         <div className="tp-breadcrumb__content">
                             <h3 className="tp-breadcrumb__title">{title}</h3>
                             <div className="tp-breadcrumb__list">
-                                <span>wqeqweqe</span>
-                                <span className="dvdr"></span>{" "}
-                                <span>{title}</span>
+                                <span></span>
+                                 <span style={{ color:"#ffffffff", fontWeight:700, background:"#000"}}>  Choose the perfect plan — affordable, transparent, and designed for you.</span>
+                              
+                              
                             </div>
                         </div>
                     </div>
