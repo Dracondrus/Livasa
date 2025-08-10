@@ -11,8 +11,8 @@ const menu_data_one = [
   },
    {
     id: 2,
-    label: "Property",
-    url: "/property-style-1",
+    label: "Properties",
+    url: "/properties",
  
   },
      {
@@ -27,12 +27,12 @@ const menu_data_one = [
     label: "Pages",
     url: "#",
     submenu: [
-      { id: 1, label: "About", url: "/about" },
-      { id: 2, label: "Agency", url: "/agency" },
+ 
+      { id: 2, label: "Agency", url: "/agency-details" },
       { id: 4, label: "Faq", url: "/faq" },
       { id: 5, label: "Pricing", url: "/pricing" },
       { id: 10, label: "Sign up", url: "/sign-up" },
-      { id: 11, label: "Contact", url: "/contact" },
+      // { id: 11, label: "Contact", url: "/contact" },
     ],
   },
   {
@@ -42,7 +42,7 @@ const menu_data_one = [
     submenu: [
       { id: 1, label: "Add new property", url: "/dashboard/add-new-property" },
       { id: 2, label: "My Property", url: "/dashboard/property" },
-      { id: 3, label: "Favourite", url: "/dashboard/favourite" },
+      // { id: 3, label: "Favourite", url: "/dashboard/favourite" },
       { id: 4, label: "Review", url: "/dashboard/review" },
       { id: 5, label: "My Profile", url: "/dashboard/my-profile" },
     ],

@@ -81,13 +81,19 @@ export default function PropertyInformation({ information, onChange }: Props) {
               <div className="tp-property-tabs-select tp-select">
                 <NiceSelect
                   options={[
-                     { value: "", label: "" },
-                    { value: "Office", label: "Office" },
-                    { value: "Apartment", label: "Apartment" },
-                    { value: "PrivateHouse", label: "Private House" },
-                    { value: "Hotel", label: "Hotel" },
-                    { value: "Cafe", label: "Cafe" },
-                  ]}
+      { value: "", label: "" },
+      { value: "Office", label: "Office" },
+      { value: "Apartment", label: "Apartment" },
+      { value: "PrivateHouse", label: "Private House" },
+      { value: "Hotel", label: "Hotel" },
+      { value: "Cafe", label: "Cafe" },
+      { value: "Shop", label: "Shop" },
+      { value: "Warehouse", label: "Warehouse" },
+      { value: "Resort", label: "Resort" }, // 🆕 курорт
+ 
+
+   
+    ]}
                   defaultCurrent={0}
                   onChange={(item) => handleChange("typeProperty", item.value)}
                   name="TypeProperty"

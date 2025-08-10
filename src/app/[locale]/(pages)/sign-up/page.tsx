@@ -1,4 +1,4 @@
-import signUpThumb from "../../../../../public/assets/img/others/sign-in-thumb.jpg";
+import signUpThumb from "../../../../../public/assets/img/others/sign-in-thumb.png";
 import SignUpForm from "@/components/Form/auth/SignUpForm";
 import { Metadata } from "next";
 

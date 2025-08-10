@@ -21,7 +21,6 @@ export default function DashboardPropertyItem({ property }: IProps) {
   const formatPrice = (price: number) =>
     new Intl.NumberFormat("ru-RU").format(price);
 
-  // Автослайдер
   useEffect(() => {
     if (images.length <= 1) return;
     const interval = setInterval(() => {
@@ -30,7 +29,6 @@ export default function DashboardPropertyItem({ property }: IProps) {
     return () => clearInterval(interval);
   }, [images.length]);
 
-  // Закрытие модалки по клику вне
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
@@ -43,23 +41,40 @@ export default function DashboardPropertyItem({ property }: IProps) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [showModal]);
 
-  // Выбор стиля бейджа по статусу
-  const getBadgeStyle = () => {
+
+  const renderPermissionIcon = () => {
     switch (property.permission) {
-      case "No permission":
-        return { ...styles.badge, ...styles.badgeYellow };
-      case "Reject":
-        return { ...styles.badge, ...styles.badgeRed };
+      case "pending":
+        return (
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="#facc15" strokeWidth="2" fill="none" />
+            <path d="M12 6v6l4 2" stroke="#facc15" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+        );
+      case "rejected":
+        return (
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="#ef4444" strokeWidth="2" fill="none" />
+            <line x1="8" y1="8" x2="16" y2="16" stroke="#ef4444" strokeWidth="2" />
+            <line x1="16" y1="8" x2="8" y2="16" stroke="#ef4444" strokeWidth="2" />
+          </svg>
+        );
       default:
-        return { ...styles.badge, ...styles.badgeGreen };
+        return (
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="#22c55e" strokeWidth="2" fill="none" />
+            <path d="M8 12l3 3 5-5" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+        );
     }
   };
 
   return (
     <>
       <div style={styles.cardContainer}>
-        {/* Бейдж с permission */}
-        <span style={getBadgeStyle()}>{property.permission}</span>
+        <span style={{ ...styles.badge, backgroundColor: "#fff" }}>
+          {renderPermissionIcon()}
+        </span>
 
         <div style={styles.carousel}>
           <div style={styles.imageWrapper}>
@@ -114,7 +129,10 @@ export default function DashboardPropertyItem({ property }: IProps) {
       {showModal && (
         <div style={styles.modalOverlay}>
           <div style={styles.modal} ref={modalRef}>
-            <h2 style={{ marginBottom: 12 }}>{property.information.typeProperty}</h2>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              {renderPermissionIcon()}
+              <h2 style={{ marginBottom: 12 }}>{property.information.typeProperty}</h2>
+            </div>
             <p><b>Address:</b> {property.information.address}</p>
             <p><b>Country:</b> {property.information.country}</p>
             <p><b>Neighborhood:</b> {property.information.neighborhood}</p>
@@ -166,11 +184,11 @@ const styles: { [key: string]: React.CSSProperties } = {
     color: "#a1a1a1ff",
     border: "none",
     borderRadius: "50%",
-    width: 40,
-    height: 40,
+
     cursor: "pointer",
     fontSize: 27,
     zIndex: 2,
+ 
   },
   cardContent: {
     padding: 16,
@@ -230,6 +248,8 @@ const styles: { [key: string]: React.CSSProperties } = {
     maxWidth: 500,
     width: "100%",
     textAlign: "left",
+    maxHeight: "90vh",
+    overflowY: "auto",
   },
   closeBtn: {
     marginTop: 20,
@@ -241,28 +261,16 @@ const styles: { [key: string]: React.CSSProperties } = {
     fontWeight: 600,
     color: "#fff",
   },
-
-  // Новый блок: бейджи
   badge: {
     position: "absolute",
     top: 10,
     right: 10,
-    padding: "4px 10px",
-    borderRadius: 8,
-    fontSize: 12,
-    fontWeight: 600,
-    color: "#fff",
-    textTransform: "capitalize",
+    padding: 6,
+    borderRadius: "50%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
     zIndex: 10,
-  },
-  badgeYellow: {
-    backgroundColor: "#facc15", // Жёлтый
-    color: "#000",
-  },
-  badgeRed: {
-    backgroundColor: "#ef4444", // Красный
-  },
-  badgeGreen: {
-    backgroundColor: "#22c55e", // Зелёный
   },
 };

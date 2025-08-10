@@ -1,4 +1,4 @@
-import BreadcrumbTwo from "@/components/Breadcrumb/BreadcrumbTwo";
+import BreadcrumbAreaContact from "@/components/Breadcrumb/BreadcrumbAreaContact";
 import ContactAreaTwo from "@/components/Contact/ContactAreaTwo";
 import ContactFormTwo from "@/components/Form/ContactFormTwo";
 import MapArea from "@/components/Contact/MapArea";
@@ -12,7 +12,7 @@ export default function Contact() {
     return (
         <>
             {/* breadcrumb area start */}
-            <BreadcrumbTwo title="Contact us" subTitle="Contact us" />
+            <BreadcrumbAreaContact title="Contact " />
             {/* breadcrumb area end */}
 
             {/* contact area start */}
@@ -27,7 +27,7 @@ export default function Contact() {
             <section className="tp-contact-inner-form-ptb">
                 <div className="container">
                     <div className="tp-contact-inner-form-shape"> 
-                        <h4 className="tp-contact-inner-form-shape-title">real estate</h4>
+                     
                     </div>
                     <div className="row">
                         <div className="col-lg-12">

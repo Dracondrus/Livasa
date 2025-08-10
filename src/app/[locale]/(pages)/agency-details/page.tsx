@@ -1,6 +1,6 @@
 
 import TeamAgencyDetailsMain from "@/components/Agency/Details/TeamAgencyDetailsMain";
-import BreadcrumbArea from "@/components/Breadcrumb/BreadcrumbArea";
+import BreadcrumbArea from "@/components/Breadcrumb/BreadcrumbAreaAgency";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export default async function AgencyDeails() {
         <main>
             <>
                 {/* breadcrumb area start */}
-                <BreadcrumbArea title="Agency Details" />
+                <BreadcrumbArea title="Agency" />
                 {/* breadcrumb area end */}
 
                 {/* agency details area start */}

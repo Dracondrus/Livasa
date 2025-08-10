@@ -1,4 +1,5 @@
 'use client';
+
 import DashboardLayout from "@/layouts/DashboardLayout";
 import { useSession } from "next-auth/react";
 import { notFound } from "next/navigation";
@@ -7,8 +8,6 @@ import { Tabs, Spin } from "antd";
 import Users from "./components/Users";
 import Properties from "./components/Properties";
 import Ads from "./components/Ads";
-
-const { TabPane } = Tabs;
 
 export default function DashboardReview() {
   const { data: session, status } = useSession();
@@ -39,11 +38,11 @@ export default function DashboardReview() {
   const renderComponent = () => {
     switch (selectedTab) {
       case "Users":
-        return <Users/>
+        return <Users />;
       case "Properties":
-        return <Properties />
+        return <Properties />;
       case "Ads":
-        return <Ads/>
+        return <Ads />;
       default:
         return null;
     }
@@ -57,14 +56,14 @@ export default function DashboardReview() {
         <Tabs
           defaultActiveKey="Users"
           onChange={(key) => setSelectedTab(key)}
-          
           tabBarGutter={30}
           type="line"
-        >
-          <TabPane tab="Users" key="Users" />
-          <TabPane tab="Properties" key="Properties" />
-          <TabPane tab="Ads" key="Ads" />
-        </Tabs>
+          items={[
+            { label: "Users", key: "Users" },
+            { label: "Properties", key: "Properties" },
+            { label: "Ads", key: "Ads" },
+          ]}
+        />
 
         <div style={{ marginTop: "20px" }}>{renderComponent()}</div>
       </div>

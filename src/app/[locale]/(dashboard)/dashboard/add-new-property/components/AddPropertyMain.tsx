@@ -58,7 +58,7 @@ export default function AddPropertyMain() {
     },
     amenities: [],
     images: [],
-    permission: "No permission",
+    permission: "pending",
     review : "none"
   });
 

@@ -15,7 +15,7 @@ export default function PriceDetails({ iDescription, onChange }: Props) {
         <div className="col-lg-12">
           <div className="tp-dashboard-new-input">
             <textarea
-            maxLength={160}
+            maxLength={100}
               placeholder="Enter description"
               value={iDescription.description}
               onChange={(e) => onChange({ description: e.target.value })}

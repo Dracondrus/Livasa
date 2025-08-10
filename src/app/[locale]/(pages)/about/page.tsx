@@ -1,6 +1,6 @@
 import RealestateAboutArea from "@/components/PropertyFeature/RealestateAboutArea";
 import RealEstateHighlights from "@/components/Property/RealEstateHighlights";
-import BreadcrumbArea from "../../../../components/Breadcrumb/BreadcrumbArea";
+import BreadcrumbArea from "../../../../components/Breadcrumb/BreadcrumbAreaContact";
 import AboutTestimonial from "@/components/Testimonial/AboutTestimonial";
 import AboutHomeFive from "@/components/About/ReusableAboutArea";
 import AboutPointArea from "@/components/About/AboutPointArea";

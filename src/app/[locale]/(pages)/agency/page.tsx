@@ -1,4 +1,4 @@
-import BreadcrumbArea from "@/components/Breadcrumb/BreadcrumbArea";
+import BreadcrumbArea from "@/components/Breadcrumb/BreadcrumbAreaAgency";
 import TeamAgencyArea from "@/components/Agency/TeamAgencyArea";
 import CtaArea from "@/components/CTA/CtaArea";
 import { Metadata } from "next";
