@@ -3,9 +3,10 @@ import { SocialLinksTwo } from "@/components/UI/SocialLinks";
 import { IdProps } from "@/types/custom-interface";
 import Image from "next/image";
 import Link from "next/link";
-import { teamAgencyData } from "@/data/teamData";
+// import { teamAgencyData } from "@/data/teamData";
 
 export default function TeamAgencyDetailsMain({ id }: IdProps) {
+  console.log(id)
   // We can keep the lookup if you'll use agency later, otherwise remove this line entirely.
   // const agency = teamAgencyData.find((agency) => agency.id == id);
 

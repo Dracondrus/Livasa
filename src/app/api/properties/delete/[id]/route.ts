@@ -3,6 +3,10 @@ import { sql } from '@/lib/db';
 import cloudinary from '@/lib/cloudinary';
 import { IGetAllValueProperty } from '@/app/[locale]/(dashboard)/dashboard/components/GetValues';
 
+interface ITy {
+  id: string
+}
+
 export async function DELETE(
   req: Request,
   { params }: { params: { id: string } }
@@ -26,7 +30,7 @@ export async function DELETE(
     }
 
     const user = users[0];
-    const property = user.properties.find((p: any) => p.id === propertyId);
+    const property = user.properties.find((p: ITy) => p.id === propertyId);
 
     if (!property) {
       return NextResponse.json({ error: 'Property not found' }, { status: 404 });
