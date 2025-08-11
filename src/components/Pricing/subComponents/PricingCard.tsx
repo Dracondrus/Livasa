@@ -17,7 +17,7 @@ export default function PricingCard({ name, price, delay, active = false, featur
           <h4 className="tp-pricing-item-title">{price} <span></span></h4>
         </div>
         <div className="tp-pricing-item-btn">
-          <Link className="tp-btn" href="/contact">
+      <Link className="tp-btn" href="https://t.me/elfasa_tasa" target="_blank" rel="noopener noreferrer">
             <span className="btn-wrap">
               <b className="text-1">Get Started</b>
               <b className="text-2">Get Started</b>

@@ -1,5 +1,5 @@
 import PropertySingleCard from "@/components/Common/PropertySingleCard";
-import PropertyListCardItem from "./subComponents/PropertyListCardItem";
+// import PropertyListCardItem from "./subComponents/PropertyListCardItem";
 import { propertyData } from "@/data/propertyData";
 
 export default function PropertyOneArea() {
@@ -15,7 +15,7 @@ export default function PropertyOneArea() {
                         ))}
                     </div>
                 </div>
-                <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                {/* <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     {
                         propertyData.slice(20, 25).map((item) => (
                             <div className="co-lg-12" key={item.id}>
@@ -23,7 +23,7 @@ export default function PropertyOneArea() {
                             </div>
                         ))
                     }
-                </div>
+                </div> */}
             </div>
         </>
     )

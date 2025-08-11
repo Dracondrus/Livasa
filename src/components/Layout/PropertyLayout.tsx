@@ -5,8 +5,8 @@ import SidebarPropertyItem from "./subComponents/SidebarPropertyItem";
 import DiscountOfferCard from "./subComponents/DiscountOfferCard";
 import AdvancedSearch from "./subComponents/AdvancedSearch";
 import { selectPropertyOptions } from "@/data/dropdownData";
-import ColumnFilterSvg from "../SVG/ColumnFilterSvg";
-import GridFilterSvg from "../SVG/GridFilterSvg";
+// import ColumnFilterSvg from "../SVG/ColumnFilterSvg";
+// import GridFilterSvg from "../SVG/GridFilterSvg";
 import NiceSelect from "../UI/NiceSelect";
 import { ReactNode } from "react";
 import Link from "next/link";
@@ -40,7 +40,7 @@ export default function PropertyLayout({ children }: { children: ReactNode }) {
                                         cls="select"
                                     />
                                 </div>
-                                <div className="tp-property-tabs">
+                                {/* <div className="tp-property-tabs">
                                     <ul className="nav nav-tabs" id="filterTab" role="tablist">
                                         <li className="nav-item" role="presentation">
                                             <button className="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">
@@ -53,7 +53,7 @@ export default function PropertyLayout({ children }: { children: ReactNode }) {
                                             </button>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

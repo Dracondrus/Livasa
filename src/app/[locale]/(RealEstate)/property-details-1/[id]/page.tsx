@@ -6,6 +6,7 @@ import { PageParamsProps } from "@/types/custom-interface";
 export async function generateMetadata(props: PageParamsProps) {
     const resolvedParams = await props.params;
     const { id } = resolvedParams;
+    console.log(id)
     const property = propertyData.find((item) => item.id == Number(id));
     return {
         title: property?.title ? property.title : "Property Details",

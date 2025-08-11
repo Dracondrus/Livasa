@@ -1,11 +1,11 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { Table, Alert, Input, Modal, Carousel, Button, Dropdown, Space, Form, Select, InputNumber } from "antd";
+import { Table, Alert, Input, Modal, Carousel, Button, Dropdown, Space, Form, Select } from "antd";
 import { IUser, IGetAllValueProperty } from "../../components/GetValues";
 import { MoreOutlined } from "@ant-design/icons";
 
-const { TextArea } = Input;
+
 const { Option } = Select;
 
 export default function Properties() {
@@ -31,8 +31,8 @@ export default function Properties() {
         const json = await res.json();
         setData(json);
         setFilteredData(json);
-      } catch (err: any) {
-        setError(err.message);
+      } catch  {
+        setError("error");
       } finally {
         setLoading(false);
       }

@@ -1,6 +1,6 @@
 
 import BackToTop from '@/components/Common/BackToTop';
-import FooterStyleTwo from '@/layouts/Footers/FooterStyleTwo';
+import CommonFooter from '@/layouts/Footers/CommonFooter';
 import CommonHeader from '@/layouts/Headers/CommonHeader';
 import Wrapper from '@/layouts/Wrapper';
 import React from 'react';
@@ -11,7 +11,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Wrapper>
                 <CommonHeader />
                 {children}
-                <FooterStyleTwo />
+                <CommonFooter className='pt-140' />
                 <BackToTop />
             </Wrapper>
         </>

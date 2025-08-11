@@ -20,8 +20,8 @@ export default function Users() {
         setUsers(data);
         setFilteredUsers(data);
    
-      } catch (err: any) {
-        setError(err.message);
+      } catch  {
+        setError("error");
       } finally {
         setLoading(false);
       }

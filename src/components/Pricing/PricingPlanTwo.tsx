@@ -12,14 +12,14 @@ const pricingPlans = [
     ]
   },
   { 
-    name: "Standard", 
+    name: "Standart", 
     price: "$9", 
     delay: ".3s",
     active: true,
     features: [
       "Add 7 properties",
       "Add 3 ads",
-      "Queue status: Standard level."
+      "Queue status: Standart level."
     ]
   },
   { 
