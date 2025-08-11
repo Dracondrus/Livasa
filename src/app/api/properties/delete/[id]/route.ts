@@ -8,7 +8,7 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   const propertyId = params.id;
-
+  console.log(req);
   if (!propertyId) {
     return NextResponse.json({ error: 'Invalid property id' }, { status: 400 });
   }
@@ -37,8 +37,8 @@ export async function DELETE(
       for (const img of property.images) {
         try {
           await cloudinary.uploader.destroy(img.public_id);
-        } catch (err) {
-          console.error(`Failed to delete image ${img.public_id}`, err);
+        } catch  {
+          console.error(`Failed to delete image ${img.public_id}`);
         }
       }
     }

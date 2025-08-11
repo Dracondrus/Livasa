@@ -138,7 +138,7 @@ const handleDelete = async (property: IGetAllValueProperty) => {
     { 
       title: "User", 
       key: "user",
-      render: (_: any, record: any) => (
+      render: (_: string, record: Pick<IUser, "id" | "email" | "image" | "name" | "properties">) => (
         <Space>
           {record.image && <img src={record.image} alt="avatar" width={40} style={{ borderRadius: "50%" }} />}
           <div>
@@ -151,7 +151,7 @@ const handleDelete = async (property: IGetAllValueProperty) => {
     {
       title: "Properties Count",
       key: "propertiesCount",
-      render: (_: any, record: any) => record.properties?.length ?? 0
+      render: (_: string, record: Pick<IUser, "id" | "email" | "image" | "name" | "properties">) => record.properties?.length ?? 0
     }
   ];
 
@@ -163,7 +163,7 @@ const handleDelete = async (property: IGetAllValueProperty) => {
       { 
         title: "Price", 
         key: "price",
-        render: (_: any, record: IGetAllValueProperty) => 
+        render: (_: number, record: IGetAllValueProperty) => 
           record.iAInformation?.price
             ? `${record.iAInformation.price.toLocaleString("ru-RU")} UZS`
             : "—"
@@ -171,7 +171,7 @@ const handleDelete = async (property: IGetAllValueProperty) => {
       {
         title: "Status",
         key: "status",
-        render: (_: any, record: IGetAllValueProperty) => {
+        render: (_: string, record: IGetAllValueProperty) => {
           if (record.permission === "approved") return <div style={{ width: 12, height: 12, borderRadius: "50%", background: "green" }} />;
           if (record.permission === "pending") return <div style={{ width: 12, height: 12, borderRadius: "50%", background: "orange" }} />;
           if (record.permission === "rejected") return <div style={{ width: 12, height: 12, borderRadius: "50%", background: "red" }} />;
@@ -181,7 +181,7 @@ const handleDelete = async (property: IGetAllValueProperty) => {
       {
         title: "Actions",
         key: "actions",
-        render: (_: any, record: IGetAllValueProperty) => (
+        render: (_: string, record: IGetAllValueProperty) => (
           <Dropdown
             menu={{
               items: [
