@@ -1,19 +1,19 @@
-import { NextResponse } from 'next/server';
-import { sql } from '@/lib/db';
-import { IGetAllValueProperty } from '@/app/[locale]/(dashboard)/dashboard/components/GetValues';
+import { NextResponse } from "next/server";
+import { sql } from "@/lib/db";
+import { IGetAllValueProperty } from "@/app/[locale]/(dashboard)/dashboard/components/GetValues";
 
 export async function PATCH(
   req: Request,
-  { params }: { params: { id: string } }
+  props: { params: Promise<{ id: string }> }
 ) {
-  const propertyId = params.id;
-  const { permission, review } = await req.json();
-
-  if (!propertyId) {
-    return NextResponse.json({ error: 'Invalid property id' }, { status: 400 });
-  }
-
   try {
+    const { id: propertyId } = await props.params;
+    const { permission, review } = await req.json();
+
+    if (!propertyId) {
+      return NextResponse.json({ error: "Invalid property id" }, { status: 400 });
+    }
+
     // Находим юзера с этим property
     const users = await sql`
       SELECT id, properties
@@ -22,7 +22,7 @@ export async function PATCH(
     `;
 
     if (users.length === 0) {
-      return NextResponse.json({ error: 'Property not found' }, { status: 404 });
+      return NextResponse.json({ error: "Property not found" }, { status: 404 });
     }
 
     const user = users[0];
@@ -31,7 +31,7 @@ export async function PATCH(
         return {
           ...p,
           permission,
-          review
+          review,
         };
       }
       return p;
@@ -44,9 +44,11 @@ export async function PATCH(
       WHERE id = ${user.id}
     `;
 
-    return NextResponse.json({ message: 'Property updated successfully' }, { status: 200 });
-  } catch  {
-   
-    return NextResponse.json( { status: 500 });
+    return NextResponse.json(
+      { message: "Property updated successfully" },
+      { status: 200 }
+    );
+  } catch {
+    return NextResponse.json({ status: 500 });
   }
 }
