@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 export default function UserProfileForm() {
   const { data: session, status } = useSession();
   const router = useRouter();
-
+console.log(session)
   useEffect(() => {
     if (status === "loading") return; // Ждем пока загрузится сессия
     if (status === "unauthenticated") {

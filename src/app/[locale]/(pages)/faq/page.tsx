@@ -1,11 +1,11 @@
 import BreadcrumbArea from "@/components/Breadcrumb/BreadcrumbArea";
-import FaqPropertyArea from "@/components/FAQ/FaqPropertyArea";
-import FaqContactArea from "@/components/FAQ/FaqContactArea";
+// import FaqPropertyArea from "@/components/FAQ/FaqPropertyArea";
+// import FaqContactArea from "@/components/FAQ/FaqContactArea";
 import FaqArea from "@/components/FAQ/FaqArea";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "FAQ - Bhumi Real Estate React NextJs Template",
+    title: "FAQ ",
   };
 
 export default function Faq() {
