@@ -40,7 +40,8 @@ export interface IInformation {
     neighborhood:string,
     typeProperty: string,
     address:string,
-    location: string
+    location: string,
+    phonenumber: string
 }
 
 

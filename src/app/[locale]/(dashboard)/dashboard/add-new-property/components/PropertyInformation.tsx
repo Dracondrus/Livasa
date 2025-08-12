@@ -16,6 +16,13 @@ type RegionType = {
 };
 
 export default function PropertyInformation({ information, onChange }: Props) {
+  function formatPhone(value: string) {
+  return value
+    .replace(/^(\d{2})(\d{3})(\d{2})(\d{0,2})$/, (_, a, b, c, d) =>
+      d ? `${a} ${b} ${c} ${d}` : c ? `${a} ${b} ${c}` : b ? `${a} ${b}` : a
+    );
+}
+
   const defaultCity = information.country || "Navoi";
   const [addressQuestion, setAddressQuestion] = useState<boolean>(false)
   const [locationQuestion, setLocationQuestion] = useState<boolean>(false)
@@ -103,7 +110,7 @@ export default function PropertyInformation({ information, onChange }: Props) {
           </div>
 
           {/* Address */}
-          <div className="col-lg-6">
+          <div className="col-lg-4">
             <div className="tp-dashboard-new-input">
               <label>Address <span  style={{fontWeight:800, background: "#5a5a5aff",padding: "3px 7px",borderRadius:30, color:"#fff",fontSize: 13, cursor:"pointer"}} onClick={() => setAddressQuestion(!addressQuestion)}>?</span> </label>
               <p> { addressQuestion && <>Example : street New place, 000 local area</>}</p>
@@ -117,7 +124,7 @@ export default function PropertyInformation({ information, onChange }: Props) {
           </div>
 
           {/* Location */}
-          <div className="col-lg-6">
+          <div className="col-lg-4">
             <div className="tp-dashboard-new-input">
               <label>Location <span  style={{fontWeight:800, background: "#5a5a5aff",padding: "3px 7px",borderRadius:30, color:"#fff",fontSize: 13, cursor:"pointer"}} onClick={() => setLocationQuestion(!locationQuestion)}>?</span> </label>
               <p> { locationQuestion && <>Example : https://yandex.ru/maps?whatshere%5Bpoint%5D=65.434366%2C40.058142....</>}</p>
@@ -129,6 +136,28 @@ export default function PropertyInformation({ information, onChange }: Props) {
               />
             </div>
           </div>
+
+    <div className="col-lg-4">
+  <div className="tp-dashboard-new-input">
+    <label>Phone Number</label>
+    <input
+      type="text"
+      placeholder="90 000 00 00"
+      value={formatPhone(information.phonenumber)}
+      onChange={(e) => {
+        // убираем всё, кроме цифр
+        let digits = e.target.value.replace(/\D/g, "");
+
+        // ограничиваем максимум 9 цифр
+        if (digits.length > 9) digits = digits.slice(0, 9);
+
+        handleChange("phonenumber", digits);
+      }}
+    />
+  </div>
+</div>
+
+
         </div>
       </div>
     </div>

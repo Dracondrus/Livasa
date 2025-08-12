@@ -20,11 +20,11 @@ export default function Faq() {
             {/* faq area end */}
 
             {/* faq contact area */}
-            <FaqContactArea />
+            {/* <FaqContactArea /> */}
             {/* faq contact area end */}
 
             {/* faq property area */}
-            <FaqPropertyArea />
+            {/* <FaqPropertyArea /> */}
             {/* faq property area end */}
         </>
     )

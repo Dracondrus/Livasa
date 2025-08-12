@@ -44,6 +44,7 @@ export default function AddPropertyMain() {
       typeProperty: "",
       address: "",
       location: "",
+      phonenumber: ""
     },
     iAInformation: {
       unitPrice: "",
@@ -64,6 +65,7 @@ export default function AddPropertyMain() {
 
   // Загружаем данные пользователя и лимит
   useEffect(() => {
+
     if (!session?.user?.id) return;
 
     const fetchUserLimit = async () => {

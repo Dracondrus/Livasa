@@ -3,7 +3,7 @@ import PropertyOneArea from "@/components/RealEstate/PropertyStyleOne/PropertyOn
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Property Style 1 - Bhumi Real Estate React NextJs Template",
+    title: "Properties",
 };
 
 export default function PropertyOne() {

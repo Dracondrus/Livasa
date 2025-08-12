@@ -160,6 +160,7 @@ const handleDelete = async (property: IGetAllValueProperty) => {
     const propertyColumns = [
       { title: "Country", dataIndex: ["information", "country"], key: "country" },
       { title: "Type", dataIndex: ["information", "typeProperty"], key: "typeProperty" },
+      { title: "Phone Number", dataIndex: ["information", "phonenumber"], key: "phonenumber" },
       { 
         title: "Price", 
         key: "price",
