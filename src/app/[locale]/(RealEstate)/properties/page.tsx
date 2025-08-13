@@ -12,6 +12,11 @@ export default function PropertyOne() {
             {/* property area start */}
             <PropertyLayout>
                 <PropertyOneArea />
+                <br />
+                <br />
+                <br />
+                <br />
+                
             </PropertyLayout>
             {/* property area end */}
         </>

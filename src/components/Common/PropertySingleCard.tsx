@@ -1,109 +1,123 @@
-"use client"
-import { ActiveWishListSvg, BathroomsSvg, BedroomsSvg, CartSvg, CompireSvg, LivingSvg, WishListSvg } from "../SVG";
-import { toggle_wishlist } from "@/redux/slices/wishlistSlice";
-import { compire_product } from "@/redux/slices/compireSlice";
-import { IFeatureListProps } from "@/types/custom-interface";
-import { IFeaturedPropertyDT } from "@/types/property-d-t";
-import { useDispatch, useSelector } from "react-redux";
-import { cart_product } from "@/redux/slices/cartSlice";
-import { formatPrice } from "../Utils/formatPrice";
-import { RootState } from "@/redux/store";
+"use client";
+
+import { BathroomsSvg, BedroomsSvg, LivingSvg } from "../SVG";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  IUser,
+  IGetAllValueProperty,
+} from "@/app/[locale]/(dashboard)/dashboard/components/GetValues";
 
-export default function PropertySingleCard({ item }: IFeatureListProps) {
-    const dispatch = useDispatch()
+interface Props {
+ 
+  property: IGetAllValueProperty;
+}
 
-    //handle add to cart
-    const handleAddToCart = (product: IFeaturedPropertyDT) => {
-        if (product) {
-            dispatch(cart_product(product))
-        }
-    }
-    //handle add to compire
-    const handleAddToCompire = (product: IFeaturedPropertyDT) => {
-        if (product) {
-            dispatch(compire_product(product))
-        }
-    }
-    //handle wishlist
-    const wishlist = useSelector((state: RootState) => state.wishlist.wishlistProducts);
-    const isWishlisted = wishlist?.some((wishlistItem) => wishlistItem.id === item.id);
+export default function PropertySingleCard({  property }: Props) {
+  const formatPrice = (price: number) =>
+    price.toLocaleString("en-US", { minimumFractionDigits: 0 });
 
-    return (
+  return (
+    <div
+      className="border rounded shadow-sm bg-white d-flex flex-column"
+      style={{
+        overflow: "hidden",
+        height: "100%",
+        transition: "transform 0.2s ease",
+      }}
+    >
+      {/* Фото */}
+      <Link
+        href={`/properties/${property.id}`}
+        className="position-relative"
+        style={{
+          width: "100%",
+          aspectRatio: "4 / 3",
+        }}
+      >
+        {property.images?.[0]?.url ? (
+          <Image
+            src={property.images[0].url}
+            fill
+            alt={`${property.information.typeProperty} preview`}
+            style={{ objectFit: "cover" }}
+          />
+        ) : (
+          <div className="bg-light d-flex align-items-center justify-content-center text-muted w-100 h-100">
+            No Image
+          </div>
+        )}
+      </Link>
+
+      {/* Контент */}
+      <div className="p-3 d-flex flex-column flex-grow-1">
+        {/* City + Region */}
+        <div className="d-block d-sm-flex align-items-center gap-2 mb-2">
+          <div
+            style={{
+              fontWeight: 700,
+              color: "#000",
+              fontSize: "1rem",
+            }}
+          >
+            {property.information.country}
+          </div>
+          <div
+            className="text-muted"
+            style={{
+              fontWeight: 700,
+              fontSize: "0.9rem",
+            }}
+          >
+            {property.information.neighborhood}
+          </div>
+        </div>
+
+        {/* Цена */}
         <div
-            className={`tp-rent-item p-relative ${item.spacing && "mb-30"} ${item.wowAnimation && "wow fadeInUp"}`}
-            data-wow-duration={item.wowDelay ? "1s" : undefined}
-            data-wow-delay={item.wowDelay ? item.wowDelay : undefined}
+          className="fw-bold mb-2"
+          style={{
+            fontSize: "1.1rem",
+            color: "#0ba7ceff",
+          }}
         >
-            <div className="tp-rent-thumb p-relative">
-                <Link href={`/${item.linkUrl}/${item.id}`}>
-                    <Image src={item.image} style={{ width: "100%", height: "auto" }} alt={item.title} />
-                </Link>
-                <div className="tp-rent-user-wrap d-flex align-items-center justify-content-between">
-                    <div className="tp-rent-user d-flex align-items-center">
-                        <div className="tp-rent-user-thumb">
-                            {item.userImage && <Image src={item.userImage} alt="User" />}
-                        </div>
-                        <div className="tp-rent-user-content">
-                            <h5 className="tp-rent-user-content-title">{item.userName}</h5>
-                            <span>{item.userRole}</span>
-                        </div>
-                    </div>
-                    <div className="tp-rent-option d-flex">
-                        <button onClick={() => handleAddToCompire(item)}><span><CompireSvg /></span> </button>
-                        <button onClick={() => dispatch(toggle_wishlist(item))}>
-                            <span> {isWishlisted ? <ActiveWishListSvg /> : <WishListSvg />}</span>
-                        </button>
-                        <button onClick={() => handleAddToCart(item)}><span><CartSvg /></span></button>
-                    </div>
-                </div>
-                {item.showTags && (
-                    <div className="tp-rent-tags">
-                        {item.isForRent === true ? <Link href="#">FOR RENT</Link> : ""} {" "}
-                        {item.isFeatured === true ? <Link className="two" href="#">FEATURED</Link> : ""}
-                    </div>
-                )}
-            </div>
-            <div className="tp-rent-content">
-                <h4 className="tp-rent-title">
-                    <Link className="textline" href={`/${item.linkUrl}/${item.id}`}>{item.title}</Link>
-                </h4>
-                <p>{item.address}</p>
-                <div className="tp-rent-meta-list d-flex justify-content-between align-items-center">
-                    <div className="tp-rent-meta-item">
-                        <div className="tp-rent-meta-content d-flex">
-                            <span><BedroomsSvg /></span>
-                            <p>{item.bedrooms}</p>
-                        </div>
-                        <p>Bedrooms</p>
-                    </div>
-                    <div className="tp-rent-meta-item">
-                        <div className="tp-rent-meta-content d-flex">
-                            <span><BathroomsSvg /></span>
-                            <p>{item.bathrooms}</p>
-                        </div>
-                        <p>Bathrooms</p>
-                    </div>
-                    <div className="tp-rent-meta-item">
-                        <div className="tp-rent-meta-content d-flex">
-                            <span><LivingSvg /></span>
-                            <p>{item.livingArea}</p>
-                        </div>
-                        <p>Living Area</p>
-                    </div>
-                </div>
-                <div className="tp-rent-btn-box d-flex justify-content-between align-items-center">
-                    <div className="tp-rent-btn">
-                        <Link className="tp-btn" href={`/${item.linkUrl}/${item.id}`}>
-                            View Details
-                        </Link>
-                    </div>
-                    <div className="tp-rent-price">
-                        <span>{formatPrice(item.price, true)}</span>
-                    </div>
-                </div>
-            </div>
-        </div >
-    )
+          {formatPrice(property.iAInformation.price)} uzs
+        </div>
+
+        {/* Метаданные — видно только на md и больше */}
+        <div
+          className="d-none d-md-flex justify-content-around text-muted small mb-3"
+          style={{
+            fontSize: "0.9rem",
+            fontWeight: 700, // жирность чисел
+          }}
+        >
+          <div className="d-flex align-items-center gap-1">
+         {property.iAInformation.rooms}   <BedroomsSvg /> 
+          </div>
+          <div className="d-flex align-items-center gap-1">
+         {property.iAInformation.bathrooms}   <BathroomsSvg /> 
+          </div>
+          <div className="d-flex align-items-center gap-1">
+           {property.iAInformation.size} m² { " "} <LivingSvg /> 
+          </div>
+        </div>
+
+        {/* Кнопка */}
+        <Link
+          className="btn btn-sm w-100 mt-auto"
+          style={{
+            backgroundColor: "#0ba7ceff",
+            color: "#fff",
+            fontWeight: 700,
+            padding: "10px 0",
+            fontSize: "0.95rem",
+          }}
+          href={`/properties/${property.id}`}
+        >
+          Info
+        </Link>
+      </div>
+    </div>
+  );
 }
