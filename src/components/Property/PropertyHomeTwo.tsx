@@ -1,5 +1,5 @@
 import listingBgImg from "../../../public/assets/img/listing/listing-bg.png";
-import PropertySingleCard from "../Common/PropertySingleCard";
+
 import { propertyData } from "@/data/propertyData";
 
 export default function PropertyHomeTwo() {
@@ -18,7 +18,7 @@ export default function PropertyHomeTwo() {
                     {
                         propertyData.slice(13, 16).map((item) => (
                             <div className="col-lg-4 col-md-6" key={item.id}>
-                                    <PropertySingleCard item={item} />
+                                   
                             </div>
                         ))
                     }

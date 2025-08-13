@@ -1,7 +1,7 @@
 "use client"
 import { propertyData } from "@/data/propertyData";
 import propertyBgImg from "../../../public/assets/img/listing/listing-bg.png";
-import PropertySingleCard from "../Common/PropertySingleCard";
+
 
 // Import Swiper components and Navigation module
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -44,7 +44,7 @@ export default function PropertyHomeFive() {
                                     {
                                         propertyData.slice(33,38).map((item) => (
                                             <SwiperSlide className="mb-30" key={item.id} >
-                                                <PropertySingleCard item={item} />
+                                            
                                             </SwiperSlide>
                                         ))
                                     }
