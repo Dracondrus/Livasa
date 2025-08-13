@@ -4,7 +4,7 @@ import { BathroomsSvg, BedroomsSvg, LivingSvg } from "../SVG";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  IUser,
+  
   IGetAllValueProperty,
 } from "@/app/[locale]/(dashboard)/dashboard/components/GetValues";
 
