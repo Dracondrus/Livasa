@@ -1,17 +1,19 @@
 "use client"
 import heroBg from "../../../public/assets/img/hero/hero-bg-1.png";
-import HeroBannerTabContent from './subComponents/HeroBannerTab';
-import BannerFromFilter from '../Form/BannerFromFilter';
+// import HeroBannerTabContent from './subComponents/HeroBannerTab';
+// import BannerFromFilter from '../Form/BannerFromFilter';
 import { SocialLinks } from '../UI/SocialLinks';
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 
 export default function HeroBannerOne() {
       const t = useTranslations('Home');
-    const [isFilterVisible, setIsFilterVisible] = useState(false);
-    const [activeTab,] = useState("nav-profile");
-    const toggleFilter = () => setIsFilterVisible((prev) => !prev);
-    const handleSorting = () => { };
+    // const [isFilterVisible, setIsFilterVisible] = useState(false);
+    // const [activeTab,] = useState("nav-profile");
+    // const toggleFilter = () => setIsFilterVisible((prev) => !prev);
+    // const handleSorting = () => { };
+      const router = useRouter();
 
     return (
         <>
@@ -25,7 +27,7 @@ export default function HeroBannerOne() {
                                     <h3 className="tp-hero-heading-title wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">{t("Discover_Your_Place")}</h3>
                                     <p className="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">{t("Get_Started_in_Few_Clicks")}</p>
                                 </div>
-                                <div className="tp-hero-tab p-relative wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s">
+                                {/* <div className="tp-hero-tab p-relative wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s">
                                     <div className="row">
                                         <nav>
                                             <div className="nav nav-tabs" id="nav-tab" role="tablist">
@@ -40,13 +42,33 @@ export default function HeroBannerOne() {
                                             <HeroBannerTabContent id="nav-contact" isActive={activeTab === "nav-contact"} onSortChange={handleSorting} toggleFilter={toggleFilter} />
                                         </div>
                                     </div>
-                                    {/* -- form area start -- */}
+                                  
                                     <section className={`tp-from-filter ${isFilterVisible ? "show" : "hidden"}`}>
                                         <BannerFromFilter />
                                     </section>
-                                    {/* -- form area end -- */}
+                               
+                                </div> */}
+                  <div className=" wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s" style={{ display: "flex", justifyContent: "center", marginTop: "50px" }}>
+      <button
+        onClick={() => router.push("/properties")}
+        style={{
+          padding: "16px 36px",
+          backgroundColor: "#282828ff",
+          color: "#fff",
+          fontWeight: 600,
+          border: "none",
+          borderRadius: "8px",
+          cursor: "pointer",
+          boxShadow: "0 4px 12px rgba(255, 255, 255, 0.8)",
+          transition: "all 0.3s ease",
+        }}
+        onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#6d6d6dff")}
+        onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#282828ff")}
+      >
+        Start Browsing
+      </button>
+    </div>
 
-                                </div>
                                 <SocialLinks />
                             </div>
                         </div>

@@ -31,9 +31,8 @@ const getUnitPriceLabel = (unitPrice: string) => {
 };
 
 
-  const formatPrice = (price: number) =>
-    price.toLocaleString("en-US", { minimumFractionDigits: 0 });
-
+  const formatPrice = (price: number) => price.toLocaleString("en-US", { minimumFractionDigits: 0 });
+  
   return (
     <div
       className="border rounded shadow-sm bg-white d-flex flex-column"

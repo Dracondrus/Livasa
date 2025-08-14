@@ -9,7 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const features = [
-    { id: 1, title: "Buy a property", icon: featureIcon1, link: "/property-details-1", delay: "0.3s" },
+    { id: 1, title: "Buy a property", icon: featureIcon1, link: "/properties", delay: "0.3s" },
     { id: 2, title: "Sell a property", icon: featureIcon2, link: "/dashboard/add-new-property", delay: "0.7s" },
     { id: 3, title: "Rent a property", icon: featureIcon3, link: "/dashboard/add-new-property", delay: "0.3s" },
 ];

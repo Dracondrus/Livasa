@@ -10,7 +10,7 @@ export default function PropertyLayout({ children }: { children: ReactNode }) {
    
     return (
         <>
-            <section className="tp-property-ptb pt-40 pb-10" style={{ backgroundImage: `url(${propertyBg.src})` }}>
+            <section className="tp-property-ptb pt-20 pb-10" style={{ backgroundImage: `url(${propertyBg.src})` }}>
                 <div className="container">
                     <div className="row align-items-center">
                      

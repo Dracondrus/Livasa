@@ -75,8 +75,8 @@ export default function AddPropertyMain() {
 
         const data = await res.json();
         setQuantityLeft(data.quantitysetuppropert);
-      } catch (err) {
-        console.error("Ошибка при получении лимита:", err);
+      } catch {
+      
         setErrorText("Не удалось получить данные пользователя");
       }
     };

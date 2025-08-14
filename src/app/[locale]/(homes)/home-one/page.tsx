@@ -8,7 +8,7 @@ import HeroBannerOne from '@/components/HeroBanner/HeroBannerOne';
 // import HomePropertiesByCity from '@/components/Neighborhood/HomePropertiesByCity';
 // import HomeNewsletter from '@/components/Newsletter/HomeNewsletter';
 import FeatureShowcaseCategory from '@/components/Property/FeatureShowcaseCategory';
-import PropertyHome from '@/components/Property/PropertyHome';
+// import PropertyHome from '@/components/Property/PropertyHome';
 // import TeamAgentsArea from '@/components/Agent/TeamAgentsArea';
 import HomeTestimonialArea from '@/components/Testimonial/HomeTestimonialArea';
 // import TextSlide from '@/components/Features/TextSlide';
@@ -31,7 +31,7 @@ import React from 'react';
             {/* <AboutHomeMain /> */}
             {/* about area end */}
             {/* apartment area type*/}
-             <PropertyHome />
+             {/* <PropertyHome /> */}
             {/* <HomeApartmentTypes /> */}
             {/*apartment area type end */}
             {/* newsletter area */}
@@ -51,7 +51,7 @@ import React from 'react';
             {/* <HomeApproachCounter /> */}
             {/* counter area end */}
             {/* testimonial area */}
-            <HomeTestimonialArea />
+            {/* <HomeTestimonialArea /> */}
             {/* testimonial area end */}
             {/* text slide */}
            
