@@ -10,7 +10,7 @@ import HeroBannerOne from '@/components/HeroBanner/HeroBannerOne';
 import FeatureShowcaseCategory from '@/components/Property/FeatureShowcaseCategory';
 // import PropertyHome from '@/components/Property/PropertyHome';
 // import TeamAgentsArea from '@/components/Agent/TeamAgentsArea';
-import HomeTestimonialArea from '@/components/Testimonial/HomeTestimonialArea';
+// import HomeTestimonialArea from '@/components/Testimonial/HomeTestimonialArea';
 // import TextSlide from '@/components/Features/TextSlide';
 import React from 'react';
 // import UsersPage from '@/components/Users/Users';
