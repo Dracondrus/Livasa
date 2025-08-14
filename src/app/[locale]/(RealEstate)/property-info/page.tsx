@@ -3,7 +3,7 @@ import Wrapper from "@/layouts/Wrapper";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Property Details - Bhumi Real Estate React NextJs Template",
+    title: "Property Details ",
 };
 
 export default async function PropertyDetails() {
@@ -11,7 +11,7 @@ export default async function PropertyDetails() {
         <Wrapper>
             <main>
                 {/* property details area start */}
-                <PropertyDetailsOneArea id={1} />
+                <PropertyDetailsOneArea id={"sosat"} />
                 {/* property details area end */}
             </main>
         </Wrapper>
