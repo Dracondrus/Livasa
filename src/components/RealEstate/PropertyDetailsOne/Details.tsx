@@ -6,10 +6,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { IdProps } from "@/types/custom-interface";
-import { IGetAllValueProperty } from "@/app/[locale]/(dashboard)/dashboard/components/GetValues";
 
-export default function PropertyDetailsOneArea({ id }: IdProps) {
+import { IGetAllValueProperty } from "@/app/[locale]/(dashboard)/dashboard/components/GetValues";
+interface ws {
+  id: string
+}
+export default function PropertyDetailsOneArea({ id }: ws) {
   const [property, setProperty] = useState<IGetAllValueProperty | null>(null);
 
   const getUnitPriceLabel = (unitPrice: string) => {
