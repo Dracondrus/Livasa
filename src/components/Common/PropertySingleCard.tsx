@@ -14,6 +14,23 @@ interface Props {
 }
 
 export default function PropertySingleCard({  property }: Props) {
+
+  
+
+const getUnitPriceLabel = (unitPrice: string) => {
+  switch (unitPrice) {
+    case "forRent":
+      return "For Rent";
+    case "forSale":
+      return "For Sale";
+    case "dailyRent":
+      return "Daily Rent";
+    default:
+      return unitPrice;
+  }
+};
+
+
   const formatPrice = (price: number) =>
     price.toLocaleString("en-US", { minimumFractionDigits: 0 });
 
@@ -28,7 +45,7 @@ export default function PropertySingleCard({  property }: Props) {
     >
       {/* Фото */}
       <Link
-        href={`/properties/${property.id}`}
+        href={`/property-info/${property.id}`}
         className="position-relative"
         style={{
           width: "100%",
@@ -72,6 +89,18 @@ export default function PropertySingleCard({  property }: Props) {
             {property.information.neighborhood}
           </div>
         </div>
+          <div
+  style={{
+   
+    color: "#3a3a3aff",
+
+    fontSize: "0.9rem",
+    fontWeight: 700,
+   
+  }}
+>
+  {getUnitPriceLabel(property.iAInformation.unitPrice)}
+</div>
 
         {/* Цена */}
         <div
@@ -113,7 +142,7 @@ export default function PropertySingleCard({  property }: Props) {
             padding: "10px 0",
             fontSize: "0.95rem",
           }}
-          href={`/properties/${property.id}`}
+          href={`/property-info/${property.id}`}
         >
           Info
         </Link>

@@ -26,7 +26,7 @@ export default function PropertyOneArea() {
   }, []);
 
   if (loading) return <div>One moment — quality takes time.</div>;
-
+  
   return (
 <div>
     <select name="" id="">
