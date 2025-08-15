@@ -4,6 +4,7 @@ import createNextIntlPlugin from "next-intl/plugin";
 // Твоя конфигурация Next.js
 const nextConfig: NextConfig = {
   images: {
+     unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",

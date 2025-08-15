@@ -8,56 +8,51 @@ type Props = {
 };
 
 type UploadedImage = {
-  src: string; // теперь будет base64
+  src: string;
   file: File;
-};
-
-// Функция конвертации файла в base64
-const fileToBase64 = (file: File): Promise<string> => {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result as string);
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
-  });
 };
 
 export default function UploadMedia({ images, onChange }: Props) {
   const [uploadedImages, setUploadedImages] = useState<UploadedImage[]>([]);
+  const [isSmallDevice, setIsSmallDevice] = useState(false);
 
-  // При загрузке из пропсов
   useEffect(() => {
-    if (!images.length) {
-      setUploadedImages([]);
-      return;
-    }
+    const checkScreen = () => {
+      setIsSmallDevice(window.innerWidth < 1024); // 1024px — порог для ПК
+    };
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
 
-    Promise.all(
-      images.map(async (file) => ({
-        src: await fileToBase64(file),
-        file,
-      }))
-    ).then((res) => setUploadedImages(res));
+  useEffect(() => {
+    const newUploadedImages = images.map((file) => ({
+      src: URL.createObjectURL(file),
+      file,
+    }));
+    setUploadedImages(newUploadedImages);
+
+    return () => {
+      newUploadedImages.forEach((img) => URL.revokeObjectURL(img.src));
+    };
   }, [images]);
 
   const handleImageUpload = useCallback(
-    async (e: React.ChangeEvent<HTMLInputElement>) => {
+    (e: React.ChangeEvent<HTMLInputElement>) => {
       const files = e.target.files;
       if (!files) return;
 
       const totalFiles = files.length + images.length;
       if (totalFiles > 10) {
-        alert("Максимум 10 фотографий");
+        alert("Maximum 10 photos allowed");
         return;
       }
 
       const newFiles = Array.from(files);
-      const newUploaded: UploadedImage[] = [];
-
-      for (const file of newFiles) {
-        const base64 = await fileToBase64(file);
-        newUploaded.push({ src: base64, file });
-      }
+      const newUploaded: UploadedImage[] = newFiles.map((file) => ({
+        src: URL.createObjectURL(file),
+        file,
+      }));
 
       setUploadedImages((prev) => [...prev, ...newUploaded]);
       onChange([...images, ...newFiles]);
@@ -73,6 +68,15 @@ export default function UploadMedia({ images, onChange }: Props) {
     },
     [images, onChange]
   );
+
+  if (isSmallDevice) {
+    return (
+      <div style={{ padding: "20px", textAlign: "center", color: "#ff4444" }}>
+        <h3>Your device screen is too small for a comfortable experience.</h3>
+        <p>Please use a PC or laptop.</p>
+      </div>
+    );
+  }
 
   return (
     <div style={{ marginBottom: "50px" }}>
@@ -142,7 +146,6 @@ export default function UploadMedia({ images, onChange }: Props) {
                   fill
                   style={{ objectFit: "cover", borderRadius: 8 }}
                   sizes="(max-width: 600px) 100vw, 200px"
-                  crossOrigin="anonymous"
                 />
                 {index === 0 && (
                   <div
