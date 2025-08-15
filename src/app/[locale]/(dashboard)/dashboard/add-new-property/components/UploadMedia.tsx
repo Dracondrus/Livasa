@@ -8,27 +8,40 @@ type Props = {
 };
 
 type UploadedImage = {
-  src: string;
+  src: string; // теперь будет base64
   file: File;
+};
+
+// Функция конвертации файла в base64
+const fileToBase64 = (file: File): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
 };
 
 export default function UploadMedia({ images, onChange }: Props) {
   const [uploadedImages, setUploadedImages] = useState<UploadedImage[]>([]);
 
+  // При загрузке из пропсов
   useEffect(() => {
-    const newUploadedImages = images.map((file) => ({
-      src: URL.createObjectURL(file),
-      file,
-    }));
-    setUploadedImages(newUploadedImages);
+    if (!images.length) {
+      setUploadedImages([]);
+      return;
+    }
 
-    return () => {
-      newUploadedImages.forEach((img) => URL.revokeObjectURL(img.src));
-    };
+    Promise.all(
+      images.map(async (file) => ({
+        src: await fileToBase64(file),
+        file,
+      }))
+    ).then((res) => setUploadedImages(res));
   }, [images]);
 
   const handleImageUpload = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
+    async (e: React.ChangeEvent<HTMLInputElement>) => {
       const files = e.target.files;
       if (!files) return;
 
@@ -39,10 +52,12 @@ export default function UploadMedia({ images, onChange }: Props) {
       }
 
       const newFiles = Array.from(files);
-      const newUploaded: UploadedImage[] = newFiles.map((file) => ({
-        src: URL.createObjectURL(file),
-        file,
-      }));
+      const newUploaded: UploadedImage[] = [];
+
+      for (const file of newFiles) {
+        const base64 = await fileToBase64(file);
+        newUploaded.push({ src: base64, file });
+      }
 
       setUploadedImages((prev) => [...prev, ...newUploaded]);
       onChange([...images, ...newFiles]);
@@ -127,6 +142,7 @@ export default function UploadMedia({ images, onChange }: Props) {
                   fill
                   style={{ objectFit: "cover", borderRadius: 8 }}
                   sizes="(max-width: 600px) 100vw, 200px"
+                  crossOrigin="anonymous"
                 />
                 {index === 0 && (
                   <div
